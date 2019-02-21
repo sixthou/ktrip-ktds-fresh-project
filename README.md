@@ -1,2 +1,2 @@
-# fresh_ktds_ktcp
+# fresh-ktds-ktcp
 KT carpool project by kt ds new employee

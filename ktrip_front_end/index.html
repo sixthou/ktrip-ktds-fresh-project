@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 
-<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
   <title>KTrip: 나만을 위한 여행 가이드</title>
-  <!-- Bootstrap core CSS -->
-  <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- jQuery and moment.js and rome.js-->
+  <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="./bower_components/moment/min/moment.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template -->
   <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="./index_files/css" rel="stylesheet" type="text/css">
-  <link href="./index_files/css(1)" rel="stylesheet" type="text/css">
-  <link href="./index_files/icon" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="./index_files/icon" rel="stylesheet">
-  <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+  <link src="./index_files/css" rel="stylesheet" type="text/css">
+  <link src="./index_files/css(1)" rel="stylesheet" type="text/css">
+  <link src="./index_files/icon" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="./css/clean-blog.min.css" rel="stylesheet">
+  <!-- Bootstrap material datetimepicker -->
+  <script src="./bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+  <link href="./bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript">
+    $(function () {
+      $('#datetimepicker1').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm' },'setDate', moment());
+    });
+  </script>
 </head>
 
 <body>
@@ -27,7 +41,7 @@
         Menu
         <i class="fas fa-bars"></i>
       </button>
-      <div class="navbar-collapse collapse show" id="navbarResponsive" style="">
+      <div class="navbar-collapse collapse show" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="./index.html">service</a>
@@ -59,6 +73,10 @@
           <div class="site-heading">
             <img src="./img/logo.png" width="320" height="120" alt="KTrip">
             <span class="subheading"></span>
+            <div class="form-group">
+              <label for="exampleInputEmail1">출발일</label>
+              <input type="text" class="form-control" id="datetimepicker1" placeholder="출발일">
+            </div>
           </div>
         </div>
       </div>
@@ -174,19 +192,12 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-<script>
-// When the user clicks on div, open the popup
-<!--popup jsp-->
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-</script>
-  <script src="./vendor/jquery/jquery.min.js"></script>
-  <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="./js/clean-blog.min.js"></script>
-
+  <script>
+  // When the user clicks on div, open the popup
+  function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+  }
+  </script>
 </body>
 </html>

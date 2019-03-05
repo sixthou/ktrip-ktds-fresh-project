@@ -14,19 +14,22 @@
   <!-- Bootstrap -->
   <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <!-- Custom fonts for this template -->
   <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link src="./index_files/css" rel="stylesheet" type="text/css">
   <link src="./index_files/css(1)" rel="stylesheet" type="text/css">
   <link src="./index_files/icon" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link src="./index_files/icon" rel="stylesheet">
-  <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="./css/clean-blog.min.css" rel="stylesheet">
   <!-- Bootstrap material datetimepicker -->
-  <script src="./bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-  <link href="./bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
+  <script src="./bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+  <link href="./bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript">
+    $(function () {
+      $('#datetimepicker1').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm' },'setDate', moment());
+    });
+  </script>
 </head>
 
 <body>
@@ -70,21 +73,10 @@
           <div class="site-heading">
             <img src="./img/logo.png" width="320" height="120" alt="KTrip">
             <span class="subheading"></span>
-            <div class='col-sm-6'>
-              <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                  <input type='text' class="form-control" />
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-                </div>
-              </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">출발일</label>
+              <input type="text" class="form-control" id="datetimepicker1" placeholder="출발일">
             </div>
-            <script type="text/javascript">
-              $(function () {
-                $('#datetimepicker1').datetimepicker();
-              });
-            </script>
           </div>
         </div>
       </div>

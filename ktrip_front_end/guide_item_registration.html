@@ -87,52 +87,71 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         <!-- Contact Form -->
         <h5>가이드 상품 등록</h5>
-        <form name="form_item_reg" id="" novalidate=""><!--아이디 확인.-->
+        <form name="form_item_reg" id="" novalidate="">
+          <!--아이디 확인.-->
+  
+          <div class="control-group">
+            <h5 class=text-info>상품명</h5>
+            <input type="text" class="form-control" placeholder="상품이름" id="item_name" required
+              data-validation-required-message="상품명을 입력해주세요.">
+            <p class="help-block text-danger"></p>
+          </div>
+  
+          <div class="control-group">
+            <h5 class=text-info>총인원</h5>
+            <input type="text" class="form-control" placeholder="총인원" id="limit" required
+              data-validation-required-message="총인원을 입력해주세요.">
+            <p class="help-block text-danger"></p>
+          </div>
+
+          <div class="control-group">
+            <h5 class=text-info>기간</h5>
+            <input type="text" class="form-control" placeholder="기간" id="duration" required
+              data-validation-required-message="기간을 입력해주세요.">
+            <p class="help-block text-danger"></p>
+          </div>
+
+          <div class="control-group">
+            <h5 class=text-info>여행 루트</h5>
+            <input type="text" class="form-control" placeholder="여행 루트" id="item_route" required
+              data-validation-required-message="여행루트를 입력해주세요.">
+            <p class="help-block text-danger"></p>
+          </div>
+  
+          <div class="control-group">
+            <h5 class=text-info>가격(1인당)</h5>
+            <input type="text" class="form-control" placeholder="가격(1인당)" id="item_price" required
+              data-validation-required-message="가격(1인당)을 입력해주세요.">
+            <p class="help-block text-danger"></p>
+          </div>
+
+          <div class="control-group">
+            <h5 class=text-info>포함 사항</h5>
+            <textarea rows="5" class="form-control" placeholder="포함 사항" id="content" required
+              data-validation-required-message="포함 사항을 입력해주세요."></textarea>
+            <p class="help-block text-danger"></p>
+          </div>
           
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>상품이름</label>
-                <input type="text" class="form-control" placeholder="상품이름" id="name" required="" data-validation-required-message="내용을 입력해주세요" aria-invalid="false">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Email Address</label>
-                <input type="number" class="form-control" placeholder="Email Address" id="email" required="" data-validation-required-message="Please enter your email address." aria-invalid="false">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <div class="form-group col-xs-12 floating-label-form-group controls">
-                <label>Phone Number</label>
-                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required="" data-validation-required-message="Please enter your phone number.">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Message</label>
-                <textarea rows="5" class="form-control" placeholder="Message" id="message" required="" data-validation-required-message="Please enter a message." aria-invalid="false"></textarea>
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-
-            <div id="success"></div>
-            <br>
-            
-            <div >
-              <button type="submit" class="btn btn-primary" id="btn_guide_register">REGISTER</button>
-              <button type="button" class="btn btn-secondary" id="btn_cancel">CANCEL</button>
-            </div>
-          </form>
-
-
-
-      </div><!--basic containge form-->
+          
+          <div class="control-group">
+            <h5 class=text-info>불포함 사항</h5>
+            <textarea rows="5" class="form-control" placeholder="불포함 사항" id="excontent" required 
+              data-validation-required-message="불포함 사항을 입력해주세요."></textarea>
+            <p class="help-block text-danger"></p>
+          </div>
+          
+  
+          <div id="success"></div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" id="signIn">REGISTER</button>
+            <button type="submit" class="btn btn-primary" id="signUp">CANCEL</button>
+          </div>
+        </form>
+  
+  
+  
+      </div>
+      <!--basic containge form-->
     </div>
   </div>
 

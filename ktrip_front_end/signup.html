@@ -14,8 +14,10 @@
   <link href="./index_files/icon" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="./index_files/icon" rel="stylesheet">
-  <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
   <link href="./css/clean-blog.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet" >
+  <link href="./languages/ko/LC_MESSAGES/ko.po" rel="gettext" type="application/x-po"/>
+  <link href="./assets/css/geodatasource-countryflag.css" rel="stylesheet">
 </head>
 <body>
   <!-- Navigation -->
@@ -64,7 +66,7 @@
     </div>
   </header>
 
-  <!-- Main -->
+  <!--subNavigator-->
   <nav class="navbar navbar-expand-lg">
    <div class="container-fluid">
     <div class="navbar-collapse collapse show" id="navbarResponsive" style="">
@@ -79,13 +81,15 @@
     </div>
   </div>
  </nav>
-
+<hr>
+<!-- Main -->
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
         <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
         <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+        <!--form action="m3" methos ="post"-->
         <form name="sentMessage" id="userForm" novalidate="" method="post">
           <div class="control-group">
               <h5 class=text-info>ID</h5>
@@ -111,10 +115,16 @@
               <p class="help-block text-danger"></p>
           </div>
 
-          <div class="control-group">
-              <h5 class=text-info>GENDER</h5>
-                  <input type="radio" name="Gender" class="form-control" placeholder="GENDER" id="Gender" value="Man">남자
-                  <input type="radio" name="Gender" class="form-control" placeholder="GENDER" id="Gender" value="Woman">여자
+          <h5 class=text-info>GENDER</h5>
+          <div class="row">
+              <div class="col">
+                  <input type="radio" class="form-control" name="Gender" id="Gender" value="Man">
+              </div>
+              <div class="col"> Man</div>
+              <div class="col">
+                  <input type="radio" class="form-control" name="Gender" id="Gender" value="Woman">
+              </div>
+              <div class="col"> Woman</div>
           </div>
 
           <div class="control-group">
@@ -123,7 +133,23 @@
               <p class="help-block text-danger"></p>
           </div>
 
-          <div class="control-group">
+          <div class="row">
+              <div class="col-md-12">
+                  <form class="form-horizontal">
+                      <div class="form-group">
+                          <h5 class=text-info>COUNTRY</h5>
+                          <select class="form-control gds-cr gds-countryflag" country-data-region-id="gds-cr-1" data-language="ko"></select>
+                      </div>
+                      <div class="form-group">
+                          <h5 class=text-info>REGION</h5>
+                          <select class="form-control" id="gds-cr-1"></select>
+                      </div>
+                  </form>
+              </div>
+          </div>
+
+
+          <!--div class="control-group">
               <h5 class=text-info>COUNTRY</h5>
               <input type="text" class="form-control" placeholder="COUNTRY" id="Country" required="" data-validation-required-message="Please enter country.">
               <p class="help-block text-danger"></p>
@@ -133,11 +159,11 @@
               <input type="text" class="form-control" placeholder="RESIDENTIAL COUNTRY" id="ResidentialCountry" required="" data-validation-required-message="Please enter Residential Country.">
               <p class="help-block text-danger"></p>
 
-          </div>
+          </div-->
           <div id="success"></div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="signIn">REGISTER</button>
-            <button type="submit" class="btn btn-primary" id="signUp">CANCEL</button>
+            <button type="submit" class="btn btn-primary" id="signUp">REGISTER</button>
+            <button type="submit" class="btn btn-primary" id="">CANCEL</button>
           </div>
         </form>
       </div>
@@ -199,6 +225,9 @@ function myFunction() {
 
   <!-- Custom scripts for this template -->
   <script src="./js/clean-blog.min.js"></script>
+  <script src="assets/js/geodatasource-cr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="./assets/js/Gettext.js" type="text/javascript" ></script>
 
 </body>
 </html>

@@ -97,21 +97,20 @@
             <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
             <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
             <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-            <form name="sentMessage" id="contactForm" novalidate="">
+            <form name="guideRegisterForm" id="guideRegisterForm" novalidate="" action="////.jsp" method="post" autocomplete="off">
                 <div class="control-group">
                     <h5 class=text-info>SECOND LANGUAGE</h5>
                     <input type="text" class="form-control" placeholder="Second Language"
-                           id="Seclanguage" required
-                           data-validation-required-message="Please enter your Second Language.">
+                           id="seceondLanguage" name="seceondLanguage"
+                           required data-validation-required-message="Please enter your Second Language.">
                     <p class="help-block text-danger"></p>
 
                 </div>
 
                 <div class="control-group">
                     <h5 class=text-info>STAY DURATION</h5>
-                    <input type="text" class="form-control" placeholder="Stay Duration"
-                           id="Seclanguage" required
-                           data-validatio65n-required-message="Please enter your Second Language.">
+                    <input type="text" class="form-control" placeholder="Stay Duration" id="stayDuration" name="stayDuration"
+                           required data-validatio65n-required-message="Please enter your Second Language.">
                     <p class="help-block text-danger"></p>
 
                 </div>
@@ -122,13 +121,11 @@
                     <h5 class=text-info>GUIDE EXPERIENCE</h5>
                     <div class="row">
                         <div class="col">
-                            <input type="radio" class="form-control" placeholder="I've Guide Experience" id="GuideExpYn"
-                                   value="Yn">
+                            <input type="radio" class="form-control" placeholder="I've Guide Experience" id="guideExpYn" name="guideExpYn" value="Yn" >
                         </div>
-                        <div class="col"> YES</div>
+                        <div class="col" > YES</div>
                         <div class="col">
-                            <input type="radio" class="form-control" placeholder="NO Guide Experience" id="GuideExpNn"
-                                   value="Nn">
+                            <input type="radio" class="form-control" placeholder="NO Guide Experience" id="guideExpNn" name="guideExpNn" value="Nn">
                         </div>
                         <div class="col"> NO</div>
 
@@ -138,22 +135,24 @@
 
                 <div class="control-group">
                     <h5 class=text-info>GUIDE PORTFOLIO</h5>
-                    <input type="file" id="Guidept">
+                    <input type="file" id="guide_PT" name="guide_PT">
 
                     <p class></p>
                 </div>
 
                 <div class="control-group">
                     <h5 class=text-info>IDENTITY DOCUMENT</h5>
-                    <input type="file" id="Iddoc">
+                    <input type="file" id="idDoc" name="idDoc">
                     <p class></p>
                 </div>
 
-
                 <div id="success"></div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary" id="signIn">REGISTER</button>
-                    <button type="submit" class="btn btn-primary" id="signUp">CANCEL</button>
+
+
+                    <button type="button" form ="guideRegisterForm"  class="btn btn-primary" id="signIn" >REGISTER</button>
+                    <button type="button" class="btn btn-primary" id="cancel" class="btn btn-default" >Cancel</button>
+
                 </div>
 
             </form>
@@ -231,6 +230,7 @@ function myFunction() {
 
 
 
+
 </script>
 <script src="./vendor/jquery/jquery.min.js"></script>
 <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -240,3 +240,8 @@ function myFunction() {
 
 </body>
 </html>
+
+
+
+
+

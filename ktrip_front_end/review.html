@@ -2,110 +2,68 @@
 
 <html lang="ko">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>KTrip: 나만을 위한 여행 가이드</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>KTrip: 나만을 위한 여행 가이드</title>
 
-  <!-- jQuery and moment.js and rome.js-->
-  <script src="./bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="./bower_components/moment/min/moment.min.js"></script>
-  <!-- Bootstrap -->
-  <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom fonts for this template -->
-  <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link src="./index_files/css" rel="stylesheet" type="text/css">
-  <link src="./index_files/css(1)" rel="stylesheet" type="text/css">
-  <link src="./index_files/icon" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="./css/clean-blog.min.css" rel="stylesheet">
-  <!-- Bootstrap material datetimepicker -->
-  <script src="./bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
-  <link href="./bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" type="text/css">
-  <!-- index.css, index.js -->
-  <link href="./css/index.css" rel="stylesheet" type="text/css">
-  <script src="./js/index.js"></script>
-  <!-- Country-Region DropDown Menu -->
-  <script src="./bower_components/country-region-dropdown-menu/assets/js/geodatasource-cr.min.js"></script>
-  <link rel="stylesheet" href="./bower_components/country-region-dropdown-menu/assets/css/geodatasource-countryflag.css">
-  <script type="text/javascript" src="./bower_components/country-region-dropdown-menu/assets/js/Gettext.js"></script>
-  <link rel="gettext" type="application/x-po" href="./bower_components/country-region-dropdown-menu/languages/ko/LC_MESSAGES/ko.po"/>
+<!-- jQuery and moment.js and rome.js-->
+<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+<script src="./bower_components/moment/min/moment.min.js"></script>
+<!-- Bootstrap -->
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<link href="./bower_components/bootstrap/dist/css/bootstrap.min.css"
+  rel="stylesheet">
+<!-- Custom fonts for this template -->
+<link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+  type="text/css">
+<link src="./index_files/css" rel="stylesheet" type="text/css">
+<link src="./index_files/css(1)" rel="stylesheet" type="text/css">
+<link src="./index_files/icon" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+<link href="./css/clean-blog.min.css" rel="stylesheet">
+<!-- Bootstrap material datetimepicker -->
+<script
+  src="./bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+<link
+  href="./bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
+  rel="stylesheet" type="text/css">
+<!-- index.css, index.js -->
+<link href="./css/index.css" rel="stylesheet" type="text/css">
+<script src="./js/index.js"></script>
+<!-- Country-Region DropDown Menu -->
+<script
+  src="./bower_components/country-region-dropdown-menu/assets/js/geodatasource-cr.min.js"></script>
+<link rel="stylesheet"
+  href="./bower_components/country-region-dropdown-menu/assets/css/geodatasource-countryflag.css">
+<script type="text/javascript"
+  src="./bower_components/country-region-dropdown-menu/assets/js/Gettext.js"></script>
+<link rel="gettext" type="application/x-po"
+  href="./bower_components/country-region-dropdown-menu/languages/ko/LC_MESSAGES/ko.po" />
 
-  <!-- 주원이 정의한 스타일-->
-  <style type="text/css">
-    body{
-      height: 100%;
-    }
-  </style>
-
-  <!-- 접속 시 대기중인 상품과 다녀온 상품을 불러들이기 위한 스크립트문-->
-  <script>
-    $( document ).ready(function() {
-	  CallProduct();
-    });
-    var request = new XMLHttpRequest();
-
-    function CallProduct()
-    {
-      request.open("Post", "./SearchProductServlet?userID=song", true);
-      request.onreadystatechange = DisplayProduct;
-      request.send(null);
-    }
-
-    function DisplayProduct(){
-      if(request.readyState == 4 && request.status == 200)
-      {
-        var object = eval('(' + request.responseText + ')');
-        var result = object.result;
-
-        result_count = result.length;
-
-        for(var i = 0; i<result.length; ++i)
-        {
-            for(var j = 0;j<result[i].length; ++j)
-            {
-                <!--
-                $('.content_header2').append('<a href="ApplyProduct.jsp"><img src="C:/Users/206-001/Desktop/usa.jpg" alt="Smiley face" width="200" height="200"></a>');
-                -->
-            }
-        }
-      }
-    }
-
-    function SearchTrip(){
-      var userID = $('#userID').val();
-      var destination = $('#destination').val();
-      var start-date = $('#start-date').val();
-      var end-date = $('#end-date').val();
-
-      $.ajax({
-        type: "POST",
-        url: '.servlet',
-        data: {userID: userID},
-        success: function(result){
-          if(result == 0){
-
-          }else{
-
-          }
-        }
-      });
-    }
-  </script>
+<!-- 주원이 정의한 스타일-->
+<style type="text/css">
+body {
+  height: 100%;
+}
+</style>
 </head>
 
 <body>
   <!-- Main Content -->
   <div class="container">
     <img src="./img/user.png" alt="My Image">
-    
 
-    <form class="">
+
+    <form action="./ReviewServlet" accept-charset="utf-8" name="info"
+      method="post">
       <img src="./img/user.png" alt="My Image" width="100" height="100">
       <label>User</label>
-      <textarea class="form-control" placeholder="content" rows="10"></textarea>
+      <textarea name="comment" class="form-control" placeholder="content"
+        rows="10"></textarea>
       <button type="submit" class="btn btn-primary" id="signIn">Apply</button>
     </form>
   </div>

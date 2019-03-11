@@ -16,3 +16,18 @@ $(function () {
         setDate: moment()
     })
 });
+
+// Modal
+$(function(){
+    $("#popbutton").click(function(){
+        $("#modal-link").click(function(){
+            $("#my-modal").modal();
+        });
+    })
+})
+
+// Popup 
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+};

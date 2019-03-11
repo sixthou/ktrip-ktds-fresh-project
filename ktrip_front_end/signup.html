@@ -20,21 +20,51 @@
   <link href="./assets/css/geodatasource-countryflag.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+     <div class="container">
+       <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" width="80" height="30" alt="KTrip"></a>
+       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+         Menu
+         <i class="fas fa-bars"></i>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarResponsive">
+         <ul class="navbar-nav ml-auto">
+           <li class="nav-item">
+             <a class="nav-link" href="./index.html">service</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" hre f="./guide.html">guide</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="./tourlist.html">tourlist</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="./contact.html">contact</a>
+           </li>
+          <li class="nav-item"><div class="popup" onclick="myFunction()">
+            <img src="./img/user.png" width="50" height="35" alt="User">
+            <span class="popuptext" id="myPopup">A Simple Popup!</span></div>
+          </li>
+        </ul>
+       </div>
+     </div>
+   </nav>
+
+  <!-- Navigation -->
+  <!--nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" width="80" height="30" alt="KTrip"></a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
-      <div class="navbar-collapse collapse show" id="navbarResponsive" style="">
+      <div class="navbar-collapse collapse" id="navbarResponsive" style="">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="./index.html">service</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./guide.html">guide</a>
+            <a class="nav-link" hre f="./guide.html">guide</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./tourlist.html">tourlist</a>
@@ -49,7 +79,7 @@
        </ul>
      </div>
     </div>
-  </nav>
+  </nav-->
 
   <!-- Page Header -->
   <header class="masthead" style="background-image: url(&#39;img/home3-bg.jpg&#39;)">

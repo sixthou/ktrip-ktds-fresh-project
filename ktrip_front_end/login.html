@@ -66,29 +66,29 @@
   </header>
 
   <!-- Main Content -->
+  <p></p>
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
-        <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
-        <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-        <form name="sentMessage" id="contactForm" novalidate="" method="post">
+
+        <form name="login" id="login" novalidate="" method="post">
           <div class="control-group">
               <h5 class=text-info>ID</h5>
-              <input type="text" class="form-control" placeholder="ID" id="Id" required="" data-validation-required-message="Please enter your ID.">
+              <input type="text" class="form-control" placeholder="ID를 입력해 주세요" id="id" required="" data-validation-required-message="필수 항목입니다.">
               <p class="help-block text-danger"></p>
           </div>
 
           <div class="control-group">
             <h5 class=text-info>PASSWORD</h5>
-              <input type="Password" class="form-control" placeholder="PASSWORD" id="Password" required="" data-validation-required-message="Please enter Password.">
+              <input type="Password" class="form-control" placeholder="비밀번호를 입력해 주세요" id="pwd" required="" data-validation-required-message="필수 항목입니다.">
               <p class="help-block text-danger"></p>
           </div>
+
           <br>
           <div id="success"></div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="signIn">Sign in</button>
-            <a class="btn btn-primary" href="./signup.html#">Sign up</a>
+            <button type="submit" class="btn btn-primary" id="signin">LOGIN</button>
+            <a class="btn btn-primary" href="./signup.html#">SIGN UP</a>
           </div>
           <div class="form-group">
             <a class="btn btn-primary" href="./index.html#">바로가기→</a>

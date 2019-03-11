@@ -1,0 +1,14 @@
+#faq_title.title{display:block; font-size:15px; margin-left:30px;}
+#faq_content.content{display:block; min-height:300px; font-size:15px; margin:30px}
+
+#faq-header-img {
+    background-image: url('../img/faq-bg.jpg');
+}
+
+.pagination-wrap {
+    display: flex;
+}
+
+.next-img {
+    width: 30%;
+}

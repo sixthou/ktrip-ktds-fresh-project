@@ -12,3 +12,11 @@
 .next-img {
     width: 30%;
 }
+
+.faq-modal {
+    background-image: url('../img/faq-bg.jpg') !important ;
+}
+
+#faq-heading{
+    padding: 80px 0;
+}

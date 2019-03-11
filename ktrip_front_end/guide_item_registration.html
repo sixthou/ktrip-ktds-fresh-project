@@ -92,15 +92,22 @@
   
           <div class="control-group">
             <h5 class=text-info>상품명</h5>
-            <input type="text" class="form-control" placeholder="상품이름" id="item_name" required
+            <input type="text" class="form-control" placeholder="상품명" id="title" required
               data-validation-required-message="상품명을 입력해주세요.">
             <p class="help-block text-danger"></p>
           </div>
   
           <div class="control-group">
-            <h5 class=text-info>총인원</h5>
-            <input type="text" class="form-control" placeholder="총인원" id="limit" required
-              data-validation-required-message="총인원을 입력해주세요.">
+            <h5 class=text-info>최소인원</h5>
+            <input type="text" class="form-control" placeholder="최소인원" id="num_min" required
+              data-validation-required-message="최소인원을 입력해주세요.">
+            <p class="help-block text-danger"></p>
+          </div>
+
+          <div class="control-group">
+            <h5 class=text-info>최대인원</h5>
+            <input type="text" class="form-control" placeholder="최대인원" id="num_max" required
+              data-validation-required-message="최대인원을 입력해주세요.">
             <p class="help-block text-danger"></p>
           </div>
 
@@ -110,36 +117,20 @@
               data-validation-required-message="기간을 입력해주세요.">
             <p class="help-block text-danger"></p>
           </div>
-
-          <div class="control-group">
-            <h5 class=text-info>여행 루트</h5>
-            <input type="text" class="form-control" placeholder="여행 루트" id="item_route" required
-              data-validation-required-message="여행루트를 입력해주세요.">
-            <p class="help-block text-danger"></p>
-          </div>
   
           <div class="control-group">
             <h5 class=text-info>가격(1인당)</h5>
-            <input type="text" class="form-control" placeholder="가격(1인당)" id="item_price" required
+            <input type="text" class="form-control" placeholder="가격(1인당)" id="price" required
               data-validation-required-message="가격(1인당)을 입력해주세요.">
             <p class="help-block text-danger"></p>
           </div>
 
           <div class="control-group">
-            <h5 class=text-info>포함 사항</h5>
-            <textarea rows="5" class="form-control" placeholder="포함 사항" id="content" required
-              data-validation-required-message="포함 사항을 입력해주세요."></textarea>
+            <h5 class=text-info>상품 소개</h5>
+            <textarea rows="5" class="form-control" placeholder="상품 소개" id="contents" required
+              data-validation-required-message="상품 소개를 입력해주세요."></textarea>
             <p class="help-block text-danger"></p>
-          </div>
-          
-          
-          <div class="control-group">
-            <h5 class=text-info>불포함 사항</h5>
-            <textarea rows="5" class="form-control" placeholder="불포함 사항" id="excontent" required 
-              data-validation-required-message="불포함 사항을 입력해주세요."></textarea>
-            <p class="help-block text-danger"></p>
-          </div>
-          
+          </div>       
   
           <div id="success"></div>
           <div class="form-group">

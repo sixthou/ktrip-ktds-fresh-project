@@ -84,55 +84,64 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
-        <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
-        <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-        <form name="receiveMessage" id="userForm" novalidate="">
+        <form name="userinfo" id="userinfo" novalidate="" method="post">
           <div class="control-group">
               <h5 class=text-info>ID</h5>
-              <input type="text" class="form-control" placeholder="ID" id="Id" required="" data-validation-required-message="Please enter your ID.">
-              <p class="help-block text-danger"></p>
+              <p><%= request.getParameter("id") %></p>
           </div>
 
           <div class="control-group">
             <h5 class=text-info>PASSWORD</h5>
-              <input type="Password" class="form-control" placeholder="PASSWORD" id="Password" required="" data-validation-required-message="Please enter Password.">
+              <p><%= request.getParameter("pwd") %></p>
               <p class="help-block text-danger"></p>
           </div>
 
           <div class="control-group">
             <h5 class=text-info>EMAIL</h5>
-              <input type="Email" class="form-control" placeholder="EMAIL" id="Email" required="" data-validation-required-message="Please enter Email.">
+              <p><%= request.getParameter("email") %></p>
               <p class="help-block text-danger"></p>
           </div>
 
           <div class="control-group">
               <h5 class=text-info>NAME</h5>
-              <input type="text" class="form-control" placeholder="NAME" id="Name" required="" data-validation-required-message="Please enter Name.">
+              <p><%= request.getParameter("name") %></p>
               <p class="help-block text-danger"></p>
           </div>
 
           <div class="control-group">
-              <h5 class=text-info>GENDER</h5>
-              <input type="text" class="form-control" placeholder="GENDER" id="Gender" required="">
-              <p class="help-block text-danger"></p>
-          </div>
+                 <h5 class=text-info>GENDER</h5>
+                 <p><%= request.getParameter("sex") %></p>
+             </div>
 
           <div class="control-group">
               <h5 class=text-info>PHONE</h5>
-              <input type="text" class="form-control" placeholder="PHONE" id="Phone" required="" data-validation-required-message="Please enter Phone number.">
+              <p><%= request.getParameter("phone_num") %></p>
               <p class="help-block text-danger"></p>
           </div>
 
-          <div class="control-group">
-              <h5 class=text-info>COUNTRY</h5>
-              <input type="text" class="form-control" placeholder="COUNTRY" id="Country" required="" data-validation-required-message="Please enter country.">
-              <p class="help-block text-danger"></p>
+          <div class="row">
+              <div class="col-md-12">
+                  <form class="form-horizontal">
+                      <div class="form-group">
+                          <h5 class=text-info>COUNTRY</h5>
+                          <p><%= request.getParameter("country") %></p>
+
+                      </div>
+                  </form>
+              </div>
           </div>
-          <div class="control-group">
-            <h5 class=text-info>RESIDENTIAL COUNTRY</h5>
-              <input type="text" class="form-control" placeholder="RESIDENTIAL COUNTRY" id="ResidentialCountry" required="" data-validation-required-message="Please enter Residential Country.">
-              <p class="help-block text-danger"></p>
+
+          <div class="row">
+              <div class="col-md-12">
+                  <form class="form-horizontal">
+                      <div class="form-group">
+                          <h5 class=text-info>RESIDENTIAL COUNTRY</h5>
+                          <p><%= request.getParameter("residential_country") %></p>
+
+                      </div>
+                  </form>
+              </div>
+          </div>
           <div id="success"></div>
         </form>
       </div>

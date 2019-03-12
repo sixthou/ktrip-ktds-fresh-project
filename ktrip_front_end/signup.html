@@ -1,117 +1,85 @@
 <!DOCTYPE html>
 
-<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>KTrip: 나만을 위한 여행 가이드</title>
-  <!-- Bootstrap core CSS -->
-  <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom fonts for this template -->
-  <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="./index_files/css" rel="stylesheet" type="text/css">
-  <link href="./index_files/css(1)" rel="stylesheet" type="text/css">
-  <link href="./index_files/icon" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="./index_files/icon" rel="stylesheet">
-  <link href="./css/clean-blog.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet" >
-  <link href="./languages/ko/LC_MESSAGES/ko.po" rel="gettext" type="application/x-po"/>
-  <link href="./assets/css/geodatasource-countryflag.css" rel="stylesheet">
+<html lang="ko">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>회원가입</title>
+    
+        <!-- jQuery and moment.js and rome.js-->
+        <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom fonts for this template -->
+        <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link src="./index_files/css" rel="stylesheet" type="text/css">
+        <link src="./index_files/css(1)" rel="stylesheet" type="text/css">
+        <link src="./index_files/icon" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="./css/clean-blog.min.css" rel="stylesheet">
+        <!-- signup.css, signup.js -->
+        <link href="./css/signup.css" rel="stylesheet" type="text/css">
+        <script src="./js/signup.js"></script>
+        <!-- common.css, common.js clean-blog.min.js -->
+        <link href="./css/common.css" rel="stylesheet" type="text/css">
+        <script src="./js/common.js"></script>
+        <script src="js/clean-blog.min.js"></script>
+        <!-- geodata -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet" >
+        <link href="./languages/ko/LC_MESSAGES/ko.po" rel="gettext" type="application/x-po"/>
+        <link href="./assets/css/geodatasource-countryflag.css" rel="stylesheet">
+        <script src="./assets/js/Gettext.js" type="text/javascript" ></script>
+        <script src="assets/js/geodatasource-cr.min.js"></script>
+    </head>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-     <div class="container">
-       <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" width="80" height="30" alt="KTrip"></a>
-       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-         Menu
-         <i class="fas fa-bars"></i>
-       </button>
-       <div class="collapse navbar-collapse" id="navbarResponsive">
-         <ul class="navbar-nav ml-auto">
-           <li class="nav-item">
-             <a class="nav-link" href="./index.html">service</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" hre f="./guide.html">guide</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="./tourlist.html">tourlist</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="./contact.html">contact</a>
-           </li>
-          <li class="nav-item"><div class="popup" onclick="myFunction()">
-            <img src="./img/user.png" width="50" height="35" alt="User">
-            <span class="popuptext" id="myPopup">A Simple Popup!</span></div>
-          </li>
-        </ul>
-       </div>
-     </div>
-   </nav>
-
   <!-- Navigation -->
-  <!--nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" width="80" height="30" alt="KTrip"></a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="navbar-collapse collapse" id="navbarResponsive" style="">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="./index.html">service</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" hre f="./guide.html">guide</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./tourlist.html">tourlist</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./contact.html">contact</a>
-          </li>
-         <li class="nav-item"><div class="popup" onclick="myFunction()">
-           <img src="./img/user.png" width="50" height="35" alt="User">
-           <span class="popuptext" id="myPopup">A Simple Popup!</span></div>
-         </li>
-       </ul>
-     </div>
-    </div>
-  </nav-->
-
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url(&#39;img/home3-bg.jpg&#39;)">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <img src="./img/logo.png" width="320" height="120" alt="KTrip">
-            <span class="subheading"></span>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+          <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" id="nav-logo" alt="KTrip"></a>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
+              Menu
+              <i class="fas fa-bars"></i>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="./index.html">service</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="./guide.html">guide</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="./tourlist.html">tourlist</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="./contactus.html">contact</a>
+                  </li>
+                  <li class="nav-item"><div class="popup" onclick="user_popup()">
+                      <img src="./img/user.png" id="nav-user" alt="User">
+                      <span class="popuptext" id="myPopup">A Simple Popup!</span></div>
+                  </li>
+              </ul>
           </div>
-        </div>
       </div>
-    </div>
+  </nav>
+  <!-- Page Header -->
+  <header class="masthead header-block" id="signup-header-img">
+      <div class="overlay"></div>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-8 col-md-10 mx-auto">
+                      <div class="page-heading">
+                          <h1>회원가입</h1>
+                          <span class="subheading">KTrip에 가입해 완벽한 여행을 즐겨보세요!</span>
+                      </div>
+              </div>
+          </div>
+      </div>
   </header>
-
-  <!--subNavigator-->
-  <nav class="navbar navbar-expand-lg">
-   <div class="container-fluid">
-    <div class="navbar-collapse collapse show" id="navbarResponsive" style="">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="./index.html">SIGNUP</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./index.html">SERVICE</a>
-        </li>
-      </ul>
-    </div>
-  </div>
- </nav>
-<hr>
 <!-- Main -->
   <div class="container">
     <div class="row">
@@ -240,24 +208,5 @@
       </div>
     </div>
   </footer>
-
-  <!-- Bootstrap core JavaScript -->
-<script>
-// When the user clicks on div, open the popup
-<!--popup jsp-->
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-</script>
-  <script src="./vendor/jquery/jquery.min.js"></script>
-  <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="./js/clean-blog.min.js"></script>
-  <script src="assets/js/geodatasource-cr.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="./assets/js/Gettext.js" type="text/javascript" ></script>
-
 </body>
 </html>

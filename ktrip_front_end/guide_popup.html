@@ -71,7 +71,7 @@
         </table>
 
         <h5>여행 가이드 정보</h5>
-        <form name="form_item_reg" id="" novalidate="">
+        <form method="POST" action="/ktrip/itemServlet?actionMode=UPDATE" name="form_item_reg" id="trip_item" novalidate="">
 
           <div class="control-group">
             <h5 class=text-info>상품명</h5>
@@ -80,13 +80,6 @@
             <p class="help-block text-danger"></p>
           </div>
   
-          <div class="control-group">
-            <h5 class=text-info>목적지</h5>
-            <input type="text" class="form-control" placeholder="목적지" id="destination" required
-              data-validation-required-message="목적지를 입력해주세요." disabled>
-            <p class="help-block text-danger"></p>
-          </div>
-
           <div class="control-group">
             <h5 class=text-info>최소인원</h5>
             <input type="text" class="form-control" placeholder="최소인원" id="num_min" required

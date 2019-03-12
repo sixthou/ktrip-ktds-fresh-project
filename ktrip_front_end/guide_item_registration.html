@@ -87,16 +87,23 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         <!-- Contact Form -->
         <h5>가이드 상품 등록</h5>
-        <form name="form_item_reg" id="" novalidate="">
+        <form name="form_item_reg" id="trip_item" novalidate="">
           <!--아이디 확인.-->
   
           <div class="control-group">
             <h5 class=text-info>상품명</h5>
             <input type="text" class="form-control" placeholder="상품명" id="title" required
-              data-validation-required-message="상품명을 입력해주세요.">
+              data-validation-required-message="상품명을 입력해주세요." >
             <p class="help-block text-danger"></p>
           </div>
   
+          <div class="control-group">
+            <h5 class=text-info>목적지</h5>
+            <input type="text" class="form-control" placeholder="목적지" id="destination" required
+              data-validation-required-message="목적지를 입력해주세요.">
+            <p class="help-block text-danger"></p>
+          </div>
+
           <div class="control-group">
             <h5 class=text-info>최소인원</h5>
             <input type="text" class="form-control" placeholder="최소인원" id="num_min" required
@@ -122,6 +129,20 @@
             <h5 class=text-info>가격(1인당)</h5>
             <input type="text" class="form-control" placeholder="가격(1인당)" id="price" required
               data-validation-required-message="가격(1인당)을 입력해주세요.">
+            <p class="help-block text-danger"></p>
+          </div>
+
+          <div class="control-group">
+            <h5 class=text-info>상품 컨셉</h5>
+            <input type="text" class="form-control" placeholder="상품 컨셉" id="concept" required
+              data-validation-required-message="상품 컨셉을 입력해주세요.">
+            <p class="help-block text-danger"></p>
+          </div>
+
+          <div class="control-group">
+            <h5 class=text-info>썸네일</h5>
+            <input type="file" class="form-control-file" placeholder="썸네일" id="thumbnail" required
+              data-validation-required-message="썸네일 이미지를 입력해주세요.">
             <p class="help-block text-danger"></p>
           </div>
 

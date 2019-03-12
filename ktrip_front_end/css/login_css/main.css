@@ -539,5 +539,10 @@ iframe {
   }
 }
 
+.signup-modal-header {
+  background-image: url('../../img/signup-bg.jpg') !important ;
+}
 
-
+#signup-heading{
+  padding: 80px 0;
+}

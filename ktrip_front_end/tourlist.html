@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>FAQ</title>
+
+    <!-- jQuery and moment.js and rome.js-->
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link src="./index_files/css" rel="stylesheet" type="text/css">
+    <link src="./index_files/css(1)" rel="stylesheet" type="text/css">
+    <link src="./index_files/icon" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="./css/clean-blog.min.css" rel="stylesheet">
+    <!-- tourlist.css, tourlist.js -->
+    <link href="./css/tourlist.css" rel="stylesheet" type="text/css">
+    <script src="./js/tourlist.js"></script>
+    <!-- common.css, common.js clean-blog.min.js -->
+    <link href="./css/common.css" rel="stylesheet" type="text/css">
+    <script src="./js/common.js"></script>
+    <script src="js/clean-blog.min.js"></script>
+    <!-- Bootstrap material datetimepicker -->
+    <script src="./bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+    <link href="./bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html"><img src="./img/logo2.png" id="nav-logo" alt="KTrip"></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./guide.html">guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./tourlist.html">tourlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contactus.html">contact</a>
+                    </li>
+                    <li class="nav-item"><div class="popup" onclick="user_popup()">
+                        <img src="./img/user2.png" id="nav-user" alt="User">
+                        <span class="popuptext" id="myPopup">A Simple Popup!</span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead header-block" id="tourlist-header-img">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="page-heading" id="tourlist-heading">
+                        <h1>여행 상품 검색</h1>
+                        <span class="subheading"></span>
+                        <div class="form-group search-group">
+                            <label class="date-label" for="start-date">출발: </label>
+                            <input type="text" class="date-input form-control" id="start-date" placeholder="출발">
+                            <label class="date-label" for="start-date">도착: </label>
+                            <input type="text" class="date-input form-control" id="end-date" placeholder="도착">
+                            <label class="date-label" for="destination">목적지: </label>
+                            <input type="text" class="form-control destination-input" placeholder="목적지">
+                            <div>
+                                <button type="button" class="btn btn-primary btn-sm search-btn">검색하기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-10 mx-auto">
+                <div class="post-preview">
+                    <a>
+                        <h2 class="post-title">검색된 상품</h2>
+                        <h3 class="post-subtitle">최고의 여행을 즐겨보세요!</h3>
+                    </a>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Special.png" class="item-img" />
+                            <h3 class="h4 mb-2">Special</h3>
+                            <p class="text-muted mb-0">현지인만이 경험할 수 있는 최고의 품질과 차별화된 여행 서비스</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Optimum.png" class="item-img" />
+                            <h3 class="h4 mb-2">Optimum</h3>
+                            <p class="text-muted mb-0">원치않은 쇼핑과 바가지 구매 등 단체 여행 속 불쾌함 제거</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Together.png" class="item-img" />
+                            <h3 class="h4 mb-2">Together</h3>
+                            <p class="text-muted mb-0">KT 임직원에 한정된 팔로워로 KT 그룹 내 소통 채널 제공</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Trust.png" class="item-img" />
+                            <h3 class="h4 mb-2">Trust</h3>
+                            <p class="text-muted mb-0">믿을 수 있는 가이드 선별을 통해 안전한 매칭 서비스 제공</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Trust.png" class="item-img" />
+                            <h3 class="h4 mb-2">Trust</h3>
+                            <p class="text-muted mb-0">믿을 수 있는 가이드 선별을 통해 안전한 매칭 서비스 제공</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Trust.png" class="item-img" />
+                            <h3 class="h4 mb-2">Trust</h3>
+                            <p class="text-muted mb-0">믿을 수 있는 가이드 선별을 통해 안전한 매칭 서비스 제공</p>
+                        </div>
+                    </div>
+                    <br><br>
+                </div>
+                <!-- pagination -->
+			    <div class="row justify-content-center">
+                    <div class="pagination" id="pg1">
+                        <a><</a>
+                        <a class="active">1</a>
+                        <a>2</a>
+                        <a>3</a>
+                        <a>4</a>
+                        <a>5</a>
+                        <a>6</a>
+                        <a>7</a>
+                        <a>></a>
+                    </div>
+                </div>
+                <br>
+                <div class="post-preview">
+                    <a>
+                        <h2 class="post-title">대기중인 여행</h2>
+                    </a>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Special.png" class="item-img" />
+                            <h3 class="h4 mb-2">Special</h3>
+                            <p class="text-muted mb-0">현지인만이 경험할 수 있는 최고의 품질과 차별화된 여행 서비스</p>
+                            <button class="btn btn-primary btn-sm search-btn" onclick="deletedata();">삭제</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Optimum.png" class="item-img" />
+                            <h3 class="h4 mb-2">Optimum</h3>
+                            <p class="text-muted mb-0">원치않은 쇼핑과 바가지 구매 등 단체 여행 속 불쾌함 제거</p>
+                            <button class="btn btn-primary btn-sm search-btn" onclick="deletedata();">삭제</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Together.png" class="item-img" />
+                            <h3 class="h4 mb-2">Together</h3>
+                            <p class="text-muted mb-0">KT 임직원에 한정된 팔로워로 KT 그룹 내 소통 채널 제공</p>
+                            <button class="btn btn-primary btn-sm search-btn" onclick="deletedata();">삭제</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Trust.png" class="item-img" />
+                            <h3 class="h4 mb-2">Trust</h3>
+                            <p class="text-muted mb-0">믿을 수 있는 가이드 선별을 통해 안전한 매칭 서비스 제공</p>
+                            <button class="btn btn-primary btn-sm search-btn" onclick="deletedata();">삭제</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Trust.png" class="item-img" />
+                            <h3 class="h4 mb-2">Trust</h3>
+                            <p class="text-muted mb-0">믿을 수 있는 가이드 선별을 통해 안전한 매칭 서비스 제공</p>
+                            <button class="btn btn-primary btn-sm search-btn" onclick="deletedata();">삭제</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Trust.png" class="item-img" />
+                            <h3 class="h4 mb-2">Trust</h3>
+                            <p class="text-muted mb-0">믿을 수 있는 가이드 선별을 통해 안전한 매칭 서비스 제공</p>
+                            <button class="btn btn-primary btn-sm search-btn" onclick="deletedata();">삭제</button>
+                        </div>
+                    </div>
+                    <br><br>
+                </div>
+                <!-- pagination -->
+                <div class="row justify-content-center">
+                    <div class="pagination" id="pg1">
+                        <a><</a>
+                        <a class="active">1</a>
+                        <a>2</a>
+                        <a>3</a>
+                        <a>4</a>
+                        <a>5</a>
+                        <a>6</a>
+                        <a>7</a>
+                        <a>></a>
+                    </div>
+                </div>
+                <br>
+                <div class="post-preview">
+                    <a>
+                        <h2 class="post-title">다녀온 여행</h2>
+                    </a>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Special.png" class="item-img" />
+                            <h3 class="h4 mb-2">Special</h3>
+                            <p class="text-muted mb-0">현지인만이 경험할 수 있는 최고의 품질과 차별화된 여행 서비스</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Optimum.png" class="item-img" />
+                            <h3 class="h4 mb-2">Optimum</h3>
+                            <p class="text-muted mb-0">원치않은 쇼핑과 바가지 구매 등 단체 여행 속 불쾌함 제거</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Together.png" class="item-img" />
+                            <h3 class="h4 mb-2">Together</h3>
+                            <p class="text-muted mb-0">KT 임직원에 한정된 팔로워로 KT 그룹 내 소통 채널 제공</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Trust.png" class="item-img" />
+                            <h3 class="h4 mb-2">Trust</h3>
+                            <p class="text-muted mb-0">믿을 수 있는 가이드 선별을 통해 안전한 매칭 서비스 제공</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Trust.png" class="item-img" />
+                            <h3 class="h4 mb-2">Trust</h3>
+                            <p class="text-muted mb-0">믿을 수 있는 가이드 선별을 통해 안전한 매칭 서비스 제공</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center service-contents">
+                        <div class="mt-5">
+                            <img src="./img/Trust.png" class="item-img" />
+                            <h3 class="h4 mb-2">Trust</h3>
+                            <p class="text-muted mb-0">믿을 수 있는 가이드 선별을 통해 안전한 매칭 서비스 제공</p>
+                        </div>
+                    </div>
+                    <br><br>
+                </div>
+                <!-- pagination -->
+                <div class="row justify-content-center">
+                    <div class="pagination" id="pg1">
+                        <a><</a>
+                        <a class="active">1</a>
+                        <a>2</a>
+                        <a>3</a>
+                        <a>4</a>
+                        <a>5</a>
+                        <a>6</a>
+                        <a>7</a>
+                        <a>></a>
+                    </div>
+                </div>
+                <br>
+		    </div>
+        </div>
+    </div>
+    <hr>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+                <li class="list-inline-item">
+                <a href="./index.html#">
+                    <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-chrome fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                </li>
+                <li class="list-inline-item">
+                <a href="https://github.com/WonHyeongCho/ktcp-fresh-ktds#">
+                    <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                </li>
+                <li class="list-inline-item">
+                <a href="./contactus.html#">
+                    <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                </li>
+            </ul>
+    
+            <p class="copyright text-muted">주소: 서울특별시 서초구 방배동 1001-1 대표 전화 : 02-523-7029 <br>
+            <a href="./index.html#">KTrip</a>
+            Copyright © <a href="https://www.ktds.com/index.jsp">KTds</a> All Rights Reserved.</p>
+            </div>
+        </div>
+        </div>
+    </footer>
+</body>

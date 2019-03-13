@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>FAQ</title>
+    <title>여행 상품 검색</title>
 
     <!-- jQuery and moment.js and rome.js-->
     <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/moment/min/moment.min.js"></script>
     <!-- Bootstrap -->
     <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,9 +21,10 @@
     <link src="./index_files/icon" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="./css/clean-blog.min.css" rel="stylesheet">
-    <!-- tourlist.css, tourlist.js -->
+    <!-- tourlist.css, tourlist.js, star.js -->
     <link href="./css/tourlist.css" rel="stylesheet" type="text/css">
     <script src="./js/tourlist.js"></script>
+    <script src="./js/star.js"></script>
     <!-- common.css, common.js clean-blog.min.js -->
     <link href="./css/common.css" rel="stylesheet" type="text/css">
     <script src="./js/common.js"></script>
@@ -164,7 +166,7 @@
                         <div class="mt-5">
                             <img src="./img/Special.png" class="item-img" />
                             <h3 class="h4 mb-2">Special</h3>
-                            <p class="text-muted mb-0">현지인만이 경험할 수 있는 최고의 품질과 차별화된 여행 서비스</p>
+                            <p class="text-muted mb-0">현지인만이 경험할 수 있는 최고의 품질과 차별화된 </p>
                             <button class="btn btn-primary btn-sm search-btn" onclick="deletedata();">삭제</button>
                         </div>
                     </div>
@@ -233,14 +235,16 @@
                         <div class="mt-5">
                             <img src="./img/Special.png" class="item-img" />
                             <h3 class="h4 mb-2">Special</h3>
-                            <p class="text-muted mb-0">현지인만이 경험할 수 있는 최고의 품질과 차별화된 여행 서비스</p>
+                            <p class="text-muted mb-0">현지인만이 경험할 수 있는 최고의 품질과 차별화된 여행</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center service-contents">
                         <div class="mt-5">
-                            <img src="./img/Optimum.png" class="item-img" />
-                            <h3 class="h4 mb-2">Optimum</h3>
-                            <p class="text-muted mb-0">원치않은 쇼핑과 바가지 구매 등 단체 여행 속 불쾌함 제거</p>
+                            <a data-toggle="modal" href="#my-modal">
+                                <img src="./img/Optimum.png" class="item-img" />
+                                <h3 class="h4 mb-2">Optimum</h3>
+                                <p class="text-muted mb-0">원치않은 쇼핑과 바가지 구매 등 단체 여행 속 불쾌함 제거</p>
+                            </a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center service-contents">
@@ -272,6 +276,105 @@
                         </div>
                     </div>
                     <br><br>
+                    <!-- modal portfolio -->
+                    <div class="modal fade" id="my-modal" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <!-- Page Header -->
+                                <header class="item-review-modal modal-header masthead header-block">
+                                    <div class="overlay"></div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-8 col-md-10 mx-auto">
+                                                <div class="post-heading" id="item-review-heading">
+                                                    <h2>뉴욕 14박 15일 여행</h2>
+                                                    <span class="meta">여행자1 | 2019.02.28</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </header>
+                                <!-- Main Content -->
+                                <article class="modal-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-10 col-md-10 mx-auto">
+                                                <div class="control-group">
+                                                    <span class="star-input"> <span
+                                                        class="input"> <input type="radio" name="star-input" value="1"
+                                                            id="p1"> <label for="p1">1</label> <input type="radio"
+                                                            name="star-input" value="2" id="p2"> <label for="p2">2</label>
+                                                            <input type="radio" name="star-input" value="3" id="p3"> <label
+                                                            for="p3">3</label> <input type="radio" name="star-input" value="4"
+                                                            id="p4"> <label for="p4">4</label> <input type="radio"
+                                                            name="star-input" value="5" id="p5"> <label for="p5">5</label>
+                                                    </span> <output for="star-input">
+                                                            <b>0</b>점
+                                                        </output>
+                                                    </span>       
+                                                </div>                              
+                                                <div class="control-group">
+                                                    <h5 class=text-info>제목</h5>
+                                                    <input type="text" class="form-control" placeholder="제목을 입력해 주세요." id="item-review-title" required="" data-validation-required-message="필수 항목입니다.">
+                                                    <p class="help-block text-danger"></p>
+                                                </div>
+                                                <div class="control-group">
+                                                    <h5 class=text-info>리뷰 내용</h5>
+                                                    <textarea rows="10" class="form-control" placeholder="리뷰를 입력해 주세요."
+                                                            id="item-review-content"></textarea>
+                                                    <p class="help-block text-danger"></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-primary search-btn" id="sendMessageButton">등록</button>
+                                                    <button type="cancel" class="btn btn-primary search-btn" id="sendMessageButton">취소</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                <hr>
+                                <!-- Footer -->
+                                <footer class="modal-footer">
+                                    <div class="container">
+                                        <div class="row">
+                                        <div class="col-lg-8 col-md-10 mx-auto">
+                                            <ul class="list-inline text-center">
+                                
+                                            <li class="list-inline-item">
+                                                <a href="./index.html#">
+                                                <span class="fa-stack fa-lg">
+                                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                                    <i class="fab fa-chrome fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="https://github.com/WonHyeongCho/ktcp-fresh-ktds#">
+                                                <span class="fa-stack fa-lg">
+                                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                </a>
+                                            </li>
+                                        <li class="list-inline-item">
+                                                <a href="./contactus.html#">
+                                                <span class="fa-stack fa-lg">
+                                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                </a>
+                                            </li>
+                                            </ul>
+                                            <p class="copyright text-muted">주소: 서울특별시 서초구 방배동 1001-1 대표 전화 : 02-523-7029 <br>
+                                            <a href="./index.html#">KTrip</a>
+                                            Copyright © <a href="https://www.ktds.com/index.jsp">KTds</a> All Rights Reserved.</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- pagination -->
                 <div class="row justify-content-center">

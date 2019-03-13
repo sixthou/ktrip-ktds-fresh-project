@@ -872,3 +872,78 @@ function openPopupReview(id){
 function openPopupApply(id){
     window.open('ApplyProduct.jsp?ProductID=' + id, '', 'width=900, height=900, scrollbars= 0, toolbar=0, menubar=no');
 }
+
+// 모달
+$(document).ready(function() {
+	alert('page ready review');
+	//리뷰페이지 처음 될때.
+	//1. 회원ID로 회원의 사진 받아오기.
+	//loaduserinfo();
+	//2.상품ID로  상품의 이미지 가져오기.
+	//loadproductinfo();
+	});
+	
+function loaduserinfo(){
+    var user_id = '<%= userID %>';
+    
+    $.ajax({
+        type : "POST",
+        url : "./ReviewServlet",
+        data : {user_id:encodeURIComponent(user_id)	
+        },
+        success : function(result) {
+            
+        }
+    });
+}
+
+function loadproductinfo(){
+    var product_id = '<%= productID %>';
+    
+    $.ajax({
+        type : "POST",
+        url : "./ReviewServlet",
+        data : {product_id:encodeURIComponent(product_id)
+        },
+        success : function(result) {
+            
+        }
+    });
+}
+
+function submitFunction() {
+    var comment = $('#comment').val();
+    $.ajax({
+        type : "POST",
+        url : "./ReviewServlet",
+        data : {comment : encodeURIComponent(comment)
+        },
+        success : function(result) {
+            alert(result);
+            if (result == 1) {
+                alert('성공');
+            } else {
+                alert('실패');
+            }
+        }
+    });
+}
+
+// Bootstrap Material DatePicker
+$(function () {
+    $('#start-date').bootstrapMaterialDatePicker({
+        format: 'YYYY/MM/DD',
+        time: false,
+        weekend: 0,
+        setDate: moment()
+    })
+});
+
+$(function () {
+    $('#end-date').bootstrapMaterialDatePicker({
+        format: 'YYYY/MM/DD',
+        time: false,
+        weekend: 0,
+        setDate: moment()
+    })
+});

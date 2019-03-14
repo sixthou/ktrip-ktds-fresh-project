@@ -52,13 +52,13 @@
             <label class="date-label" for="start-date"></label>
             <input type="text" class="date-input form-control" id="end-date" placeholder="도착">
             <label class="date-label" for="destination"></label>
-            <input type="text" class="date-input form-control" placeholder="목적지">
+            <input type="text" class="date-input form-control" id="destination" placeholder="목적지">
           </div>
         </div>
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="search-heading">
-            <button type="button" class="btn search-btn btn-md" id="search">SEARCH</button>
+            <button type="button" class="btn search-btn btn-md" id="search" onclick="search_item();">SEARCH</button>
           </div>
           </div>
       </div>

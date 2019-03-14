@@ -2,12 +2,12 @@
 
 <html lang="ko">
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.1/SmoothScroll.min.js"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
   <title>KTrip: 나만을 위한 여행 가이드</title>
-
   <!-- jQuery and moment.js and rome.js-->
   <script src="./bower_components/jquery/dist/jquery.min.js"></script>
   <script src="./bower_components/moment/min/moment.min.js"></script>
@@ -69,33 +69,37 @@
     </div>
   </nav>
   <!-- Page Header -->
-  <header class="masthead header-block" id="index-header-img">
-    <div class="overlay"></div>
+  <header class="masthead header-blocks scroll" id="index-header-img">
+    <div class="index-overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading" id="main-heading">
             <img src="./img/logo2.png" id="main-heading-logo" alt="KTrip">
             <span class="subheading"></span>
-            <div class="form-group search-group">
-              <label class="date-label" for="start-date">출발: </label>
-              <input type="text" class="date-input form-control" id="start-date" placeholder="출발">
-              <label class="date-label" for="start-date">도착: </label>
-              <input type="text" class="date-input form-control" id="end-date" placeholder="도착">
-              <label class="date-label" for="destination">목적지: </label>
-              <input type="text" class="form-control destination-input" placeholder="목적지">
-              <div>
-                  <button type="button" class="btn search-btn btn-md">&nbsp;검색하기&nbsp;</button>
-              </div>
             </div>
           </div>
+          <div class="form-group search-group">
+            <label class="date-label" for="start-date"></label>
+            <input type="text" class="date-input form-control" id="start-date" placeholder="출발">
+            <label class="date-label" for="start-date"></label>
+            <input type="text" class="date-input form-control" id="end-date" placeholder="도착">
+            <label class="date-label" for="destination"></label>
+            <input type="text" class="date-input form-control" placeholder="목적지">
+          </div>
         </div>
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="search-heading">
+            <button type="button" class="btn search-btn btn-md" id="search">SEARCH</button>
+          </div>
+          </div>
       </div>
     </div>
   </header>
 
   <!-- Main Content -->
-  <div class="container">
+  <div class="container scroll">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
@@ -110,33 +114,40 @@
           <div class="col-lg-3 col-md-6 text-center service-contents">
             <div class="mt-5">
               <i class="fas fa-4x text-primary mb-4 service-contents"><img src="./img/Special.png" class="index-icon" /></i>
-              <h3 class="h4 mb-2">Special</h3>
-              <p class="text-muted mb-0">현지인만이 경험할 수 있는 최고의 품질과 차별화된 여행 서비스</p>
+              <h3 class="h3 mb-2">Special</h3>
+              <p class="text-muted mb-3">현지인만이 경험할 수 있는 최고의 품질과 차별화된 여행 서비스</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center service-contents">
             <div class="mt-5">
               <i class="fas fa-4x text-primary mb-4 service-contents"><img src="./img/Optimum.png" class="index-icon" /></i>
-              <h3 class="h4 mb-2">Optimum</h3>
-              <p class="text-muted mb-0">원치않은 쇼핑과 바가지 <br>구매 등 단체 여행 속 불쾌함 제거</p>
+              <h3 class="h3 mb-2">Optimum</h3>
+              <p class="text-muted mb-3">원치않은 쇼핑과 바가지 <br>구매 등 단체 여행 속 불쾌함 제거</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center service-contents">
             <div class="mt-5">
               <i class="fas fa-4x text-primary mb-4 service-contents"><img src="./img/Together.png" class="index-icon" /></i>
-              <h3 class="h4 mb-2">Together</h3>
-              <p class="text-muted mb-0">KT 임직원에 한정된 팔로워로 KT 그룹 내 소통 채널 제공</p>
+              <h3 class="h3 mb-2">Together</h3>
+              <p class="text-muted mb-3">KT 임직원에 한정된 팔로워로 KT 그룹 내 소통 채널 제공</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center service-contents">
             <div class="mt-5">
               <i class="fas fa-4x text-primary mb-4 service-contents"><img src="./img/Trust.png" class="index-icon" /></i>
-              <h3 class="h4 mb-2">Trust</h3>
-              <p class="text-muted mb-0">믿을 수 있는 가이드 선별을 통해 안전한 매칭 서비스 제공</p>
+              <h3 class="h3 mb-2">Trust</h3>
+              <p class="text-muted mb-3">믿을 수 있는 가이드 선별을 통해 안전한 매칭 서비스 제공</p>
             </div>
           </div>
           <br><br>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container scroll">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
         <hr>
         <div class="post-preview">
           <a data-toggle="modal" href="#my-modal" id="modal-link">
@@ -233,7 +244,7 @@
         <hr>
       </div>
     </div>
-  </div>
+
   <hr>
   <!-- Footer -->
   <footer>
@@ -273,5 +284,6 @@
       </div>
     </div>
   </footer>
+  </div>
 </body>
 </html>

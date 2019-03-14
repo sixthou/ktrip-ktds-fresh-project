@@ -26,7 +26,7 @@
 	<script src="./bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 	<link href="./bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" type="text/css">
 	<!-- index.css, index.js -->
-	<link href="./css/index.css" rel="stylesheet" type="text/css">
+	<link href="./css/index.css?after" rel="stylesheet" type="text/css">
 	<script src="./js/index.js"></script>
 	<!-- common.css, common.js clean-blog.min.js -->
 	<link href="./css/common.css" rel="stylesheet" type="text/css">
@@ -52,13 +52,13 @@
             <label class="date-label" for="start-date"></label>
             <input type="text" class="date-input form-control" id="end-date" placeholder="도착">
             <label class="date-label" for="destination"></label>
-            <input type="text" class="date-input form-control" placeholder="목적지">
+            <input type="text" class="date-input form-control" id="destination" placeholder="목적지">
           </div>
         </div>
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="search-heading">
-            <button type="button" class="btn search-btn btn-md" id="search">SEARCH</button>
+            <button type="button" class="btn search-btn btn-md" id="search" onclick="search_item();">SEARCH</button>
           </div>
           </div>
       </div>

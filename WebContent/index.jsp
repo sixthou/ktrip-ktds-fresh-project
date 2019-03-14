@@ -26,7 +26,7 @@
 	<script src="./bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 	<link href="./bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" type="text/css">
 	<!-- index.css, index.js -->
-	<link href="./css/index.css" rel="stylesheet" type="text/css">
+	<link href="./css/index.css?after" rel="stylesheet" type="text/css">
 	<script src="./js/index.js"></script>
 	<!-- common.css, common.js clean-blog.min.js -->
 	<link href="./css/common.css" rel="stylesheet" type="text/css">

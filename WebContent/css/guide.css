@@ -1,0 +1,11 @@
+#guide-header-img {
+    background-image: url('../img/guide-bg.jpg');
+}
+
+.item-modal-header {
+    background-image: url('../img/item-modal1-bg.jpg') !important ;
+}
+
+#guide-modal-heading {
+    padding: 80px 0;
+}

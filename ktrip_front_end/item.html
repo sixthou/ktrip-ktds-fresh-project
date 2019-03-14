@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>여행 상품</title>
+
+    <!-- jQuery and moment.js and rome.js-->
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/moment/min/moment.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link src="./index_files/css" rel="stylesheet" type="text/css">
+    <link src="./index_files/css(1)" rel="stylesheet" type="text/css">
+    <link src="./index_files/icon" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="./css/clean-blog.min.css" rel="stylesheet">
+    <!-- item.css, item.js, blog-home.css -->
+    <link href="./css/item.css" rel="stylesheet" type="text/css">
+    <script src="./js/item.js"></script>
+    <!-- common.css, common.js clean-blog.min.js -->
+    <link href="./css/common.css" rel="stylesheet" type="text/css">
+    <script src="./js/common.js"></script>
+    <script src="js/clean-blog.min.js"></script>
+    <!-- Bootstrap material datetimepicker -->
+    <script src="./bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+    <link href="./bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html"><img src="./img/logo2.png" id="nav-logo" alt="KTrip"></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./guide.html">guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./tourlist.html">tourlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contactus.html">contact</a>
+                    </li>
+                    <li class="nav-item"><div class="popup" onclick="user_popup()">
+                        <img src="./img/user2.png" id="nav-user" alt="User">
+                        <span class="popuptext" id="myPopup">A Simple Popup!</span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead header-block" id="item-header-img">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="page-heading" id="item-heading">
+                        <h1>여행 상품</h1>
+                        <span class="subheading"></span>
+                        <div class="form-group search-group">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+	<!-- Main Content -->
+	<div class="container">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+                <h1 class="my-4">14박 15일 프랑스 여행
+                    <small>[식도락]</small>
+                </h1>
+        
+                <!-- Blog Post -->
+                <div class="card mb-4">
+                    <img class="card-img-top" src="./img/paris.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h2 class="card-title">Post Title</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Posted on March 26, 2019 by
+                        <a href="#">ABC123</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar Widgets Column -->
+            <div class="col-md-4">
+                <!-- Categories Widget -->
+                <div class="card my-4">
+                    <h5 class="card-header">상품 구매</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="form-group search-group">
+                                    <div class="control-group">
+                                        <h5 class=text-info>출발</h5>
+                                        <input type="text" class="date-input form-control" id="start-date" placeholder="출발">
+                                        <br>
+                                        <h5 class=text-info>도착</h5>
+                                        <input type="text" class="date-input form-control" id="end-date" placeholder="도착">
+                                        <br>
+                                        <h5 class=text-info>CONTENT</h5>
+                                        <textarea rows="10" class="form-control" placeholder="Content"
+                                                id="contact_content"></textarea>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div id="success"></div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary" id="sendMessageButton">신청 하기</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 mx-auto">
+                <h2 class="post-title">여행 리뷰</h2>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <br>
+                        <h2 class="card-title">John Green</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Posted on March 26, 2019 by
+                        <a href="#">ABC123</a>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <br>
+                        <h2 class="card-title">John Green</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Posted on March 26, 2019 by
+                        <a href="#">ABC123</a>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <br>
+                        <h2 class="card-title">John Green</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Posted on March 26, 2019 by
+                        <a href="#">ABC123</a>
+                    </div>
+                </div>
+                <!-- pagination -->
+			    <div class="pagination-wrap justify-content-center">
+                    <div class="pagination">
+                        <a><</a>
+                        <a class="active">1</a>
+                        <a>2</a>
+                        <a>3</a>
+                        <a>4</a>
+                        <a>5</a>
+                        <a>6</a>
+                        <a>7</a>
+                        <a>></a>
+                    </div>
+                </div>
+                <br>
+                <h2 class="post-title">가이드 소개</h2>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <img class="card-img-top" id="guide-thumbnail" src="./img/guide-thumbnail.jpg" alt="Card image cap">
+                        <br>
+                        <h2 class="card-title">John Green</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Posted on March 26, 2019 by
+                        <a href="#">ABC123</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <hr>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="./index.html#">
+                        <span class="fa-stack fa-lg">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-chrome fa-stack-1x fa-inverse"></i>
+                        </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://github.com/WonHyeongCho/ktcp-fresh-ktds#">
+                        <span class="fa-stack fa-lg">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="./contactus.html#">
+                        <span class="fa-stack fa-lg">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                        </span>
+                        </a>
+                    </li>
+                    </ul>
+                    <p class="copyright text-muted">주소: 서울특별시 서초구 방배동 1001-1 대표 전화 : 02-523-7029 <br>
+                    <a href="./index.html#">KTrip</a>
+                    Copyright © <a href="https://www.ktds.com/index.jsp">KTds</a> All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

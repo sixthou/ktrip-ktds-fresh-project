@@ -21,7 +21,6 @@ var total_pagenumber3 = 0;//총 페이지 카운트.
 
 $( document ).ready(function() {
     //쿼리 로우 개수를 받아서 하단 페이징 바 계산.
-    alert('page ready');
     loadpagecount2();
     loadpagecount3();
 });
@@ -875,7 +874,6 @@ function openPopupApply(id){
 
 // 모달
 $(document).ready(function() {
-	alert('page ready review');
 	//리뷰페이지 처음 될때.
 	//1. 회원ID로 회원의 사진 받아오기.
 	//loaduserinfo();

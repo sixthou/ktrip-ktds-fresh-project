@@ -14,8 +14,7 @@ table{ width:100%; border-top : 3px solid #111; border-bottom: 3px solid #111; p
 td{padding:10px}
 
 .pagination {
-  display: inline-block;
-  padding:20px;
+  padding: 20px;
 }
 
 .pagination a {

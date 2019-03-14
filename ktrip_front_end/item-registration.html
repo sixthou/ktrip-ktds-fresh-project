@@ -4,8 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>여행 상품 등록</title>
-
+  <title>Item Registration</title>
   <!-- jQuery and moment.js and rome.js-->
   <script src="./bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap -->
@@ -46,7 +45,7 @@
                       <a class="nav-link" href="./tourlist.html">tourlist</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="./contactus.html">contact</a>
+                      <a class="nav-link" href="./notice.html">contact</a>
                   </li>
                   <li class="nav-item"><div class="popup" onclick="user_popup()">
                       <img src="./img/user2.png" id="nav-user" alt="User">
@@ -56,7 +55,6 @@
           </div>
       </div>
   </nav>
-
   <!-- Page Header -->
   <header class="masthead header-block" id="item-registration-header-img">
       <div class="overlay"></div>
@@ -64,7 +62,7 @@
           <div class="row">
               <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="page-heading">
-                        <h1>여행 상품 등록</h1>
+                        <h1>ITEM REGISTRATION</h1>
                         <!--span class="subheading">자주 묻는 질문</span-->
                     </div>
               </div>
@@ -94,17 +92,14 @@
       </div>
       <div class="col-lg-8 col-md-10 mx-auto">
         <!-- Contact Form -->
-        <h5>가이드 상품 등록</h5>
         <form method="POST" action="/ktrip/itemServlet?actionMode=INS" name="form_item_reg" id="trip_item" novalidate="">
           <!--아이디 확인.-->
-  
           <div class="control-group">
             <h5 class=text-info>상품명</h5>
             <input type="text" class="form-control" placeholder="상품명" id="title" name="title" required
               data-validation-required-message="상품명을 입력해주세요." >
             <p class="help-block text-danger"></p>
           </div>
-  
           <div class="control-group">
             <h5 class=text-info>목적지</h5>
             <input type="text" class="form-control" placeholder="목적지" id="destination" name="destination" required
@@ -132,7 +127,6 @@
               data-validation-required-message="기간을 입력해주세요.">
             <p class="help-block text-danger"></p>
           </div>
-  
           <div class="control-group">
             <h5 class=text-info>가격(1인당)</h5>
             <input type="text" class="form-control" placeholder="가격(1인당)" id="price" name="price" required
@@ -159,19 +153,15 @@
             <textarea rows="5" class="form-control" placeholder="상품 소개" id="contents" name="contents" required
               data-validation-required-message="상품 소개를 입력해주세요."></textarea>
             <p class="help-block text-danger"></p>
-          </div>       
-  
+
+          </div>
           <div id="success"></div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary" id="signIn">REGISTER</button>
             <button type="button" class="btn btn-primary" id="cancel" onclick=" location.href='./guide_item_list.html' ">CANCEL</button>
           </div>
         </form>
-  
-  
-  
       </div>
-      <!--basic containge form-->
     </div>
   </div>
   <hr>
@@ -207,7 +197,6 @@
               </a>
               </li>
           </ul>
-  
           <p class="copyright text-muted">주소: 서울특별시 서초구 방배동 1001-1 대표 전화 : 02-523-7029 <br>
           <a href="./index.html#">KTrip</a>
           Copyright © <a href="https://www.ktds.com/index.jsp">KTds</a> All Rights Reserved.</p>

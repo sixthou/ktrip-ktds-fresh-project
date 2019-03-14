@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>가이드 등록</title>
-    
+
     <!-- jQuery and moment.js and rome.js-->
     <script src="./bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -49,7 +49,7 @@
                         <a class="nav-link" href="./tourlist.html">tourlist</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./contactus.html">contact</a>
+                        <a class="nav-link" href="./notice.html">contact</a>
                     </li>
                     <li class="nav-item"><div class="popup" onclick="user_popup()">
                         <img src="./img/user2.png" id="nav-user" alt="User">
@@ -67,7 +67,7 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                         <div class="page-heading">
-                            <h1>가이드 등록</h1>
+                            <h1>GUIDE REGISTRATION</h1>
                             <!--span class="subheading">자주 묻는 질문</span-->
                         </div>
                 </div>
@@ -111,52 +111,34 @@
                            id="second_lang" name="second_lang"
                            required data-validation-required-message="Please enter your Second Language.">
                     <p class="help-block text-danger"></p>
-
                 </div>
-
                 <div class="control-group">
                     <h5 class=text-info>STAY DURATION</h5>
                     <input type="text" class="form-control" placeholder="가이드 국가의 거주 기간을 입력해 주세요" id="stay_duration"
                            name="stay_duration"
                            required data-validatio65n-required-message="Please enter your Second Language.">
                     <p class="help-block text-danger"></p>
-
                 </div>
-
-
                 <div class="control-group">
                     <h5 class=text-info>GUIDE PORTFOLIO</h5>
                     <input type="file" id="portfolio" name="portfolio">
-
-                    <p class></p>
+                    <p class="help-block text-danger"></p>
                 </div>
-
                 <div class="control-group">
                     <h5 class=text-info>IDENTITY DOCUMENT</h5>
                     <input type="file" id="id_document" name="id_document">
-                    <p class></p>
+                    <p class="help-block text-danger"></p>
                 </div>
-
-                <div id="success"></div>
+                <br>
                 <div class="form-group">
-
-
-                    <button type="button" form="guideRegisterForm" class="btn btn-primary" id="signIn">REGISTER</button>
-                    <button type="button" class="btn btn-primary" id="cancel" onclick="location.href='./index.html' "> CANCEL </button>
-
-
-
+                <button type="button" form="guideRegisterForm" class="btn btn-primary" id="signIn">REGISTER</button>
+                <button type="button" class="btn btn-primary" id="cancel" onclick="location.href='./index.html' "> CANCEL </button>
                 </div>
-
             </form>
         </div>
     </div>
 </div>
-
 <hr>
-
-<!-- Footer -->
-
 <!-- Footer -->
 <footer>
         <div class="container">
@@ -188,7 +170,6 @@
                 </a>
                 </li>
             </ul>
-    
             <p class="copyright text-muted">주소: 서울특별시 서초구 방배동 1001-1 대표 전화 : 02-523-7029 <br>
             <a href="./index.html#">KTrip</a>
             Copyright © <a href="https://www.ktds.com/index.jsp">KTds</a> All Rights Reserved.</p>

@@ -32,12 +32,11 @@
   <script src="./js/common.js"></script>
   <script src="js/clean-blog.min.js"></script>
 </head>
-
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" id="nav-logo" alt="KTrip"></a>
+      <a class="navbar-brand" href="./index.html"><img src="./img/logo2.png" id="nav-logo" alt="KTrip"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -54,17 +53,21 @@
             <a class="nav-link" href="./tourlist.html">tourlist</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./contactus.html">contact</a>
+            <a class="nav-link" href="./notice.html">contact</a>
           </li>
-         <li class="nav-item"><div class="popup" onclick="user_popup()">
-           <img src="./img/user.png" id="nav-user" alt="User">
-           <span class="popuptext" id="myPopup">A Simple Popup!</span></div>
+         <li class="nav-item">
+           <div class="popup" onclick="user_popup()">
+             <img src="./img/user2.png" id="nav-user" alt="User">
+             <span class="popuptext" id="myPopup">
+               <a href="./mypage.html">MYPAGE</a>
+               <a href="./login.html">LOGIN</a>
+             </span>
+           </div>
          </li>
        </ul>
      </div>
     </div>
   </nav>
-
   <!-- Page Header -->
   <header class="masthead header-block" id="index-header-img">
     <div class="overlay"></div>
@@ -72,7 +75,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading" id="main-heading">
-            <img src="./img/logo.png" id="main-heading-logo" alt="KTrip">
+            <img src="./img/logo2.png" id="main-heading-logo" alt="KTrip">
             <span class="subheading"></span>
             <div class="form-group search-group">
               <label class="date-label" for="start-date">출발: </label>
@@ -82,7 +85,7 @@
               <label class="date-label" for="destination">목적지: </label>
               <input type="text" class="form-control destination-input" placeholder="목적지">
               <div>
-                  <button type="button" class="btn btn-primary btn-sm search-btn">검색하기</button>
+                  <button type="button" class="btn search-btn btn-md">&nbsp;검색하기&nbsp;</button>
               </div>
             </div>
           </div>
@@ -96,7 +99,7 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
-          <a href="./post.html">
+          <a href="./index.html">
             <h2 class="post-title">
               Service
             </h2>
@@ -115,7 +118,7 @@
             <div class="mt-5">
               <i class="fas fa-4x text-primary mb-4 service-contents"><img src="./img/Optimum.png" class="index-icon" /></i>
               <h3 class="h4 mb-2">Optimum</h3>
-              <p class="text-muted mb-0">원치않은 쇼핑과 바가지 구매 등 단체 여행 속 불쾌함 제거</p>
+              <p class="text-muted mb-0">원치않은 쇼핑과 바가지 <br>구매 등 단체 여행 속 불쾌함 제거</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center service-contents">
@@ -145,7 +148,6 @@
           <p class="post-meta">Posted by
             <a href="./index.html#">KTrip</a>
             on March 15, 2019</p>
-            
             <!-- modal portfolio -->
             <div class="modal fade" id="my-modal" role="dialog">
                 <div class="modal-dialog modal-lg">
@@ -192,7 +194,6 @@
                         <div class="row">
                           <div class="col-lg-8 col-md-10 mx-auto">
                             <ul class="list-inline text-center">
-                  
                               <li class="list-inline-item">
                                 <a href="./index.html#">
                                   <span class="fa-stack fa-lg">
@@ -233,9 +234,7 @@
       </div>
     </div>
   </div>
-
   <hr>
-
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -267,7 +266,6 @@
               </a>
             </li>
           </ul>
-
           <p class="copyright text-muted">주소: 서울특별시 서초구 방배동 1001-1 대표 전화 : 02-523-7029 <br>
           <a href="./index.html#">KTrip</a>
           Copyright © <a href="https://www.ktds.com/index.jsp">KTds</a> All Rights Reserved.</p>

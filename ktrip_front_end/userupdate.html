@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>회원 정보 변경</title>
+  <title>Edit profile</title>
   <!-- jQuery and moment.js and rome.js-->
   <script src="./bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap -->
@@ -49,7 +49,7 @@
                     <a class="nav-link" href="./tourlist.html">tourlist</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./contactus.html">contact</a>
+                    <a class="nav-link" href="./notice.html">contact</a>
                 </li>
                 <li class="nav-item"><div class="popup" onclick="user_popup()">
                     <img src="./img/user2.png" id="nav-user" alt="User">
@@ -59,7 +59,6 @@
         </div>
     </div>
   </nav>
-
   <!-- Page Header -->
   <header class="masthead header-block" id="user-update-header-img">
       <div class="overlay"></div>
@@ -67,14 +66,13 @@
           <div class="row">
               <div class="col-lg-8 col-md-10 mx-auto">
                       <div class="page-heading">
-                          <h1>회원 정보 변경</h1>
+                          <h1>EDIT PROFILE</h1>
                           <!--span class="subheading">자주 묻는 질문</span-->
                       </div>
               </div>
           </div>
       </div>
   </header>
-
 <!-- Main -->
   <div class="container">
     <div class="row">
@@ -100,83 +98,48 @@
           <hr>
       </div>
       <div class="col-lg-8 col-md-10 mx-auto">
-
         <form name="user_update" id="user_update" action="updateCheck" novalidate="" method="post">
           <div class="control-group">
               <h5 class=text-info>ID</h5>
-              <p><%=vo.getId()%></p>
+              <%=vo.getId()%>
+              <p class="help-block text-danger"></p>
           </div>
-
           <div class="control-group">
             <h5 class=text-info>PASSWORD</h5>
               <input type="Password" class="form-control" placeholder="비밀번호를 입력해 주세요" id="pwd" name="pwd" required="" data-validation-required-message="필수 항목입니다.">
               <p class="help-block text-danger"></p>
           </div>
-
           <div class="control-group">
             <h5 class=text-info>EMAIL</h5>
-              <p><%=vo.getEmail()%></p>
+              <%=vo.getEmail()%>
+              <p class="help-block text-danger"></p>
           </div>
-
           <div class="control-group">
               <h5 class=text-info>NAME</h5>
-              <p><%=vo.getName()%></p>
+              <%=vo.getName()%>
+              <p class="help-block text-danger"></p>
           </div>
-
           <div class="control-group">
                  <h5 class=text-info>GENDER</h5>
-                 <p><%=vo.getSex()%></p>
+                 <%=vo.getSex()%>
+                 <p class="help-block text-danger"></p>
              </div>
-
           <div class="control-group">
               <h5 class=text-info>PHONE</h5>
               <input type="text" class="form-control" placeholder="휴대폰 번호(-제외)를 입력해 주세요" id="phone_num" name="phone_num" required="" data-validation-required-message="필수 항목입니다.">
               <p class="help-block text-danger"></p>
           </div>
-
           <div class="control-group">
               <h5 class=text-info>COUNTRY</h5>
               <%=vo.getNational()%>
-              <p></p>
+              <p class="help-block text-danger"></p>
           </div>
-
-
           <div class="control-group">
               <h5 class=text-info>RESIDENTIAL COUNTRY</h5>
               <input type="text" class="form-control" placeholder="거주국가를 입력해 주세요" id="residential_country" name="residential_country" required="" data-validation-required-message="필수 항목입니다.">
               <p class="help-block text-danger"></p>
           </div>
-
           <input type="hidden" name="user_id" value=<%=id %>
-
-          <!--div class="row">
-              <div class="col-md-12">
-                  <form class="form-horizontal">
-                      <div class="form-group">
-                          <h5 class=text-info>COUNTRY</h5>
-                          <select class="form-control gds-cr gds-countryflag" country-data-region-id="nationaility" data-language="ko"></select>
-                      </div>
-                  </form>
-              </div>
-          </div>
-
-          <div class="row">
-              <div class="col-md-12">
-                  <form class="form-horizontal">
-                      <div class="form-group">
-                          <h5 class=text-info>RESIDENTIAL COUNTRY</h5>
-                          <select class="form-control gds-cr gds-countryflag" country-data-region-id="residential_country" data-language="ko"></select>
-
-                      </div>
-                      <div class="form-group">
-                          <h5 class=text-info>REGION</h5>
-                          <select class="form-control" id="residential_country"></select>
-                      </div>
-                  </form>
-              </div>
-          </div-->
-
-          <div id="success"></div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary" id="update">UPDATE</button>
             <button type="button" class="btn btn-primary" id="cancel" onclick="location.href='./index.html' "> CANCEL </button>
@@ -186,7 +149,6 @@
     </div>
   </div>
   <hr>
-
   <!-- Footer -->
   <footer>
       <div class="container">
@@ -218,7 +180,6 @@
               </a>
               </li>
           </ul>
-  
           <p class="copyright text-muted">주소: 서울특별시 서초구 방배동 1001-1 대표 전화 : 02-523-7029 <br>
           <a href="./index.html#">KTrip</a>
           Copyright © <a href="https://www.ktds.com/index.jsp">KTds</a> All Rights Reserved.</p>

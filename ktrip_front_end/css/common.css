@@ -35,3 +35,12 @@ td{padding:10px}
   color:white;
   background-color: #FFCD12;
 }
+
+.gender{
+  width:100%;
+  border:0px;
+}
+.gender td{
+  padding:0px 5px;
+  min-width: 100px;
+}

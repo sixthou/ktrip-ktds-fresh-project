@@ -103,6 +103,13 @@
     height: 150px;
 }
 
+.modal-body {
+	overflow-y: scroll;
+}
+
+#service-title {
+	margin-top: 0px;
+}
 
 @media only screen and (max-width: 992px) {
 

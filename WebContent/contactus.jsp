@@ -16,9 +16,9 @@
     <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
     <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link src="./index_files/css" rel="stylesheet" type="text/css">
-    <link src="./index_files/css(1)" rel="stylesheet" type="text/css">
-    <link src="./index_files/icon" rel="stylesheet">
+    <link href="./index_files/css" rel="stylesheet" type="text/css">
+    <link href="./index_files/css(1)" rel="stylesheet" type="text/css">
+    <link href="./index_files/icon" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="./css/clean-blog.min.css" rel="stylesheet">
     <!-- contactus.css -->

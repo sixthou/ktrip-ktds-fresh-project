@@ -20,9 +20,9 @@
 <!-- Custom fonts for this template -->
 <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
 	type="text/css">
-<link src="./index_files/css" rel="stylesheet" type="text/css">
-<link src="./index_files/css(1)" rel="stylesheet" type="text/css">
-<link src="./index_files/icon" rel="stylesheet">
+<link href="./index_files/css" rel="stylesheet" type="text/css">
+<link href="./index_files/css(1)" rel="stylesheet" type="text/css">
+<link href="./index_files/icon" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <link href="./css/clean-blog.min.css" rel="stylesheet">
@@ -79,7 +79,7 @@
 						<div class="navbar-collapse collapse show" id="navbarResponsive">
 							<ul class="navbar-nav mr-auto">
 								<li class="nav-item"><a class="nav-link"
-									href="./userinfo2.jsp">마이페이지</a></li>
+									href="./mypage.jsp">마이페이지</a></li>
 								<li class="nav-item"><a class="nav-link"
 									href="./userupdate.jsp">회원정보변경</a></li>
 								<li class="nav-item"><a class="nav-link"
@@ -130,11 +130,13 @@
 					<div class="control-group">
 						<h5 class=text-info>GUIDE PORTFOLIO</h5>
 						<input type="file" id="portfolio" name="portfolio">
+						<p class="help-block text-danger"></p>
 					</div>
 
 					<div class="control-group">
 						<h5 class=text-info>IDENTITY DOCUMENT</h5>
 						<input type="file" id="id_document" name="id_document">
+						<p class="help-block text-danger"></p>
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary">REGISTER</button>

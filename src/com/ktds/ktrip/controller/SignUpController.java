@@ -66,13 +66,10 @@ public class SignUpController extends HttpServlet {
 		int cheackvalue = dao.insertUser(vo,picturePath);
 
 		if (cheackvalue == -1) {
-			//request.setAttribute("success", "false");
-			HttpSession session = request.getSession();
-			session.setAttribute("success", "false");
-			response.sendRedirect("/ktrip/login2.jsp");
+			response.sendRedirect("/ktrip/signup-fail-action.jsp");
 		}else {
 			request.setAttribute("success", "true");
-			response.sendRedirect("/ktrip/login2.jsp");
+			response.sendRedirect("/ktrip/login.jsp");
 		}
 	}
 }

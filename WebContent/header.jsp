@@ -31,7 +31,17 @@
                     </li>
                     <li class="nav-item"><div class="popup" onclick="user_popup()">
                         <img src="./img/user2.png" id="nav-user" alt="User">
-                        <span class="popuptext" id="myPopup">A Simple Popup!</span></div>
+                        <%if(session.getAttribute("user_id")==null){ %>
+                        <span class="popuptext" id="myPopup"><a href="login.jsp">Login</a>
+                        <br>
+                        <%}else{ %>
+                        <span class="popuptext" id="myPopup"><a href="mypage.jsp">MyPage</a>
+                        <br>
+                        <a href="guide-register.jsp">GuideRegister</a>
+                        <a href="logout-action.jsp">LogOut</a></span>
+                        </span>
+                        <%} %>
+                        </div>
                     </li>
                 </ul>
             </div>

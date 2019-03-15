@@ -69,7 +69,7 @@
 								<li class="nav-item"><a class="nav-link"
 									href="./userupdate.jsp">회원정보변경</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="./guideRegister.jsp">가이드 등록</a></li>
+									href="./guide-register.jsp">가이드 등록</a></li>
 							</ul>
 						</div>
 					</div>

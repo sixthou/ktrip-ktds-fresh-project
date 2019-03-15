@@ -49,7 +49,7 @@ public class LoginController extends HttpServlet {
 
 		if (vo == null) {
 			request.setAttribute("success", "false");
-			response.sendRedirect("/ktrip/loginFail.jsp");
+			response.sendRedirect("/ktrip/login-fail.jsp");
 		} else if (vo.getType() == 1) {
 			session.setAttribute("user_id", vo.getNum_id());
 			request.setAttribute("success", "true");

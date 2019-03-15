@@ -68,7 +68,6 @@
                 $('#price').val(jss.price);
                 $('#concept').val(jss.concept);
                 $('#thumbnail').val(jss.thumbnail);
-                $('#thumbnail').val(jss.thumbnail);
                 $('#item_form').attr("action","/ktrip/itemServlet?actionMode=UPDATE&item_id="+item_id);
                 console.log("/ktrip/itemServlet?actionMode=UPDATE&item_id="+item_id);
                 //**//alert(jss로드성공);
@@ -110,7 +109,7 @@
 						<div class="navbar-collapse collapse show" id="navbarResponsive">
 							<ul class="navbar-nav mr-auto">
 								<li class="nav-item"><a class="nav-link"
-									href="./guide.jsp">등록한 여행</a></li>
+									href="./itemServlet?actionMode=LIST">등록한 여행</a></li>
 								<li class="nav-item"><a class="nav-link"
 									href="./item-registration.jsp">여행 상품 등록</a></li>
 							</ul>

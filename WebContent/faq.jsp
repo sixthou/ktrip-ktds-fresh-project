@@ -38,7 +38,6 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
 					<div class="page-heading">
 					    <h1>FAQ</h1>
-					    <!--span class="subheading">자주 묻는 질문</span-->
 					</div>
                 </div>
             </div>
@@ -56,7 +55,7 @@
                                     <a class="nav-link" href="./notice.jsp">공지사항</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./faq.jsp">자주묻는 질문</a>
+                                    <a class="nav-link" href="./faq.jsp">자주 묻는 질문</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="./contactus.jsp">문의하기</a>

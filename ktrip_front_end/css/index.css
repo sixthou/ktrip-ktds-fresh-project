@@ -90,6 +90,10 @@
     max-width: 49%;
 }
 
+#service-h2 {
+    margin-top: 0px; 
+}
+
 #portfolio-heading{
     padding: 80px 0;
 }

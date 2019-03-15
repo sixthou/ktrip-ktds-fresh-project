@@ -20,9 +20,9 @@
 <!-- Custom fonts for this template -->
 <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
 	type="text/css">
-<link href="./index_files/css" rel="stylesheet" type="text/css">
-<link href="./index_files/css(1)" rel="stylesheet" type="text/css">
-<link href="./index_files/icon" rel="stylesheet">
+<link src="./index_files/css" rel="stylesheet" type="text/css">
+<link src="./index_files/css(1)" rel="stylesheet" type="text/css">
+<link src="./index_files/icon" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <link href="./css/clean-blog.min.css" rel="stylesheet">
@@ -83,7 +83,7 @@
 								<li class="nav-item"><a class="nav-link"
 									href="./userupdate.jsp">회원정보변경</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="./guideRegister.jsp">가이드 등록</a></li>
+									href="./guide-register.jsp">가이드 등록</a></li>
 							</ul>
 						</div>
 					</div>

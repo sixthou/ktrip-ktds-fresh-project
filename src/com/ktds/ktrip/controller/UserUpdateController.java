@@ -35,7 +35,7 @@ public class UserUpdateController extends HttpServlet{
 		
 		dao.updateUser(id,pwd,phone_num,residential_country);
 		
-		resp.sendRedirect("/ktrip/userinfo2.jsp");
+		resp.sendRedirect("/ktrip/mypage.jsp");
 	}
 
 }

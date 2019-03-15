@@ -6,15 +6,45 @@ var total_pagenumber = 0;//총 페이지 카운트.
 
 $(document).ready(function() {
     
-    //1.상품id로 상품의 이미지, 제목, 본문, 가이드 사진, 가이드이름, 상품의 리뷰 가져오기.
+    //1.받아온 상품id로 상품의 이미지, 제목, 본문, 가이드 사진, 가이드이름, 상품의 리뷰 가져오기.
     //loadproductinfo();
     
-    //쿼리 로우 개수를 받아서 하단 페이징 바 계산.
-    loadpagecount();
-    
-    //2019.03.11 처음에 로드되는 탭이 신청탭이기 때문에 보여주지 않는다.
-    // $('.pagination').hide();
+    //상품 개수로 하단 페이징 바 계산.
+    //loadpagecount();
 });
+
+//상품ID, 출발일자, 도착일자, 콘텐츠 전달.
+function applyProduct(){
+	$.ajax({
+        type : "POST",
+        url : "./ApplyItem",
+        data : {pagingnumber:encodeURIComponent(ProductID)},
+        success : function(result) {
+            
+            var object = eval('(' + result + ')');
+            var result2 = object.result;
+            
+            if(result2.length != 0){
+                var product2='';
+                    product2+='<table id="datatable" class="display" style="width:100%"><thead><tr><th>리뷰번호</th><th>회원번호</th><th>점수</th><th>본문</th></tr></thead><tbody>';
+                
+                for (var i = 0; i < result2.length; ++i) {
+                    product2+='<tr>';
+                    for (var j = 0; j < result2[i].length; ++j) {
+                        product2+= '<td>';
+                        product2+= result2[i][j].value;
+                        product2+= '</td>';
+                    }
+                    product2+='</tr>';
+                }
+                product2+='</tbody></table>';
+                $('#tab2').html(product2)
+            }else{
+                $('#tab2').html("리뷰가 없습니다.");
+            }
+        }
+    });
+}
 
 function loadproductinfo(){
     
@@ -52,6 +82,9 @@ function loadproductinfo(){
 }
 
 function loadpagecount(){
+	
+	$('.pagination').html('');//페이지 네이션 초기화.
+	
     $.ajax({
         type : "POST",
         url : "./ReviewPagingServlet",

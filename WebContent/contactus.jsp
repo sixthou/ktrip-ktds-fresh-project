@@ -56,7 +56,7 @@
                                     <a class="nav-link" href="./notice.jsp">공지사항</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./faq.jsp">자주 묻는 질문</a>
+                                    <a class="nav-link" href="./faq.jsp">자주묻는 질문</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="./contactus.jsp">문의하기</a>

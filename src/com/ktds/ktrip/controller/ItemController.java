@@ -43,13 +43,14 @@ public class ItemController extends HttpServlet {
 		String actionMode = request.getParameter("actionMode");
 
 		if (actionMode.equals(null)) {
-			response.sendRedirect("/ktrip/itemServlet?actionMode=LIST");
+			int guide_id = (int)session.getAttribute("guide_id");
+			response.sendRedirect("/ktrip/itemServlet?actionMode=LIST&user_id=" + guide_id);
 
 		} else if (actionMode.equals("INS")) {
 			// item을 추가한 경우
 
 			ItemVO item = new ItemVO();
-
+			int guide_id = (int) session.getAttribute("guide_id");
 			item.setTitle(request.getParameter("title"));
 			item.setConcept(request.getParameter("concept"));
 			item.setContents(request.getParameter("contents"));
@@ -65,9 +66,10 @@ public class ItemController extends HttpServlet {
 			ItemDAO idao = new ItemDAO();
 			idao.addProduct(item);
 
-			RequestDispatcher rd = request.getRequestDispatcher("/itemServlet?actionMode=LIST");
-			rd.forward(request, response);
-
+			// RequestDispatcher rd =
+			// request.getRequestDispatcher("/itemServlet?actionMode=LIST");
+			// rd.forward(request, response);
+			response.sendRedirect("/ktrip/itemServlet?actionMode=LIST&user_id=" + guide_id);
 		} else if (actionMode.equals("UPDATE")) {
 			// item을 수정한 경우 fin
 
@@ -76,7 +78,6 @@ public class ItemController extends HttpServlet {
 			ItemDAO idao = new ItemDAO();
 
 			int guide_id = (int) session.getAttribute("guide_id");
-
 			item.setItem_id(Integer.parseInt(request.getParameter("item_id")));
 			item.setTitle(request.getParameter("title"));
 			item.setConcept(request.getParameter("concept"));
@@ -86,11 +87,9 @@ public class ItemController extends HttpServlet {
 			item.setNum_min(Integer.parseInt(request.getParameter("num_min")));
 			item.setPrice(Integer.parseInt(request.getParameter("price")));
 			item.setThumbnail(request.getParameter("thumbnail"));
-
+			
 			idao.updateItem(item, guide_id);
-
-			RequestDispatcher rd = request.getRequestDispatcher("/itemServlet?actionMode=LIST");
-			rd.forward(request, response);
+			response.sendRedirect("/ktrip/itemServlet?actionMode=LIST&user_id=" + guide_id);
 
 		} else if (actionMode.equals("DEL")) {
 			// 기존의 내용을 삭제한경우 Del fin
@@ -118,15 +117,14 @@ public class ItemController extends HttpServlet {
 			int item_status = Integer.parseInt(request.getParameter("item_status"));
 			int item_id = Integer.parseInt(request.getParameter("item_id"));
 			idao.changeStatus(user_id, item_status, apply_id);
-			// int guide_id = (int) session.getAttribute("guide_id");
-
-			RequestDispatcher rd = request.getRequestDispatcher("/itemServlet?actionMode=SELECT");
-			rd.forward(request, response);
-		} else if (actionMode.equals("SELECT")) {
+			int guide_id = (int) session.getAttribute("guide_id");
 			
+			response.sendRedirect("/ktrip/itemServlet?actionMode=SELECT&user_id=" + guide_id);
+			
+		} else if (actionMode.equals("SELECT")) {
+
 			// 상품을 선택했을 경우 fin
 			System.out.println("호출받음>>>");
-			ItemVO item = new ItemVO();
 
 			ItemDAO idao = new ItemDAO();
 			List<ApplyVO> applyList = new ArrayList<ApplyVO>();
@@ -135,7 +133,7 @@ public class ItemController extends HttpServlet {
 			// list = idao.showAll(user_id);
 			System.out.println("item_ID>>>" + item_id);
 
-			item = idao.showSelect(item_id, guide_id);
+			ItemVO item = idao.showSelect(item_id, guide_id);
 			applyList = idao.showApply(item_id);
 
 			request.setAttribute("applyList", applyList);
@@ -148,7 +146,8 @@ public class ItemController extends HttpServlet {
 			System.out.println("SEL>>>" + item.getNum_min());
 			System.out.println("SEL>>" + item.getPrice());
 			System.out.println("SEL>>>" + item.getNum_max());
-			RequestDispatcher rd = request.getRequestDispatcher("/guide_popup.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/guide_data.jsp");
+			// response.sendRedirect("/guide_data.jsp");
 			rd.forward(request, response);
 			// 현재 페이지가 받은 데이터를 다음페이지로 넘겨준다.
 
@@ -165,9 +164,8 @@ public class ItemController extends HttpServlet {
 				System.out.println("LIST>>>" + list.get(i).getTitle());
 				System.out.println("LIST>>>" + list.get(i).getDuration());
 			}
-			RequestDispatcher rd = request.getRequestDispatcher("/guide_item_list.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/guide.jsp");
 			rd.forward(request, response);
-
 		}
 
 	}

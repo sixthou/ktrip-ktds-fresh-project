@@ -79,7 +79,7 @@
 						<div class="navbar-collapse collapse show" id="navbarResponsive">
 							<ul class="navbar-nav mr-auto">
 								<li class="nav-item"><a class="nav-link"
-									href="./userinfo2.jsp">마이페이지</a></li>
+									href="./mypage.jsp">마이페이지</a></li>
 								<li class="nav-item"><a class="nav-link"
 									href="./userupdate.jsp">회원정보변경</a></li>
 								<li class="nav-item"><a class="nav-link"

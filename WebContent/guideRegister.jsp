@@ -130,11 +130,13 @@
 					<div class="control-group">
 						<h5 class=text-info>GUIDE PORTFOLIO</h5>
 						<input type="file" id="portfolio" name="portfolio">
+						<p class="help-block text-danger"></p>
 					</div>
 
 					<div class="control-group">
 						<h5 class=text-info>IDENTITY DOCUMENT</h5>
 						<input type="file" id="id_document" name="id_document">
+						<p class="help-block text-danger"></p>
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary">REGISTER</button>

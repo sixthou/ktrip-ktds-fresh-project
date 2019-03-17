@@ -22,6 +22,7 @@
 		}
 
 %>
+
 {
 "title":"<%=vo.getTitle() %>",
 "num_min":"<%=vo.getNum_min() %>",

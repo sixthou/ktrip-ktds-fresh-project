@@ -1,6 +1,7 @@
 package com.ktds.ktrip.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+import com.ktds.ktrip.dao.ItemDAO;
 import com.ktds.ktrip.domain.ApplyVO;
 import com.ktds.ktrip.domain.ItemVO;
+import com.ktds.ktrip.domain.guideDataVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.ktds.ktrip.dao.ItemDAO;
 
 //Leeyong coding guide_item list & CRUD
 
@@ -159,8 +162,8 @@ public class ItemController extends HttpServlet {
 			ItemVO item = idao.showSelect(item_id, guide_id);
 			applyList = idao.showApply(item_id);
 
-			request.setAttribute("applyList", applyList);
-			request.setAttribute("item", item);
+			//request.setAttribute("applyList", applyList);
+			//request.setAttribute("item", item);
 			for (int i = 0; i < applyList.size(); i++) {
 				System.out.println("SEL>>>" + applyList.get(i).getName());
 				System.out.println("SEL>>>" + applyList.get(i).getStatusToString());
@@ -169,9 +172,24 @@ public class ItemController extends HttpServlet {
 			System.out.println("SEL>>>" + item.getNum_min());
 			System.out.println("SEL>>" + item.getPrice());
 			System.out.println("SEL>>>" + item.getNum_max());
-			RequestDispatcher rd = request.getRequestDispatcher("/guide_data.jsp");
-			// response.sendRedirect("/guide_data.jsp");
-			rd.forward(request, response);
+			
+			response.setCharacterEncoding("utf-8");
+	        response.setContentType("application/json");
+		
+	        guideDataVO jsonData = new guideDataVO();
+	        jsonData.setApplyList(applyList);
+	        jsonData.setItem(item);
+	        
+	        Gson gson = new Gson();
+            String jsonList = gson.toJson(jsonData);
+            PrintWriter out = response.getWriter();
+            out.write(jsonList);
+            out.flush();
+            out.close();
+            
+			//RequestDispatcher rd = request.getRequestDispatcher("/guide_data.jsp");
+			//response.sendRedirect("/guide_data.jsp");
+			//rd.forward(request, response);
 			// 현재 페이지가 받은 데이터를 다음페이지로 넘겨준다.
 
 		} else if (actionMode.equals("LIST")) {

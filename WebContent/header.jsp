@@ -21,7 +21,7 @@
                         <a class="nav-link" href="./index.jsp">service</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./guide.jsp">guide</a>
+                        <a class="nav-link" href="./itemServlet?actionMode=LIST">guide</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./tourlist.jsp">tourlist</a>

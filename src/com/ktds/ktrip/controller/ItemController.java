@@ -134,46 +134,52 @@ public class ItemController extends HttpServlet {
 			rd.forward(request, response);
 
 		} else if (actionMode.equals("STATCHANGE")) {
-			// 완
+			System.out.println("STATCHANGE>>>");	
+			
 			ItemDAO idao = new ItemDAO();
 			ItemVO item = new ItemVO();
 
 			int apply_id = Integer.parseInt(request.getParameter("apply_id"));
 			//int user_id = Integer.parseInt(request.getParameter("user_id"));// 신청자id
 			int item_status = Integer.parseInt(request.getParameter("item_status"));
+			int item_id = Integer.parseInt(request.getParameter("item_id"));
+			System.out.println("item상태>>>" + item_status);
+	
 			//int item_id = Integer.parseInt(request.getParameter("item_id"));
 			idao.changeStatus(item_status, apply_id);
 			int guide_id = (int) session.getAttribute("guide_id");
 			//세션으로 가이드아이디 받음
 			
-			response.sendRedirect("/ktrip/itemServlet?actionMode=SELECT&user_id=" + guide_id);
-
+			response.sendRedirect("/ktrip/itemServlet?actionMode=SELECT&user_id=" + guide_id +"&item_id=" + item_id);
+			//response.sendRedirect("/ktrip/guide.jsp&user_id=" + guide_id +"&item_id=" + item_id);
 		} else if (actionMode.equals("SELECT")) {
 
 			// 상품을 선택했을 경우 fin
-			System.out.println("호출받음>>>");
+			System.out.println("SELECT 호출받음>>>");
 
 			ItemDAO idao = new ItemDAO();
 			List<ApplyVO> applyList = new ArrayList<ApplyVO>();
 			int guide_id = (int) session.getAttribute("guide_id");// (request.getParameter("user_id"));
 			int item_id = Integer.parseInt(request.getParameter("item_id"));
 			// list = idao.showAll(user_id);
-			System.out.println("item_ID>>>" + item_id);
+			System.out.println("SELECT item_ID & guide_id>>>" + item_id + "," + guide_id);
 
 			ItemVO item = idao.showSelect(item_id, guide_id);
+			item.setThumbnail(item.getThumbnail().replace("\\", "/"));
+			System.out.println("★>>>>"+item.getThumbnail());
+			
 			applyList = idao.showApply(item_id);
 
 			//request.setAttribute("applyList", applyList);
 			//request.setAttribute("item", item);
-			for (int i = 0; i < applyList.size(); i++) {
-				System.out.println("SEL>>>" + applyList.get(i).getName());
-				System.out.println("SEL>>>" + applyList.get(i).getStatusToString());
-			}
-			System.out.println("SEL>>>" + item.getTitle());
-			System.out.println("SEL>>>" + item.getNum_min());
-			System.out.println("SEL>>" + item.getPrice());
-			System.out.println("SEL>>>" + item.getNum_max());
-			
+			/*
+			 * for (int i = 0; i < applyList.size(); i++) { System.out.println("SEL>>>" +
+			 * applyList.get(i).getName()); System.out.println("SEL>>>" +
+			 * applyList.get(i).getStatusToString()); } System.out.println("SEL>>>" +
+			 * item.getTitle()); System.out.println("SEL>>>" + item.getNum_min());
+			 * System.out.println("SEL>>" + item.getPrice()); System.out.println("SEL>>>" +
+			 * item.getNum_max());
+			 */	
 			response.setCharacterEncoding("utf-8");
 	        response.setContentType("application/json");
 		

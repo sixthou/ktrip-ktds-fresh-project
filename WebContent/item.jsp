@@ -64,8 +64,6 @@
        var end_date = $('#end-date').val();
        var contact_content = $('#contact_content').val();
        
-       alert('applyItem: ');
-       
        $.ajax({
             type : "POST",
             url : "./insertApply",
@@ -106,7 +104,7 @@
                         
                        $('#item-img').attr('src', result2[i][0].value);//상품 사진.
                        $('#item-title').text(result2[i][1].value);//상품 제목.
-                       $('#item-concept').text(result2[i][2].value);//상품 컨셉.
+                       $('#item-concept').text('[' + result2[i][2].value + ']');//상품 컨셉.
                        $('#item-main').text(result2[i][3].value);//상품 본문.
                        $('#guide-img').attr('src', result2[i][4].value);//가이드 사진.
                        $('#guide-comment').text(result2[i][5].value);//가이드 소개.
@@ -127,8 +125,6 @@
        var item_id = '<%=productID%>';
        $('.pagination').html('');//페이지 네이션 초기화.
        
-       alert('loadcount! :' + item_id);
-       
         $.ajax({
             type : "GET",
             url : "./viewReview",
@@ -136,11 +132,8 @@
             },
             success : function(result) {
                 
-            	alert(result);
                 var object = eval('(' + result + ')');
                 var result2 = object.result;
-                
-                alert(result2.length);
                 
                 if(result2.length != 0){
                     
@@ -205,8 +198,6 @@
        
        var item_id = '<%=productID%>';
        
-       alert('loadtable! :' + item_id);
-       
         $.ajax({
             type : "POST",
             url : "./viewReview",
@@ -214,24 +205,25 @@
             	pagingnumber:active_pagenumber
                },
             success : function(result) {
-            	alert(result);
+            	
                 var object = eval('(' + result + ')');
                 var result2 = object.result;
-                alert(result2.length);
                 
                 if(result2.length != 0){
                    var product2='';
                    
                    //제목, 본문, 게시시간, 회원번호.
                    for (var i = 0; i < result2.length; ++i) {
-                       prouct2='<div class="card mb-4"><div class="card-body"><br>';
-                       product2='<h2 class="card-title">' + result2[i][0].value + '</h2>';
-                       product2='<p class="card-text">' + result2[i][1].value + '</p></div>';
-                       product2='<div class="card-footer text-muted">Posted on ' + result2[i][2].value + ' by '+ result2[i][3].value + '</div>';
-                       product2='</div>';
+                	   
+                	   product2+='<div class="card mb-4"><div class="card-body"><br>';
+                       product2+='<h2 class="card-title">' + result2[i][0].value + '</h2>';
+                       product2+='<p class="card-text">' + result2[i][1].value + '</p></div>';
+                       product2+='<div class="card-footer text-muted">Posted on ' + result2[i][2].value + ' by '+ result2[i][3].value + '</div>';
+                       product2+='</div>';
+                       
                     }
                    	
-                    $('.insert_product').html(product2)
+                    $('.insert_product').html(product2);
                 }else{
                     $('.insert_product').html("리뷰가 없습니다.");
                 }
@@ -425,7 +417,7 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
                 <h1 class="my-4" id="item-title">14박 15일 프랑스 여행
-                    <small id="item-concept">[식도락]</small>
+                    <h3 id="item-concept">[식도락]</h3>
                 </h1>
         
                 <!-- Blog Post -->
@@ -469,9 +461,7 @@
             </div>
             <div class="col-md-10 mx-auto">
                 <h2 class="post-title">여행 리뷰</h2>
-                <div class="insert_product">
-                   
-                </div>
+                <div class="insert_product"></div>
                 
                 <!-- pagination -->
              <div class="pagination-wrap justify-content-center">

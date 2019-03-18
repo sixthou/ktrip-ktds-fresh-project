@@ -26,12 +26,6 @@ $(function(){
     })
 })
 
-$(function() {
-    for (var i = 0; i < 100; i++) {
-        $('.modal-body').append(i + '<br>');
-    }
-});
-
 // Popup 
 function myFunction() {
     var popup = document.getElementById("myPopup");
@@ -78,5 +72,5 @@ function search_item(){
 	var end_date = $('#end-date').val();
 	var destination = $('#destination').val();
 	
-	location.href = 'tourlist.jsp?start-date='+start_date+'?end-date='+end_date+'?destination='+destination;
+	location.href = 'tourlist.jsp?start-date='+start_date+'&end-date='+end_date+'&destination='+destination;
 }

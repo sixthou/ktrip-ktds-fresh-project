@@ -43,7 +43,6 @@
 <link rel="stylesheet" type="text/css" href="DataTables/datatables.css"/>
 <script type="text/javascript" src="DataTables/datatables.js"></script>
 
-
 <style>
 	#item_list_filter{
 		display: none 

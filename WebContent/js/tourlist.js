@@ -41,7 +41,6 @@ var active_pagenumber = 1;//현재 페이지 카운트.
     
    //Search Button 클릭했을 경우.
    function SearchProduct(){
-	   alert("searchproduct");
       loadpagecount();//쿼리 로우 개수를 받아서 하단 페이징 바 계산.
    }
    
@@ -61,6 +60,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                },
          success : function(result) {
             
+        	  
               var object = eval('(' + result + ')');
               var result2 = object.result;
               
@@ -144,7 +144,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
             //var v1 = result[0]   v1==JSON
             //result[i]['reviewid']  ===> 1
             //result[i]['score']  ===> 10
-   
+        	
             var object = eval('(' + result + ')');
               var result2 = object.result;
             
@@ -152,7 +152,6 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                var product='';
                
                for (var i = 0; i < result2.length; ++i) {
-                  
             	   product+='<div class="col-lg-3 col-md-6 text-center service-contents"><div class="mt-5">';
                    product+='<img src="'+ result2[i][2].value +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100" onclick="openPopupApply(' + result2[i][0].value +');"/">';
                    product+='<h3 class="h4 mb-2">' + result2[i][3].value + '</h3>';

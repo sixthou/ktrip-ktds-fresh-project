@@ -3,8 +3,8 @@
 }
 
 #tourlist-heading {
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 180px;
+    padding-bottom: 130px;
 }
 
 .search-group {
@@ -12,15 +12,23 @@
 }
 
 .date-input {
-    width: 20%;
+    width: 30%;
     display: inline-block;
     text-align: center;
+    font-size:1.2rem;
+    vertical-align: middle;
+    color:#212529;
+    margin:10px 0;
 }
 
 .destination-input {
-    width: 185px;
+    width: 30%;
     display: inline-block;
     text-align: center;
+    font-size:1.2rem;
+    vertical-align: middle;
+    color:#212529;
+    margin: 10px 0;
 }
 
 .date-colon {
@@ -35,8 +43,9 @@
 }
 
 .search-btn {
-    margin-top: 20px;
-    border-radius: 40px;
+    margin-top: 40px;
+    border-radius: 20px;
+    font-size:18px;
 }
 
 .search-date {
@@ -65,7 +74,7 @@
 #item-review-title.title{display:block; font-size:15px; margin-left:30px;}
 #item-content.content{display:block; min-height:300px; font-size:15px; margin:30px}
 
-/* 주원이 정의한 css */ 
+/* 주원이 정의한 css */
 .insert-item {
     text-align: center;
     align-content: center;
@@ -74,7 +83,7 @@
 .item-box {
 	border: 1px solid #000;
 	text-align: center;
-	float: left; 
+	float: left;
 	width: 30%;
     padding: 5px;
     margin: 10px;

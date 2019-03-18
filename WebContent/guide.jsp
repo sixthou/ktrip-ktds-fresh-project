@@ -110,7 +110,7 @@
 			<div class="row">
 				<div class="col-lg-8 col-md-10 mx-auto">
 					<div class="page-heading">
-						<h1>가이드</h1>
+						<h1>GUIDE</h1>
 						<!--span class="subheading">자주 묻는 질문</span-->
 					</div>
 				</div>
@@ -138,8 +138,6 @@
 			</div>
 			<div class="col-lg-8 col-md-10 mx-auto">
 				<!-- Contact Form -->
-				<h5>등록한 여행</h5>
-				<br>
 				<table id="item_list" class="table table-responsive{-sm|-md|-lg|-xl}">
 					<thead class="thead-light">
 						<tr>

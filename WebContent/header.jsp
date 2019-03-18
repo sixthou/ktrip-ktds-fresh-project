@@ -20,25 +20,29 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./index.jsp">service</a>
                     </li>
+					<%if(session.getAttribute("guide_id")!=null){ %>                               		
                     <li class="nav-item">
                         <a class="nav-link" href="./itemServlet?actionMode=LIST">guide</a>
                     </li>
+                    <%} %>
                     <li class="nav-item">
-                        <a class="nav-link" href="./tourlist.jsp">tourlist</a>
+                        <a class="nav-link" href="./tourlist.jsp">tourist</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./contactus.jsp">contact</a>
+                        <a class="nav-link" href="./notice.jsp">contact</a>
                     </li>
-                    <li class="nav-item"><div class="popup" onclick="user_popup()">
+                    <li class="nav-item">
+                        <div class="popup" onclick="user_popup()">
                         <img src="./img/user2.png" id="nav-user" alt="User">
                         <%if(session.getAttribute("user_id")==null){ %>
-                        <span class="popuptext" id="myPopup"><a href="login.jsp">Login</a>
-                        <br>
+                        <span class="popuptext" id="myPopup"><a class="header-link" href="login.jsp">LOGIN</a>
                         <%}else{ %>
-                        <span class="popuptext" id="myPopup"><a href="mypage.jsp">MyPage</a>
-                        <br>
-                        <a href="guide-register.jsp">GuideRegister</a>
-                        <a href="logout-action.jsp">LogOut</a></span>
+                        <span class="popuptext" id="myPopup">
+                        <a class="header-link" href="mypage.jsp">MY PAGE</a>
+                        <hr>
+                        <a class="header-link" href="guide-register.jsp">GUIDE REGISTERATION</a>
+                        <hr>
+                        <a class="header-link" href="logout-action.jsp">LOGOUT</a></span>
                         </span>
                         <%} %>
                         </div>

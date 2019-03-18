@@ -68,7 +68,7 @@
   <!-- Main Content -->
   <div class="container scroll">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="col-lg-9 col-md-10 mx-auto">
         <div class="post-preview">
           <a href="./index.jsp">
             <h2 class="post-title" style="margin-top: 10px">
@@ -89,7 +89,7 @@
             <div class="mt-5" style="margin-top: 10px!important">
               <i class="fas fa-4x text-primary mb-4 service-contents"><img src="./img/Optimum.png" class="index-icon" /></i>
               <h3 class="h3 mb-2">Optimum</h3>
-              <p class="text-muted mb-3">원치않은 쇼핑과 바가지 <br>구매 등 단체 여행 속 불쾌함 제거</p>
+              <p class="text-muted mb-3">원치않은 쇼핑과 바가지 구매 등 단체 여행 속 불쾌함 제거</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center service-contents">
@@ -111,13 +111,24 @@
       </div>
     </div>
   </div>
-
+  
+  <!-- Main Content -->
   <div class="container scroll">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <hr>
+      <div class="col-lg-9 col-md-10 mx-auto">
+        <div class="post-preview">
+          <a href="./index.jsp">
+            <h2 class="post-title" style="margin-top: 10px">
+              Business Model
+            </h2>
+            <h3 class="post-subtitle">
+   
+            </h3>
+          </a>
+          <img class="img-fluid" src="./img/business-model.png">
+          <br><br>
+        </div>
       </div>
-      <hr>
     </div>
   </div>
 

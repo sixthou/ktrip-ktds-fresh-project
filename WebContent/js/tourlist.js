@@ -41,6 +41,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
     
    //Search Button 클릭했을 경우.
    function SearchProduct(){
+	   alert("searchproduct");
       loadpagecount();//쿼리 로우 개수를 받아서 하단 페이징 바 계산.
    }
    

@@ -83,11 +83,6 @@
 				</div>
 				<p></p>
 				<div class="control-group">
-					<h5 class=text-info>PASSWORD</h5>
-					<%=vo.getPwd()%>
-					<p class="help-block text-danger"></p>
-				</div>
-				<div class="control-group">
 					<h5 class=text-info>EMAIL</h5>
 					<%=vo.getEmail()%>
 					<p class="help-block text-danger"></p>

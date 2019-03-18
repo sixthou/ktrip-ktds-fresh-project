@@ -1,11 +1,12 @@
 #nav-logo {
-    width: 80px;
-    height: 30px;
+    width: 105px;
+    height: 35px;
 }
 
 #nav-user {
-    width: 40px;
-    height: 35px;
+    margin:0px 10px;
+    width: 35px;
+    height: 30px;
 }
 
 table{ width:100%; border-top : 3px solid #111; border-bottom: 3px solid #111; padding:20px}
@@ -43,3 +44,14 @@ td{padding:10px}
   padding:0px 5px;
   min-width: 100px;
 }
+
+.header-link{
+    color:#fff;
+    font-size: 15px;
+    letter-spacing:0.5px;
+}
+
+.header-link:hover{
+    color:#FFCD12;
+}
+

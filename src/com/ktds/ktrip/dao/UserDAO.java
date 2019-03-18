@@ -3,9 +3,11 @@ package com.ktds.ktrip.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import com.ktds.ktrip.domain.UserVO;
 import com.ktds.ktrip.jdbc.DBCon;
+import com.ktds.ktrip.util.SHA256;
 
 
 
@@ -56,7 +58,7 @@ public class UserDAO {
 			pstmt = conn.prepareStatement(insertSql);
 
 			pstmt.setString(1, vo.getId());
-			pstmt.setString(2, vo.getPwd());
+			pstmt.setString(2, SHA256.getSHA256(vo.getPwd()));
 			pstmt.setString(3, vo.getName());
 			pstmt.setString(4, vo.getPhone_num());
 			pstmt.setString(5, vo.getEmail());
@@ -102,7 +104,7 @@ public class UserDAO {
 			 * login.jsp form에서 넘어온 ID,password
 			 */
 			String id = vo.getId();
-			String password = vo.getPwd();
+			String password = SHA256.getSHA256(vo.getPwd());
 
 			// id가 존재하는 id인지 검사
 			String idSelectSql = "select id from user where id = ?";
@@ -265,7 +267,7 @@ public class UserDAO {
 
 			String updateSql = "update user set pwd=?,phone_num=?,residential_country=? where user_id = ?";
 			pstmt = (PreparedStatement) conn.prepareStatement(updateSql);
-			pstmt.setString(1, pwd);
+			pstmt.setString(1, SHA256.getSHA256(pwd));
 			pstmt.setString(2, phone_num);
 			pstmt.setString(3, residential_country);
 			pstmt.setInt(4, id);
@@ -326,6 +328,9 @@ public class UserDAO {
 			pstmt.executeUpdate();
 
 			System.out.println("가이드 신청 완료");
+		}catch (SQLException e) {
+			e.printStackTrace();
+			return -1;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return -1;

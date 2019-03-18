@@ -80,7 +80,6 @@ $( document ).ready(function() {
                   destination:destination
                   },
             success : function(result) {
-               
                  var object = eval('(' + result + ')');
                  var result2 = object.result;
                  
@@ -158,7 +157,7 @@ $( document ).ready(function() {
                   pagingnumber:active_pagenumber
                   },
             success : function(result) {
-      
+      			
                var object = eval('(' + result + ')');
                  var result2 = object.result;
                
@@ -166,9 +165,8 @@ $( document ).ready(function() {
                   var product='';
                   
                   for (var i = 0; i < result2.length; ++i) {
-                     
                      product+='<div class="col-lg-3 col-md-6 text-center service-contents"><div class="mt-5">';
-                     product+='<img src="'+ result2[i][2].value +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100" onclick="openPopupApply(' + result2[i][0].value +');"/">';
+                     product+='<img src="'+ result2[i][2].value.toString() +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100" onclick="openPopupApply(' + result2[i][0].value +');"/">';
                      product+='<h3 class="h4 mb-2">' + result2[i][3].value + '</h3>';
                      product+='<p class="text-muted mb-0">' + result2[i][1].value + '</p>';
                      product+='</div></div>';
@@ -197,17 +195,17 @@ $( document ).ready(function() {
                   <h1>여행 상품 검색</h1>
                   <span class="subheading"></span>
                   <div class="form-group search-group">
-                     <label class="date-label" for="start-date"></label> <input
+                     <label class="date-label" for="start-date">출발: </label> <input
                         type="text" class="date-input form-control" id="start-date"
                         placeholder="출발"> <label class="date-label"
-                        for="start-date"></label> <input type="text"
+                        for="start-date">도착: </label> <input type="text"
                         class="date-input form-control" id="end-date" placeholder="도착">
-                     <label class="date-label" for="destination"></label> <input
+                     <label class="date-label" for="destination">목적지: </label> <input
                         type="text" class="form-control destination-input"
                         placeholder="목적지" id="destination">
                      <div>
                         <button type="button" class="btn btn-primary btn-sm search-btn"
-                           onclick="SearchProduct();">SEARCH</button>
+                           onclick="SearchProduct();">검색하기</button>
                      </div>
                   </div>
                </div>

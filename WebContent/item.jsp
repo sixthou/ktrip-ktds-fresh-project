@@ -86,36 +86,23 @@
     }
 
     function loadproductinfo(){
-        
+    	
        var item_id = '<%=productID%>';
-        
+       
         $.ajax({
             type : "POST",
             url : "./viewItem",
             data : {item_id:item_id},
-            success : function(result) {
-                
-                var object = eval('(' + result + ')');
-                var result2 = object.result;
-                
+            success : function(object) {
+
                 //상품 사진, 상품 제목, 상품 컨셉, 상품 본문, 가이드 사진, 가이드 이름, 가이드 소개
-                if(result2.length != 0){
-                    for (var i = 0; i < result2.length; ++i) {
-                        
-                       $('#item-img').attr('src', result2[i][0].value);//상품 사진.
-                       $('#item-title').text(result2[i][1].value);//상품 제목.
-                       $('#item-concept').text('[' + result2[i][2].value + ']');//상품 컨셉.
-                       $('#item-main').text(result2[i][3].value);//상품 본문.
-                       $('#guide-img').attr('src', result2[i][4].value);//가이드 사진.
-                       $('#guide-comment').text(result2[i][5].value);//가이드 소개.
-                       $('#guide-name').text(result2[i][6].value);//가이드 이름.
-                      
-                    }
-                 }else{
-                   alert('상품이 존재하지 않습니다.');
-                    location.href="tourlist.jsp";
-                 }
-                
+                $('#item-img').attr('src', object['thumnail']);//상품 사진.
+                $('#item-title').text(object['title']);//상품 제목.
+                $('#item-concept').text('[' + object['concept'] + ']');//상품 컨셉.
+                $('#item-main').text(object['contents']);//상품 본문.
+                $('#guide-img').attr('src', object['photo']);//가이드 사진.
+                $('#guide-comment').text(object['guide_intro']);//가이드 소개.
+                $('#guide-name').text(object['guide_name']);//가이드 이름.
             }
         });
     }
@@ -202,10 +189,10 @@
             type : "POST",
             url : "./viewReview",
             data : {item_id:item_id,
-            	pagingnumber:active_pagenumber
+               pagingnumber:active_pagenumber
                },
             success : function(result) {
-            	
+               
                 var object = eval('(' + result + ')');
                 var result2 = object.result;
                 
@@ -214,15 +201,15 @@
                    
                    //제목, 본문, 게시시간, 회원번호.
                    for (var i = 0; i < result2.length; ++i) {
-                	   
-                	   product2+='<div class="card mb-4"><div class="card-body"><br>';
+                      
+                       product2+='<div class="card mb-4"><div class="card-body"><br>';
                        product2+='<h2 class="card-title">' + result2[i][0].value + '</h2>';
                        product2+='<p class="card-text">' + result2[i][1].value + '</p></div>';
                        product2+='<div class="card-footer text-muted">Posted on ' + result2[i][2].value + ' by '+ result2[i][3].value + '</div>';
                        product2+='</div>';
                        
                     }
-                   	
+                      
                     $('.insert_product').html(product2);
                 }else{
                     $('.insert_product').html("리뷰가 없습니다.");

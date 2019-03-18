@@ -267,7 +267,7 @@ public class UserDAO {
 
 			String updateSql = "update user set pwd=?,phone_num=?,residential_country=? where user_id = ?";
 			pstmt = (PreparedStatement) conn.prepareStatement(updateSql);
-			pstmt.setString(1, pwd);
+			pstmt.setString(1, SHA256.getSHA256(pwd));
 			pstmt.setString(2, phone_num);
 			pstmt.setString(3, residential_country);
 			pstmt.setInt(4, id);

@@ -391,7 +391,7 @@ public class ItemDAO {
 			return applyList;
 		}
 
-		public List<ApplyVO> changeStatus(int user_id, int item_status, int apply_id) {
+		public List<ApplyVO> changeStatus(int item_status, int apply_id) {
 			ArrayList<ApplyVO> applyList = new ArrayList<ApplyVO>();
 
 			Connection conn = null;
@@ -403,16 +403,17 @@ public class ItemDAO {
 //			System.out.println("Change>>>" + apply_id);
 			try {
 				conn = db.connect();
-				if (item_status == 2) {
-					String sql = "update item_apply set item_status = ? where user_id = ? and apply_id = ?";
+				if (item_status == 2) { //½Â³«ÇÔ
+					String sql = "update item_apply set item_status = ? where apply_id = ?";
 					pstmt = conn.prepareStatement(sql);
 					pstmt.setInt(1, item_status);
-					pstmt.setInt(2, user_id);
+					pstmt.setInt(2, apply_id);
+					//pstmt.setInt(2, user_id);
 					System.out.println("item_status·Î µé¾î¿È");
-				} else {
-					String sql = "delete from item_apply where user_id = ? and apply_id = ?";
+				} else if(item_status == 3){ // °ÅÀıÇÔ
+					String sql = "delete from item_apply where apply_id = ?";
 					pstmt = conn.prepareStatement(sql);
-					pstmt.setInt(1, user_id);
+					//pstmt.setInt(1, user_id);
 					pstmt.setInt(2, apply_id);
 
 				}

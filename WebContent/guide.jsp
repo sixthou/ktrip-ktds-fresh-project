@@ -39,12 +39,16 @@
 <!-- 데이터테이블 처리 -->
 <link rel="stylesheet" type="text/css" href="DataTables/datatables.css"/>
 <script type="text/javascript" src="DataTables/datatables.js"></script>
+
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#mytable').DataTable({
-			 "lengthMenu": [ 5, 10, 50, 75, 100 ]
-		});
+		$('#item_list').DataTable({
+			 "lengthMenu": [ 5, 10 ]
+		});apply_list_table
+		
 	});
+	
+	
 </script>
 
  <script>
@@ -53,32 +57,45 @@
             type : "POST",
             url : "/ktrip/itemServlet",
             data:{actionMode:'SELECT',
-            	  guide_id:2,
             	  item_id:item_id},
             success : function(data){
                 console.log(data);
                 //data == JSON ==> {key:value}  var v={name:'길동'}   v.name ==> '길동'
-             	jss = JSON.parse(data)
-             	$('#detail_title').text(jss.title);
-                $('#title').val(jss.title);
-                $('#contents').val(jss.contents);
-                $('#num_min').val(jss.num_min);
-                $('#num_max').val(jss.num_max);
-                $('#duration').val(jss.duration);
-                $('#price').val(jss.price);
-                $('#concept').val(jss.concept);
-                $('#thumbnail').val(jss.thumbnail);
-                $('#thumbnail').val(jss.thumbnail);
+                //아이템 정보
+             	$('#detail_title').text(data.item.title);
+                $('#title').val(data.item.title);
+                $('#contents').val(data.item.contents);
+                $('#num_min').val(data.item.num_min);
+                $('#num_max').val(data.item.num_max);
+                $('#duration').val(data.item.duration);
+                $('#price').val(data.item.price);
+                $('#concept').val(data.item.concept);
+                $('#thumbnail').val(data.item.thumbnail);
                 $('#item_form').attr("action","/ktrip/itemServlet?actionMode=UPDATE&item_id="+item_id);
-                console.log("/ktrip/itemServlet?actionMode=UPDATE&item_id="+item_id);
+                //console.log("/ktrip/itemServlet?actionMode=UPDATE&item_id="+item_id);
                 //**//alert(jss로드성공);
+                
+                //신청자 테이블 생성.
+               	console.log(data.applyList.length);
+                var str = "<tr>"
+               	if(data.applyList.length!=0){
+                	for(var i =0;i<data.applyList.length;i++){
+                		str += "<td>"+data.applyList[i].name+"</td>"+"<td>"+data.applyList[i].start_date+"~"+data.applyList[i].end_date +"</td>"+
+                		"<td>"+"<button class=\"btn-primary btn-sm\" id=\"btn_accept\">승낙</button>"+"</td>"+
+                		"<td>"+"<button class=\"btn-primary btn-sm\"id=\"btn_decline\">거절</button>"+"</td>"+"</tr>";
+               	 		}
+                }else{
+                	str += "<td colspan="+4+">신청자가 없습니다.</td></tr>"
+                }
+                var apply_list_tbody = $("#apply_list_tbody").html(str);
+   
             }             
         });		
 	}	
 </script>
  
 <style>
-	#mytable_filter{
+	#item_list_filter{
 		display: none 
 	}
 </style>
@@ -110,7 +127,7 @@
 						<div class="navbar-collapse collapse show" id="navbarResponsive">
 							<ul class="navbar-nav mr-auto">
 								<li class="nav-item"><a class="nav-link"
-									href="./guide.jsp">등록한 여행</a></li>
+									href="./itemServlet?actionMode=LIST">등록한 여행</a></li>
 								<li class="nav-item"><a class="nav-link"
 									href="./item-registration.jsp">여행 상품 등록</a></li>
 							</ul>
@@ -123,7 +140,7 @@
 				<!-- Contact Form -->
 				<h5>등록한 여행</h5>
 				<br>
-				<table id="mytable" class="table table-responsive{-sm|-md|-lg|-xl}">
+				<table id="item_list" class="table table-responsive{-sm|-md|-lg|-xl}">
 					<thead class="thead-light">
 						<tr>
 							<th>상품이름</th>
@@ -132,16 +149,10 @@
 							<th>상세보기</th>
 						</tr>
 					</thead>
-					</tbody>
+					<tbody>
 					<!-- 리스트 값 호출 처리 -->
 					<%
 						ArrayList<ItemVO> list = (ArrayList)request.getAttribute("list");
-/* 						for (int i = 0; i < list.size(); i++) {
-							System.out.println(list.get(i).getTitle());
-							System.out.println(list.get(i).getDuration());
-							System.out.println(list.get(i).getCnt());
-							System.out.println(list.get(i).getItem_id());
-						} */
                    if(list != null){
 						for (int i = 0; i < list.size(); i++) {
 					%>
@@ -149,7 +160,7 @@
 						<td><%=list.get(i).getTitle()%></td>
 						<td><%=list.get(i).getDuration()%></td>
 						<td><%=list.get(i).getCnt()%></td>
-						<td><a data-toggle="modal" data-target="#item-modal" onclick="call_detail(<%=list.get(i).getItem_id()%>)">....</td>
+						<td><a data-toggle="modal" data-target="#item-modal" onclick="call_detail(<%=list.get(i).getItem_id()%>)">....</a></td>
 					</tr>
 					<%
 						}
@@ -184,8 +195,7 @@
 										<div class="col-lg-8 col-md-10 mx-auto">
 											<!-- Contact Form -->
 											<h5>신청자 목록</h5>
-											<table
-												class="table table-sm  table-responsive{-sm|-md|-lg|-xl} text-center">
+											<table id="apply_list_table" class="table table-sm  table-responsive{-sm|-md|-lg|-xl} text-center">
 												<thead class="thead-light">
 													<tr>
 														<th>신청자</th>
@@ -194,29 +204,7 @@
 														<th>거절</th>
 													</tr>
 												</thead>
-												<tbody>
-												<tr>
-													<td>길라임</td>
-													<td>3박4일</td>
-													<td><button class="btn-primary btn-sm" id="btn_accept">승낙</button></td>
-													<td><button class="btn-primary btn-sm"
-															id="btn_decline">거절</button></td>
-												</tr>
-												<tr>
-													<td>홍길동</td>
-													<td>3박4일</td>
-													<td><button class="btn-primary btn-sm" id="btn_accept">승낙</button></td>
-													<td><button class="btn-primary btn-sm"
-															id="btn_decline">거절</button></td>
-												</tr>
-												<tr>
-													<td>김주원</td>
-													<td>3박4일</td>
-													<td><button class="btn-primary btn-sm" id="btn_accept">승낙</button></td>
-													<td><button class="btn-primary btn-sm"
-															id="btn_decline">거절</button></td>
-												</tr>
-
+												<tbody id = "apply_list_tbody">															
 												</tbody>
 											</table>
 

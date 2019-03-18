@@ -78,13 +78,16 @@
                 //신청자 테이블 생성.
                	console.log(data.applyList.length);
                 var str = "<tr>"
-                for(var i =0;i<data.applyList.length;i++){
-                	str += "<td>"+data.applyList[i].name+"</td>"+"<td>"+data.applyList[i].start_date+"~"+data.applyList[i].end_date +"</td>"+
-                	"<td>"+"<button class=\"btn-primary btn-sm\" id=\"btn_accept\">승낙</button>"+"</td>"+
-                	"<td>"+"<button class=\"btn-primary btn-sm\"id=\"btn_decline\">거절</button>"+"</td>"+"</tr>";
+               	if(data.applyList.length!=0){
+                	for(var i =0;i<data.applyList.length;i++){
+                		str += "<td>"+data.applyList[i].name+"</td>"+"<td>"+data.applyList[i].start_date+"~"+data.applyList[i].end_date +"</td>"+
+                		"<td>"+"<button class=\"btn-primary btn-sm\" id=\"btn_accept\">승낙</button>"+"</td>"+
+                		"<td>"+"<button class=\"btn-primary btn-sm\"id=\"btn_decline\">거절</button>"+"</td>"+"</tr>";
+               	 		}
+                }else{
+                	str += "<td colspan="+4+">신청자가 없습니다.</td></tr>"
                 }
-
-                var test = $("#test").html(str);
+                var apply_list_tbody = $("#apply_list_tbody").html(str);
    
             }             
         });		
@@ -201,7 +204,7 @@
 														<th>거절</th>
 													</tr>
 												</thead>
-												<tbody id = "test">									
+												<tbody id = "apply_list_tbody">															
 												</tbody>
 											</table>
 

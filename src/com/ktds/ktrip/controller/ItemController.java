@@ -43,7 +43,7 @@ public class ItemController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 //		
 		HttpSession session = request.getSession();
-		session.setAttribute("guide_id", 2); // 로그인에서 session 전달 구현
+		//session.setAttribute("guide_id", 2); // 로그인에서 session 전달 구현
 
 		String actionMode = request.getParameter("actionMode");
 
@@ -139,12 +139,13 @@ public class ItemController extends HttpServlet {
 			ItemVO item = new ItemVO();
 
 			int apply_id = Integer.parseInt(request.getParameter("apply_id"));
-			int user_id = Integer.parseInt(request.getParameter("user_id"));// 신청자id
+			//int user_id = Integer.parseInt(request.getParameter("user_id"));// 신청자id
 			int item_status = Integer.parseInt(request.getParameter("item_status"));
-			int item_id = Integer.parseInt(request.getParameter("item_id"));
-			idao.changeStatus(user_id, item_status, apply_id);
+			//int item_id = Integer.parseInt(request.getParameter("item_id"));
+			idao.changeStatus(item_status, apply_id);
 			int guide_id = (int) session.getAttribute("guide_id");
-
+			//세션으로 가이드아이디 받음
+			
 			response.sendRedirect("/ktrip/itemServlet?actionMode=SELECT&user_id=" + guide_id);
 
 		} else if (actionMode.equals("SELECT")) {

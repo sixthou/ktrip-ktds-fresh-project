@@ -26,7 +26,7 @@
                     </li>
                     <%} %>
                     <li class="nav-item">
-                        <a class="nav-link" href="./tourlist.jsp">tourlist</a>
+                        <a class="nav-link" href="./tourlist.jsp">tourist</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./notice.jsp">contact</a>

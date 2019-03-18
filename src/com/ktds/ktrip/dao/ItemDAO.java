@@ -178,8 +178,8 @@ public class ItemDAO {
 				conn = db.connect();
 
 				String sql = "insert into trip_item "
-						+ "(guide_id,destination,duration,num_max,concept,contents,item_status,num_min,price,title,thumbnail)"
-						+ " values(?,?,?,?,?,?,?,?,?,?,?)";
+						+ "(guide_id,destination,duration,num_max,concept,contents,num_min,price,title,thumbnail)"
+						+ " values(?,?,?,?,?,?,?,?,?,?)";
 
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, item.getGuide_id());
@@ -188,11 +188,10 @@ public class ItemDAO {
 				pstmt.setInt(4, item.getNum_max());
 				pstmt.setString(5, item.getConcept());
 				pstmt.setString(6, item.getContents());
-				pstmt.setString(7, item.getItem_status());
-				pstmt.setInt(8, item.getNum_min());
-				pstmt.setInt(9, item.getPrice());
-				pstmt.setString(10, item.getTitle());
-				pstmt.setString(11, item.getThumbnail());
+				pstmt.setInt(7, item.getNum_min());
+				pstmt.setInt(8, item.getPrice());
+				pstmt.setString(9, item.getTitle());
+				pstmt.setString(10, item.getThumbnail());
 
 				res = pstmt.executeUpdate();
 			} catch (Exception e) {

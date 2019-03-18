@@ -72,15 +72,16 @@ public class ItemController extends HttpServlet {
 			item.setDestination(multi.getParameter("destination"));
 			item.setDuration(Integer.parseInt(multi.getParameter("duration")));
 			item.setGuide_id((int) session.getAttribute("guide_id"));
-			item.setItem_status(multi.getParameter("item_status"));
+			//item.setItem_status(multi.getParameter("item_status"));
 			item.setNum_max(Integer.parseInt(multi.getParameter("num_max")));
 			item.setNum_min(Integer.parseInt(multi.getParameter("num_min")));
 			item.setPrice(Integer.parseInt(multi.getParameter("price")));
 			// item.setThumbnail(multi.getParameter("thumbnail"));
+
 			if (multi.getFilesystemName("thumbnail") == null) {
 				System.out.println("INS>>사진 안들어옴");
 				picturePath = defaultPhotoPath;
-				item.setThumbnail(picturePath);
+				item.setThumbnail(picturePath.replace("\\", "/"));
 			} else {
 				picturePath = savePath + "\\" + guide_id + "\\"
 						+ multi.getFilesystemName("thumbnail");

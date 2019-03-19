@@ -12,7 +12,7 @@
 }
 
 .date-input {
-    width: 30%;
+    width: 22%;
     display: inline-block;
     text-align: center;
     font-size:1.2rem;
@@ -44,7 +44,6 @@
 
 .search-btn {
     margin-top: 40px;
-    border-radius: 20px;
     font-size:18px;
 }
 

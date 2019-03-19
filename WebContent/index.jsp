@@ -78,37 +78,37 @@
               나만을 위한 여행 가이드
             </h3>
           </a>
-          <div class="col-lg-3 col-md-6 text-center service-contents">
+          <br>
+        </div>
+      </div>
+      <div class="col-sm-6 text-center">
             <div class="mt-5" style="margin-top: 10px!important">
               <i class="fas fa-4x text-primary mb-4 service-contents"><img src="./img/Special.png" class="index-icon" /></i>
               <h3 class="h3 mb-2">Special</h3>
-              <p class="text-muted mb-3">현지인만이 경험할 수 있는 최고의 품질과 차별화된 여행 서비스</p>
+              <p class="text-muted mb-3">현지인만이 경험할 수 있는 <br>최고의 품질과 차별화된 여행 서비스</p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 text-center service-contents">
+          <div class="col-sm-6 text-center">
             <div class="mt-5" style="margin-top: 10px!important">
               <i class="fas fa-4x text-primary mb-4 service-contents"><img src="./img/Optimum.png" class="index-icon" /></i>
               <h3 class="h3 mb-2">Optimum</h3>
-              <p class="text-muted mb-3">원치않은 쇼핑과 바가지 구매 등 단체 여행 속 불쾌함 제거</p>
+              <p class="text-muted mb-3">원치않은 쇼핑과 바가지 구매 등<br>단체 여행 속 불쾌함 제거</p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 text-center service-contents">
+          <div class="col-sm-6 text-center">
             <div class="mt-5" style="margin-top: 10px!important">
               <i class="fas fa-4x text-primary mb-4 service-contents"><img src="./img/Together.png" class="index-icon" /></i>
               <h3 class="h3 mb-2">Together</h3>
-              <p class="text-muted mb-3">KT 임직원에 한정된 팔로워로 KT 그룹 내 소통 채널 제공</p>
+              <p class="text-muted mb-3">KT 임직원에 한정된 팔로워로<br>KT 그룹 내 소통 채널 제공</p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 text-center service-contents">
+          <div class="col-sm-6 text-center">
             <div class="mt-5" style="margin-top: 10px!important">
               <i class="fas fa-4x text-primary mb-4 service-contents"><img src="./img/Trust.png" class="index-icon" /></i>
               <h3 class="h3 mb-2">Trust</h3>
-              <p class="text-muted mb-3">믿을 수 있는 가이드 선별을 통해 안전한 매칭 서비스 제공</p>
+              <p class="text-muted mb-3">믿을 수 있는 가이드 선별을 통해<br>안전한 매칭 서비스 제공</p>
             </div>
           </div>
-          <br><br>
-        </div>
-      </div>
     </div>
   </div>
   

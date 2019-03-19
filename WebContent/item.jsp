@@ -45,7 +45,8 @@
     var first_pagenumber = 0;//현재 줄에서 첫번째 페이지 카운트.
     var last_pagenumber = 0;//현재 줄에서 마지막 페이지 카운트.
     var total_pagenumber = 0;//총 페이지 카운트. 
-
+	var destination = '';
+    
     $(document).ready(function() {
        
         //1.받아온 상품id로 상품 사진, 상품 제목, 상품 컨셉, 상품 본문, 가이드 사진, 가이드 이름, 가이드 소개
@@ -76,10 +77,10 @@
                 
                if(result == "success"){
                     //리뷰 등록 완료.
-                  alert('상품 신청 성공.');
+                  $('#myModal').modal('show');
                  }else{
                     //리뷰 등록 실패.
-                    alert('상품 신청 실패.');
+                    console.log('상품 신청 실패.');
                  }
             }
         });
@@ -103,6 +104,8 @@
                 $('#guide-img').attr('src', object['photo']);//가이드 사진.
                 $('#guide-comment').text(object['guide_intro']);//가이드 소개.
                 $('#guide-name').text(object['guide_name']);//가이드 이름.
+                 
+                destination = object['destination'];
             }
         });
     }
@@ -117,10 +120,7 @@
             url : "./viewReview",
             data : {item_id:item_id
             },
-            success : function(result) {
-                
-                var object = eval('(' + result + ')');
-                var result2 = object.result;
+            success : function(result2) {
                 
                 if(result2.length != 0){
                     
@@ -191,11 +191,8 @@
             data : {item_id:item_id,
                pagingnumber:active_pagenumber
                },
-            success : function(result) {
+            success : function(result2) {
                
-                var object = eval('(' + result + ')');
-                var result2 = object.result;
-                
                 if(result2.length != 0){
                    var product2='';
                    
@@ -203,11 +200,10 @@
                    for (var i = 0; i < result2.length; ++i) {
                       
                        product2+='<div class="card mb-4"><div class="card-body"><br>';
-                       product2+='<h2 class="card-title">' + result2[i][0].value + '</h2>';
-                       product2+='<p class="card-text">' + result2[i][1].value + '</p></div>';
-                       product2+='<div class="card-footer text-muted">Posted on ' + result2[i][2].value + ' by '+ result2[i][3].value + '</div>';
+                       product2+='<h2 class="card-title">' + result2[i]['title'] + '</h2>';
+                       product2+='<p class="card-text">' + result2[i]['review_contents'] + '</p></div>';
+                       product2+='<div class="card-footer text-muted">Posted on ' + result2[i]['register_time'] + ' by '+ result2[i]['user_name'] + '</div>';
                        product2+='</div>';
-                       
                     }
                       
                     $('.insert_product').html(product2);
@@ -375,6 +371,30 @@
         }
     });
     
+    function roaming() {
+    	var nation = '';
+    	if(destination == '뉴욕'){
+    		nation = '미국';
+    	}
+    	else if (destination == '런던'){
+    		nation = '영국';
+    	}
+    	else if (destination == '파리'){
+    		nation = '프랑스';
+    	}
+    	else if (destination == '오사카'){
+    		nation = '일본';
+    	}
+    	else if (destination == '바르셀로나'){
+    		nation = '스페인';
+    	}
+    	else if (destination == '프라하'){
+    		nation = '체코';
+    	}
+    	
+    	roaming_page = 'https://globalroaming.kt.com/rate/rate.asp?nation=' + nation + '&duration=1&condition=all';
+    	window.open(roaming_page);
+    };
     </script>
 </head>
 <body>
@@ -438,7 +458,8 @@
                                     </div>
                                     <div id="success"></div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary" id="sendMessageButton" onclick="applyItem();">신청 하기</button>
+                                        <button type="submit" class="btn btn-primary btn-left" id="sendMessageButton" onclick="applyItem();">신청 하기</button>
+                                        <button type="submit" class="btn kt-roaming btn-right" id="sendMessageButton" onclick="roaming();">추천 로밍</button>
                                     </div>
                                 </div>
                             </div>
@@ -468,6 +489,27 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">상품 신청</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>상품 신청 성공</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
     <!-- Footer -->
     <hr>

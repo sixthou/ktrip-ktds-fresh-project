@@ -11,6 +11,28 @@
 	display: block;
 }
 
+.btn-right{
+	margin-left: 1%;
+	width: 48%;
+}
+
+.btn-left{
+	margin-right: 1%;
+	width: 48%;
+}
+
+.kt-roaming {
+	color: #ffffff;
+	background-color: #E50D11;
+    border-color: #E50D11;
+}
+
+.kt-roaming:hover {
+	color: #ffffff;
+	background-color: #0BF0E8;
+    border-color: #0BF0E8;
+}
+
 /* 주원이 정의한 css */
 .tab {
 	list-style: none;

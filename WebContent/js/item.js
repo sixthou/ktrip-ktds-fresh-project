@@ -378,3 +378,8 @@ $(function () {
         setDate: moment()
     })
 });
+
+function roaming() {
+	roaming_page = 'https://globalroaming.kt.com/rate/rate.asp?nation=' +  + '&duration=1&condition=all'
+	location.href
+};

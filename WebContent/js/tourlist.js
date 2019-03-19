@@ -8,7 +8,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
    var start_pagenumber2 =0;//총 페이지 중 첫번째 카운트.
    var first_pagenumber2 = 0;//현재 줄에서 첫번째 페이지 카운트.
    var last_pagenumber2 = 0;//현재 줄에서 마지막 페이지 카운트.
-   var total_pagenumber2 = 0;//총 페이지 카운트. 
+   var total_pagenumber2 = 0;//총 페이지 카운트.
    
    var active_pagenumber3 = 1;//현재 페이지 카운트.
    var start_pagenumber3 =0;//총 페이지 중 첫번째 카운트.
@@ -16,7 +16,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
    var last_pagenumber3 = 0;//현재 줄에서 마지막 페이지 카운트.
    var total_pagenumber3 = 0;//총 페이지 카운트.
    
-   var ReviewProduct_id =''; 
+   var ReviewProduct_id ='';
    
     $( document ).ready(function() {
       //쿼리 로우 개수를 받아서 하단 페이징 바 계산.
@@ -26,7 +26,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
          //모달 클릭 시 값 전달을 위해 활용.
          $('#my-modal').on('show.bs.modal', function (event) {
          //이미지, 컨셉, 제목을 모달로 보내자.
-         
+        
          var ReviewProduct = $(event.relatedTarget);//클릭한 아이(this)
          ReviewProduct_id = ReviewProduct.children('img').attr('id');//클릭한 아이의 아이디.
          var ReviewProduct_src = ReviewProduct.children('img').attr('src');//클릭한 아이의 이미지.
@@ -41,10 +41,12 @@ var active_pagenumber = 1;//현재 페이지 카운트.
     
    //Search Button 클릭했을 경우.
    function SearchProduct(){
+	   $('.aaa').remove();//이전에 뿌렸던 리스트 제거.
       loadpagecount();//쿼리 로우 개수를 받아서 하단 페이징 바 계산.
    }
    
     function loadpagecount(){
+    	
        var start_date = $('#start-date').val();
        var end_date = $('#end-date').val();
        var destination = $('#destination').val();
@@ -58,21 +60,17 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                end_date:end_date,
                destination:destination
                },
-         success : function(result) {
+         success : function(ob) {
             
-        	  
-              var object = eval('(' + result + ')');
-              var result2 = object.result;
-              
-              if(result2.length != 0){
+        	  if(ob.length != 0){
                   
-                 loadtable();//laod table;
+                 loadtable();
                  
                  //총 페이지 개수.(test를 위해 6개 기준으로 분리하자.)
                  var pagecount = 0;
-                 pagecount = parseInt(result2.length/6);//6개씩 부려주자~
+                 pagecount = parseInt(ob.length/6);//6개씩 부려주자~
                  
-                 if(parseInt(result2.length%6) != 0){
+                 if(parseInt(ob.length%6) != 0){
                     pagecount+=1;
                  }
                  start_pagenumber = 1;//총 페이지 중 첫번째 카운트.
@@ -117,7 +115,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                  
                  
               }else{
-                 $('.insert_product').html("상품이 없습니다.");
+                 $('#insert_product').after('<div class="col-6 col-md-4 aaa">상품이 존재하지 않습니다.</div>');
               }
          }
       });
@@ -137,30 +135,23 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                destination:destination,
                pagingnumber:active_pagenumber
                },
-         success : function(result) {
-            // result=[{ reviewid:1 },{score:10},{}]
-            //result == Array
-            //result[i] == JSON
-            //var v1 = result[0]   v1==JSON
-            //result[i]['reviewid']  ===> 1
-            //result[i]['score']  ===> 10
-        	
-            var object = eval('(' + result + ')');
-              var result2 = object.result;
+         success : function(result2) {
             
             if(result2.length != 0){
                var product='';
                
                for (var i = 0; i < result2.length; ++i) {
-            	   product+='<div class="col-lg-3 col-md-6 text-center service-contents"><div class="mt-5">';
-                   product+='<img src="'+ result2[i][2].value +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100" onclick="openPopupApply(' + result2[i][0].value +');"/">';
-                   product+='<h3 class="h4 mb-2">' + result2[i][3].value + '</h3>';
-                   product+='<p class="text-muted mb-0">' + result2[i][1].value + '</p>';
-                   product+='</div></div>';
+            	   
+            	   product+='<div class="col-6 col-md-4 aaa">';
+            	   product+='<div class="card mb-4" style="height:400px">';
+            	   product+='<img src="'+ result2[i].thumbnail +'" id="'+ result2[i].item_id +'" class="card-img-top" onclick="openPopupApply(' + result2[i].item_id +');"/">';
+            	   product+='<div class="card-body"><p class="card-title">[' + result2[i].concept + ']</p>';
+            	   product+='<p class="card-text">' + result2[i].title + '</p>';
+            	   product+='</div></div></div>';
                }
-                 $('.insert_product').html(product);
+                 $('#insert_product').after(product);
             }else{
-               $('.insert_product').html("상품이  없습니다.");
+            	$('#insert_product').after('<div class="col-6 col-md-4 aaa">상품이 존재하지 않습니다.</div>');
             }
          }
       });
@@ -328,16 +319,13 @@ var active_pagenumber = 1;//현재 페이지 카운트.
     function loadpagecount2(){
        
       $('#pg2').html('');
-       
+      $('.bbb').remove();//이전에 뿌렸던 리스트 제거.
+      
       $.ajax({
          type : "GET",
          url : "./listWait",
          data : {},
-         success : function(result) {
-            
-            var object = eval('(' + result + ')');
-              var result2 = object.result;
-              
+         success : function(result2) {
               
               if(result2.length != 0){
                  
@@ -392,7 +380,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                  
                  
               }else{
-                 $('.insert_product2').html("상품이 없습니다.");
+            	  $('#insert_product2').after('<div class="col-6 col-md-4 bbb">상품이 존재하지 않습니다.</div>');
               }
          }
       });
@@ -404,28 +392,34 @@ var active_pagenumber = 1;//현재 페이지 카운트.
          type : "POST",
          url : "./listWait",
          data : {pagingnumber:active_pagenumber2},
-         success : function(result) {
-            
-            var object = eval('(' + result + ')');
-              var result2 = object.result;
+         success : function(result2) {
             
             if(result2.length != 0){
                var product='';
                
                for (var i = 0; i < result2.length; ++i) {
                   
+            	   product+='<div class="col-6 col-md-4 bbb">';
+            	   product+='<div class="card mb-4" style="height:400px">';
+            	   product+='<img src="'+ result2[i].thumbnail +'" id="'+ result2[i].item_id +'" class="card-img-top">';
+            	   product+='<div class="card-body"><p class="card-title">[' + result2[i].concept + ']</p>';
+            	   product+='<p class="card-text">' + result2[i].title + '</p>';
+//            	   product+='<button class="btn btn-primary btn-sm search-btn" onclick="deleteproduct(' + result2[i].thumbnail + ');">삭제</button>'
+            	   product+='</div><button class="btn btn-primary btn-sm search-btn" onclick="deleteproduct(' + result2[i].thumbnail + ');">삭제</button></div></div>';
+            	   
+            	  /*
                   product+='<div class="col-lg-3 col-md-6 text-center service-contents"><div class="mt-5">';
-                  product+='<img src="'+ result2[i][2].value +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100"/">';
-                  product+='<h3 class="h4 mb-2">' + result2[i][3].value + '</h3>';
-                  product+='<p class="text-muted mb-0">' + result2[i][1].value + '</p>';
-                  product+='<button class="btn btn-primary btn-sm search-btn" onclick="deleteproduct(' + result2[i][0].value + ');">삭제</button>'
+                  product+='<img src="'+ result2[i]['thumbnail'] +'" id="'+ result2[i]['item_id'] +'" class="item-img" width="100" height="100"/">';
+                  product+='<h3 class="h4 mb-2">' + result2[i]['concept'] + '</h3>';
+                  product+='<p class="text-muted mb-0">' + result2[i]['title'] + '</p>';
+                  product+='<button class="btn btn-primary btn-sm search-btn" onclick="deleteproduct(' + result2[i]['thumbnail'] + ');">삭제</button>'
                   product+='</div></div>';
-                  
+                  */
                }
                
-                 $('.insert_product2').html(product);
+                 $('#insert_product2').after(product);
             }else{
-               $('.insert_product2').html("리뷰가 없습니다.");
+            	$('#insert_product2').after('<div class="col-6 col-md-4 bbb">상품이 존재하지 않습니다.</div>');
             }
          }
       });
@@ -596,17 +590,14 @@ var active_pagenumber = 1;//현재 페이지 카운트.
     function loadpagecount3(){
 
       $('#pg3').html('');
-	
+      $('.ccc').remove();//이전에 뿌렸던 리스트 제거.
+      
       $.ajax({
          type : "GET",
          url : "./listOld",
          data : {},
-         success : function(result) {
+         success : function(result2) {
             
-            var object = eval('(' + result + ')');
-              var result2 = object.result;
-              
-              
               if(result2.length != 0){
                  
                  loadtable3();
@@ -660,7 +651,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                  
                  
               }else{
-                 $('.insert_product3').html("상품이 없습니다.");
+            	  $('#insert_product3').after('<div class="col-6 col-md-4 ccc">상품이 존재하지 않습니다.</div>');
               }
          }
       });
@@ -673,25 +664,31 @@ var active_pagenumber = 1;//현재 페이지 카운트.
          type : "POST",
          url : "./listOld",
          data : {pagingnumber:active_pagenumber3},
-         success : function(result) {
-            
-            var object = eval('(' + result + ')');
-              var result2 = object.result;
+         success : function(result2) {
             
             if(result2.length != 0){
                var product='';
                
                for (var i = 0; i < result2.length; ++i) {
                   
+            	   product+='<div class="col-6 col-md-4 ccc">';
+            	   product+='<div class="card mb-4" style="height:400px"><a data-toggle="modal" href="#my-modal">';
+            	   product+='<img src="'+ result2[i].thumbnail +'" id="'+ result2[i].item_id +'" class="card-img-top">';
+            	   product+='<div class="card-body"><p class="card-title">[' + result2[i].concept + ']</p>';
+            	   product+='<p class="card-text">' + result2[i].title + '</p>';
+            	   product+='</a></div></div></div>';
+            	   
+            	  /*
                   product+='<div class="col-lg-3 col-md-6 text-center service-contents"><div class="mt-5"><a data-toggle="modal" href="#my-modal">';
-                  product+='<img src="'+ result2[i][2].value +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100"/">';
-                  product+='<h3 class="h4 mb-2">' + result2[i][3].value + '</h3>';
-                  product+='<p class="text-muted mb-0">' + result2[i][1].value + '</p>';
+                  product+='<img src="'+ result2[i]['thumbnail'] +'" id="'+ result2[i]['item_id'] +'" class="item-img" width="100" height="100"/">';
+                  product+='<h3 class="h4 mb-2">' + result2[i]['concept'] + '</h3>';
+                  product+='<p class="text-muted mb-0">' + result2[i]['title'] + '</p>';
                   product+='</a></div></div>';
+                  */
                }
-                 $('.insert_product3').html(product);
+                 $('#insert_product3').after(product);
             }else{
-               $('.insert_product3').html("리뷰가 없습니다.");
+            	$('#insert_product3').after('<div class="col-6 col-md-4 ccc">상품이 존재하지 않습니다.</div>');
             }
          }
       });
@@ -884,7 +881,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                    
                 }else{
                    //삭제 실패.
-                   alert('상품 삭제 실패.');
+                   console.log('상품 삭제 실패.');
                 }
              }
           });
@@ -903,10 +900,10 @@ var active_pagenumber = 1;//현재 페이지 카운트.
             success : function(result) {
                 
                 if(result == "success"){
-                   alert('리뷰 등록 완료.');
+                   hidemodal();
                }else{
                   //삭제 실패.
-                  alert('리뷰 등록 실패.');
+                  console.log('리뷰 등록 실패.');
                }
             }
          });

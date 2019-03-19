@@ -900,7 +900,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
             success : function(result) {
                 
                 if(result == "success"){
-                   alert('리뷰 등록 완료.');
+                   hidemodal();
                }else{
                   //삭제 실패.
                   alert('리뷰 등록 실패.');

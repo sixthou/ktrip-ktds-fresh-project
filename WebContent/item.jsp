@@ -45,7 +45,8 @@
     var first_pagenumber = 0;//현재 줄에서 첫번째 페이지 카운트.
     var last_pagenumber = 0;//현재 줄에서 마지막 페이지 카운트.
     var total_pagenumber = 0;//총 페이지 카운트. 
-
+	var destination = '';
+    
     $(document).ready(function() {
        
         //1.받아온 상품id로 상품 사진, 상품 제목, 상품 컨셉, 상품 본문, 가이드 사진, 가이드 이름, 가이드 소개
@@ -103,6 +104,8 @@
                 $('#guide-img').attr('src', object['photo']);//가이드 사진.
                 $('#guide-comment').text(object['guide_intro']);//가이드 소개.
                 $('#guide-name').text(object['guide_name']);//가이드 이름.
+                 
+                destination = object['destination'];
             }
         });
     }
@@ -368,6 +371,30 @@
         }
     });
     
+    function roaming() {
+    	var nation = '';
+    	if(destination == '뉴욕'){
+    		nation = '미국';
+    	}
+    	else if (destination == '런던'){
+    		nation = '영국';
+    	}
+    	else if (destination == '파리'){
+    		nation = '프랑스';
+    	}
+    	else if (destination == '오사카'){
+    		nation = '일본';
+    	}
+    	else if (destination == '바르셀로나'){
+    		nation = '스페인';
+    	}
+    	else if (destination == '프라하'){
+    		nation = '체코';
+    	}
+    	
+    	roaming_page = 'https://globalroaming.kt.com/rate/rate.asp?nation=' + nation + '&duration=1&condition=all';
+    	window.open(roaming_page);
+    };
     </script>
 </head>
 <body>
@@ -432,7 +459,7 @@
                                     <div id="success"></div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-left" id="sendMessageButton" onclick="applyItem();">신청 하기</button>
-                                        <button type="submit" class="btn kt-roaming btn-right" id="sendMessageButton" onclick="applyItem();">추천 로밍</button>
+                                        <button type="submit" class="btn kt-roaming btn-right" id="sendMessageButton" onclick="roaming();">추천 로밍</button>
                                     </div>
                                 </div>
                             </div>

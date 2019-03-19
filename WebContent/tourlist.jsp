@@ -136,7 +136,7 @@ $( document ).ready(function() {
                     
                     
                  }else{
-                    $('.insert_product').html("상품이 없습니다.");
+                    $('.#insult-product1').after("상품이 없습니다.");
                  }
             }
          });
@@ -165,15 +165,24 @@ $( document ).ready(function() {
                   var product='';
                   
                   for (var i = 0; i < result2.length; ++i) {
-                     product+='<div class="col-lg-3 col-md-6 text-center service-contents"><div class="mt-5">';
+                	  product+='<div class="col-6 col-md-4">';
+                	  product+='<div class="card mb-4" style="height:400px">';
+                	  product+='<img src="'+ result2[i][2].value.toString() +'" id="'+ result2[i][0].value +'" class="card-img-top" onclick="openPopupApply(' + result2[i][0].value +');"/">';
+                	  product+='<div class="card-body"><p class="card-title">' + result2[i][3].value + '</p>';
+                	  product+='<p class="card-text">' + result2[i][1].value + '</p>';
+                	  product+='</div></div></div>';
+                	  /* 
+                     product+='<div class="col-6 col-md-4 text-center"><div class="mt-5">';
                      product+='<img src="'+ result2[i][2].value.toString() +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100" onclick="openPopupApply(' + result2[i][0].value +');"/">';
                      product+='<h3 class="h4 mb-2">' + result2[i][3].value + '</h3>';
                      product+='<p class="text-muted mb-0">' + result2[i][1].value + '</p>';
-                     product+='</div></div>';
+                     product+='</div></div>'; */
                   }
-                    $('.insert_product').html(product);
+           
+                  $('#insult-product1').after(product);
+                	
                }else{
-                  $('.insert_product').html("상품이  없습니다.");
+                  $('#insult-product1').after("상품이 없습니다.");
                }
             }
          });
@@ -190,7 +199,7 @@ $( document ).ready(function() {
       <div class="overlay"></div>
       <div class="container">
          <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="col-xl-12 col-md-10 mx-auto">
                <div class="page-heading" id="tourlist-heading">
                   <h1>여행 상품 검색</h1>
                   <span class="subheading"></span>
@@ -216,37 +225,31 @@ $( document ).ready(function() {
 
    <div class="container">
       <div class="row">
-         <div class="col-lg-9 col-md-10 mx-auto">
-            <div class="post-preview">
-               <a>
-                  <h2 class="post-title">검색된 상품</h2>
-                  <h3 class="post-subtitle">최고의 여행을 즐겨보세요!</h3>
-               </a>
-               <div class="insert_product"></div>
-               <br> <br>
-            </div>
+         <div class="col-lg-9 col-md-10 mx-auto" id="insult-product1">
+            <h1 class="my-4">검색된 상품</h1>
+         </div>
+	          <!-- <div class="insert_product"></div> -->
+	          <br><br>
+               
+            <div class="col-lg-9 col-md-10 mx-auto" id="insert-product2">
             <!-- pagination -->
             <div class="row justify-content-center">
                <div class="pagination" id="pg1"></div>
             </div>
             <br>
-            <div class="post-preview">
-               <a>
-                  <h2 class="post-title">대기중인 여행</h2>
-               </a>
-               <div class="insert_product2"></div>
-               <br> <br>
-            </div>
+            
+           	
+            	<h1 class="my-4">대기중인 여행</h1>
+         	</div>
+         	
+         	<div class="col-lg-9 col-md-10 mx-auto" id="insert-product3">
             <!-- pagination -->
             <div class="row justify-content-center">
                <div class="pagination" id="pg2"></div>
             </div>
             <br>
-            <div class="post-preview">
-               <a>
-                  <h2 class="post-title">다녀온 여행</h2>
-               </a>
-               <div class="insert_product3"></div>
+                  <h1 class="my-4">다녀온 여행</h1>
+            </div>
                <br> <br>
                <!-- modal portfolio -->
                <div class="modal fade" id="my-modal" role="dialog">
@@ -362,7 +365,7 @@ $( document ).ready(function() {
             <br>
          </div>
       </div>
-   </div>
+   <!-- </div> -->
    <hr>
    <!-- Footer -->
    <%@ include file="./footer.jsp"%>

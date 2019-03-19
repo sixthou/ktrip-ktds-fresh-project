@@ -117,7 +117,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                  
                  
               }else{
-                 $('.insert_product').html("상품이 없습니다.");
+                 $('#insert-product1').after("상품이 없습니다.");
               }
          }
       });
@@ -152,15 +152,22 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                var product='';
                
                for (var i = 0; i < result2.length; ++i) {
-            	   product+='<div class="col-lg-3 col-md-6 text-center service-contents"><div class="mt-5">';
-                   product+='<img src="'+ result2[i][2].value +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100" onclick="openPopupApply(' + result2[i][0].value +');"/">';
-                   product+='<h3 class="h4 mb-2">' + result2[i][3].value + '</h3>';
-                   product+='<p class="text-muted mb-0">' + result2[i][1].value + '</p>';
-                   product+='</div></div>';
+            	   product+='<div class="col-6 col-md-4">';
+             	  product+='<div class="card mb-4" style="height:400px">';
+             	  product+='<img src="'+ result2[i][2].value.toString() +'" id="'+ result2[i][0].value +'" class="card-img-top" onclick="openPopupApply(' + result2[i][0].value +');"/">';
+             	  product+='<div class="card-body"><p class="card-title">' + result2[i][3].value + '</p>';
+             	  product+='<p class="card-text">' + result2[i][1].value + '</p>';
+             	  product+='</div></div></div>';
+//             	  
+//            	   product+='<div class="col-lg-3 col-md-6 text-center service-contents"><div class="mt-5">';
+//                   product+='<img src="'+ result2[i][2].value +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100" onclick="openPopupApply(' + result2[i][0].value +');"/">';
+//                   product+='<h3 class="h4 mb-2">' + result2[i][3].value + '</h3>';
+//                   product+='<p class="text-muted mb-0">' + result2[i][1].value + '</p>';
+//                   product+='</div></div>';
                }
-                 $('.insert_product').html(product);
+                 $('#insert-product1').after(product);
             }else{
-               $('.insert_product').html("상품이  없습니다.");
+               $('#insert-product1').after("상품이 없습니다.");
             }
          }
       });
@@ -392,7 +399,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                  
                  
               }else{
-                 $('.insert_product2').html("상품이 없습니다.");
+                 $('#insert-product2').after("상품이 없습니다.");
               }
          }
       });
@@ -413,19 +420,25 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                var product='';
                
                for (var i = 0; i < result2.length; ++i) {
-                  
-                  product+='<div class="col-lg-3 col-md-6 text-center service-contents"><div class="mt-5">';
-                  product+='<img src="'+ result2[i][2].value +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100"/">';
-                  product+='<h3 class="h4 mb-2">' + result2[i][3].value + '</h3>';
-                  product+='<p class="text-muted mb-0">' + result2[i][1].value + '</p>';
-                  product+='<button class="btn btn-primary btn-sm search-btn" onclick="deleteproduct(' + result2[i][0].value + ');">삭제</button>'
-                  product+='</div></div>';
+            	  product+='<div class="col-6 col-md-4">';
+             	  product+='<div class="card mb-4" style="height:400px">';
+             	  product+='<img src="'+ result2[i][2].value.toString() +'" id="'+ result2[i][0].value +'" class="card-img-top" onclick="openPopupApply(' + result2[i][0].value +');"/">';
+             	  product+='<div class="card-body"><p class="card-title">' + result2[i][3].value + '</p>';
+             	  product+='<p class="card-text">' + result2[i][1].value + '</p>';
+             	  product+='</div></div></div>';
+//             	  
+//                  product+='<div class="col-lg-3 col-md-6 text-center service-contents"><div class="mt-5">';
+//                  product+='<img src="'+ result2[i][2].value +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100"/">';
+//                  product+='<h3 class="h4 mb-2">' + result2[i][3].value + '</h3>';
+//                  product+='<p class="text-muted mb-0">' + result2[i][1].value + '</p>';
+//                  product+='<button class="btn btn-primary btn-sm search-btn" onclick="deleteproduct(' + result2[i][0].value + ');">삭제</button>'
+//                  product+='</div></div>';
                   
                }
                
-                 $('.insert_product2').html(product);
+                 $('#insert-product2').after(product);
             }else{
-               $('.insert_product2').html("리뷰가 없습니다.");
+               $('#insert-product2').after("리뷰가 없습니다.");
             }
          }
       });
@@ -660,7 +673,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                  
                  
               }else{
-                 $('.insert_product3').html("상품이 없습니다.");
+                 $('#insert-product3').after("상품이 없습니다.");
               }
          }
       });
@@ -682,16 +695,22 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                var product='';
                
                for (var i = 0; i < result2.length; ++i) {
-                  
-                  product+='<div class="col-lg-3 col-md-6 text-center service-contents"><div class="mt-5"><a data-toggle="modal" href="#my-modal">';
-                  product+='<img src="'+ result2[i][2].value +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100"/">';
-                  product+='<h3 class="h4 mb-2">' + result2[i][3].value + '</h3>';
-                  product+='<p class="text-muted mb-0">' + result2[i][1].value + '</p>';
-                  product+='</a></div></div>';
+            	   product+='<div class="col-6 col-md-4">';
+             	  product+='<div class="card mb-4" style="height:400px">';
+             	  product+='<img src="'+ result2[i][2].value.toString() +'" id="'+ result2[i][0].value +'" class="card-img-top" onclick="openPopupApply(' + result2[i][0].value +');"/">';
+             	  product+='<div class="card-body"><p class="card-title">' + result2[i][3].value + '</p>';
+             	  product+='<p class="card-text">' + result2[i][1].value + '</p>';
+             	  product+='</div></div></div>';
+//            	   
+//                  product+='<div class="col-lg-3 col-md-6 text-center service-contents"><div class="mt-5"><a data-toggle="modal" href="#my-modal">';
+//                  product+='<img src="'+ result2[i][2].value +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100"/">';
+//                  product+='<h3 class="h4 mb-2">' + result2[i][3].value + '</h3>';
+//                  product+='<p class="text-muted mb-0">' + result2[i][1].value + '</p>';
+//                  product+='</a></div></div>';
                }
-                 $('.insert_product3').html(product);
+                 $('#insert-product3').after(product);
             }else{
-               $('.insert_product3').html("리뷰가 없습니다.");
+               $('#insert-product3').after("리뷰가 없습니다.");
             }
          }
       });

@@ -438,7 +438,8 @@
                                     </div>
                                     <div id="success"></div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary" id="sendMessageButton" onclick="applyItem();">신청 하기</button>
+                                        <button type="submit" class="btn btn-primary btn-left" id="sendMessageButton" onclick="applyItem();">신청 하기</button>
+                                        <button type="submit" class="btn kt-roaming btn-right" id="sendMessageButton" onclick="applyItem();">추천 로밍</button>
                                     </div>
                                 </div>
                             </div>

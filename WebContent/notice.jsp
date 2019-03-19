@@ -75,38 +75,39 @@
                         </td>
                     </tr>
                     <tr class="even">
-                        <td>관리자 | 2019.02.28</td>
+                        <td>관리자 | 2019.03.18</td>
                     </tr>
                     <tr>
-                        <td>가이드에게 문의를 했는데 답변이 없어요.</td>
-                        <td class="more" rowspan="2"><a href="./notice_detail.jsp"> <img class="next-img" src="./img/next.png"></a>
+                        <td>홈페이지 서버유지보수 작업에 따른 홈페이지 이용제한 안내</td>
+                        <td class="more" rowspan="2"><a data-toggle="modal" href="#notice-modal-2" id="notice-modal" > <img class="next-img" src="./img/next.png"></a>
                     </tr>
                     <tr class="even">
                         <td>관리자 | 2019.02.28</td>
                     </tr>
                     <tr>
-                        <td>환불은 언제 되나요?</td>
-                        <td class="more" rowspan="2"><a href="./notice_detail.jsp"> <img class="next-img" src="./img/next.png"></a></td>
+                        <td>비밀번호 점검 가이드</td>
+                        <td class="more" rowspan="2"><a data-toggle="modal" href="#notice-modal-3" id="notice-modal" ><img class="next-img" src="./img/next.png"></a></td>
                     </tr>
                     <tr class="even">
-                        <td>관리자 | 2019.02.28</td>
+                        <td>관리자 | 2019.01.31</td>
                     </tr>
                     <tr>
-                        <td>계정 탈퇴는 어떻게 하나요?</td>
-                        <td class="more" rowspan="2"><a href="./notice_detail.jsp"> <img class="next-img" src="./img/next.png"></a></td>
+                        <td>마이페이지 시스템 점검 안내</td>
+                        <td class="more" rowspan="2"><a data-toggle="modal" href="#notice-modal-4" id="notice-modal" > <img class="next-img" src="./img/next.png"></a></td>
                     </tr>
                     <tr class="even">
-                        <td>관리자 | 2019.02.28</td>
+                        <td>관리자 | 2019.01.11</td>
                     </tr>
                     <tr>
-                        <td>비밀번호/로그인 계정을 잊어버렸는데 초기화할 수 있나요?</td>
-                        <td class="more" rowspan="2"><a href="./notice_detail.jsp"> <img class="next-img" src="./img/next.png"></a></td>
+                        <td>필리핀 보라카이 섬 재오픈</td>
+                        <td class="more" rowspan="2"><a data-toggle="modal" href="#notice-modal-5" id="notice-modal" > <img class="next-img" src="./img/next.png"></a></td>
                     </tr>
                     <tr class="even">
-                        <td>관리자 | 2019.02.28</td>
+                        <td>관리자 | 2018.10.18</td>
                     </tr>
                 </table>
                 <!-- modal content -->
+                <!-- modal1 -->
                 <div class="modal fade" id="notice-modal-1" role="dialog">
 	                <div class="modal-dialog modal-lg">
 	                    <div class="modal-content">
@@ -118,7 +119,7 @@
 	                                    <div class="col-lg-8 col-md-10 mx-auto">
 	                                        <div class="post-heading" id="notice-heading">
 	                                            <h2>전화번호 변경 안내입니다.</h2>
-	                                            <span class="meta">관리자 | 2019.02.28</span>
+	                                            <span class="meta">관리자 | 2019.03.18</span>
 	                                        </div>
 	                                    </div>
 	                                </div>
@@ -141,45 +142,167 @@
 	                                </div>
 	                            </div>
 	                        </article>
-	                        <hr>
-	                        <!-- Footer -->
-	                        <footer class="modal-footer">
+	                    </div>
+	                </div>
+	            </div>
+	            <!-- modal2 -->
+	            <div class="modal fade" id="notice-modal-2" role="dialog">
+	                <div class="modal-dialog modal-lg">
+	                    <div class="modal-content">
+	                        <!-- Page Header -->
+	                        <header class="notice-modal modal-header masthead header-block">
+	                            <div class="overlay"></div>
 	                            <div class="container">
 	                                <div class="row">
-	                                <div class="col-lg-8 col-md-10 mx-auto">
-	                                    <ul class="list-inline text-center">
-	                                    <li class="list-inline-item">
-	                                        <a href="./index.jsp#">
-	                                        <span class="fa-stack fa-lg">
-	                                            <i class="fas fa-circle fa-stack-2x"></i>
-	                                            <i class="fab fa-chrome fa-stack-1x fa-inverse"></i>
-	                                        </span>
-	                                        </a>
-	                                    </li>
-	                                    <li class="list-inline-item">
-	                                        <a href="https://github.com/WonHyeongCho/ktcp-fresh-ktds#">
-	                                        <span class="fa-stack fa-lg">
-	                                            <i class="fas fa-circle fa-stack-2x"></i>
-	                                            <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-	                                        </span>
-	                                        </a>
-	                                    </li>
-	                                <li class="list-inline-item">
-	                                        <a href="./contactus.jsp#">
-	                                        <span class="fa-stack fa-lg">
-	                                            <i class="fas fa-circle fa-stack-2x"></i>
-	                                            <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-	                                        </span>
-	                                        </a>
-	                                    </li>
-	                                    </ul>
-	                                    <p class="copyright text-muted">주소: 서울특별시 서초구 방배동 1001-1 대표 전화 : 02-523-7029 <br>
-	                                    <a href="./index.jsp#">KTrip</a>
-	                                    Copyright © <a href="https://www.ktds.com/index.jsp">KTds</a> All Rights Reserved.</p>
-	                                </div>
+	                                    <div class="col-lg-8 col-md-10 mx-auto">
+	                                        <div class="post-heading" id="notice-heading">
+	                                            <h2>홈페이지 서버유지보수 작업에 따른 홈페이지 이용제한 안내</h2>
+	                                            <span class="meta">관리자 | 2019.02.28</span>
+	                                        </div>
+	                                    </div>
 	                                </div>
 	                            </div>
-	                        </footer>
+	                        </header>
+	                        <!-- Main Content -->
+	                        <article class="modal-body">
+	                            <div class="container">
+	                                <div class="row">
+	                                    <div class="col-lg-10 col-md-10 mx-auto">
+	                                        <h5 class="text-info">제목</h5>
+	                                        <div class="title" id="notice_title">홈페이지 서버유지보수 작업에 따른 홈페이지 이용제한 안내</div>
+	                                        <hr>
+	                                        <h5 class="text-info">내용</h5>
+	                                        <div class="content" id="notice_content">
+	                                         안정적인 사이트 운영을 위해 금일 자정 이후 서버점검 작업이 진행될 예정이오니 참고 부탁 드립니다. <br><br>
+	                                            * 점검일시 : 2019.3.11(화요일) 01:00 ~ 03:00 (2시간 소요 예정)<br>
+	                                            * 점검내용 : 서비스 기능 및 안정성 향상을 위한 서버점검<br><br>
+	                                            점검시간 중에서는 홈페이지 접속이 제한되오니 양해 부탁 드립니다. <br><br>더 나은 서비스 제공을 위해 최선을 다하겠습니다.<br><br>감사합니다.
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </article>
+	                    </div>
+	                </div>
+	            </div>
+	            <!-- modal3 -->
+	            <div class="modal fade" id="notice-modal-3" role="dialog">
+	                <div class="modal-dialog modal-lg">
+	                    <div class="modal-content">
+	                        <!-- Page Header -->
+	                        <header class="notice-modal modal-header masthead header-block">
+	                            <div class="overlay"></div>
+	                            <div class="container">
+	                                <div class="row">
+	                                    <div class="col-lg-8 col-md-10 mx-auto">
+	                                        <div class="post-heading" id="notice-heading">
+	                                            <h2>비밀번호 점검 가이드</h2>
+	                                            <span class="meta">관리자 | 2019.01.31</span>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </header>
+	                        <!-- Main Content -->
+	                        <article class="modal-body">
+	                            <div class="container">
+	                                <div class="row">
+	                                    <div class="col-lg-10 col-md-10 mx-auto">
+	                                        <h5 class="text-info">제목</h5>
+	                                        <div class="title" id="notice_title">비밀번호 점검 가이드</div>
+	                                        <hr>
+	                                        <h5 class="text-info">내용</h5>
+	                                        <div class="content" id="notice_content">
+	                                            비밀번호 점검 가이드<br>: 회원님의 비밀번호는 안전하게 관리되고 있나요?<br><br>
+	                                            -  타 사이트와 동일한 비밀번호를 사용하고 있다.<br>
+	                                            -  오래된 비밀번호를 변경하지 않고 그대로 사용하고 있다.<br>
+	                                            -  개인정보가 포함된 비밀번호를 사용하고 있다.<br>
+	                                            -  기존에 사용한 비밀번호와 유사한 비밀번호를 사용하고 있다.<br>
+	                                            -  다른 사람에게 카카오계정이나 이메일 비밀번호를 공유한 적이 있다.<br><br>
+	                                            위 항목에 하나라도 해당되면 카카오정보가 위험해질 수 있습니다.
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </article>
+	                    </div>
+	                </div>
+	            </div>
+	            <!-- modal4 -->
+	            <div class="modal fade" id="notice-modal-4" role="dialog">
+	                <div class="modal-dialog modal-lg">
+	                    <div class="modal-content">
+	                        <!-- Page Header -->
+	                        <header class="notice-modal modal-header masthead header-block">
+	                            <div class="overlay"></div>
+	                            <div class="container">
+	                                <div class="row">
+	                                    <div class="col-lg-8 col-md-10 mx-auto">
+	                                        <div class="post-heading" id="notice-heading">
+	                                            <h2>마이페이지 시스템 점검 안내</h2>
+	                                            <span class="meta">관리자 | 2019.01.11</span>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </header>
+	                        <!-- Main Content -->
+	                        <article class="modal-body">
+	                            <div class="container">
+	                                <div class="row">
+	                                    <div class="col-lg-10 col-md-10 mx-auto">
+	                                        <h5 class="text-info">제목</h5>
+	                                        <div class="title" id="notice_title">마이페이지 시스템 점검 안내</div>
+	                                        <hr>
+	                                        <h5 class="text-info">내용</h5>
+	                                        <div class="content" id="notice_content">
+	                                           보다 안정적인 서비스 제공을 위해 아래의 내용으로 시스템 점검 작업을 진행할 예정이오니 양지하시어 사용에 불편 없으시기를 바랍니다.<br><br>
+	                                           ■ 작업내용 : 서비스 개선을 위한 시스템 업데이트 작업<br>
+	                                           ■ 작업 일시   : 01월 12일 00:00 ~ 06:00<br><br>
+	                                           최대한 빠른 시간 안에 작업을 마칠 수 있도록 최선을 다하겠사오니 고객님들의 많은 양해 부탁 드립니다.<br>
+	                                           항상 보다 나은 고객서비스를 위해 최선을 다하는 kt.com이 되도록 노력하겠습니다.
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </article>
+	                    </div>
+	                </div>
+	            </div>
+	            <!-- modal5 -->
+	            <div class="modal fade" id="notice-modal-5" role="dialog">
+	                <div class="modal-dialog modal-lg">
+	                    <div class="modal-content">
+	                        <!-- Page Header -->
+	                        <header class="notice-modal modal-header masthead header-block">
+	                            <div class="overlay"></div>
+	                            <div class="container">
+	                                <div class="row">
+	                                    <div class="col-lg-8 col-md-10 mx-auto">
+	                                        <div class="post-heading" id="notice-heading">
+	                                            <h2>필리핀 보라카이 섬 재오픈</h2>
+	                                            <span class="meta">관리자 | 2018.10.18</span>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </header>
+	                        <!-- Main Content -->
+	                        <article class="modal-body">
+	                            <div class="container">
+	                                <div class="row">
+	                                    <div class="col-lg-10 col-md-10 mx-auto">
+	                                        <h5 class="text-info">제목</h5>
+	                                        <div class="title" id="notice_title">필리핀 보라카이 섬 재오픈</div>
+	                                        <hr>
+	                                        <h5 class="text-info">내용</h5>
+	                                        <div class="content" id="notice_content">
+	                                            필리핀 보라카이 섬의 재오픈이 2018년 10월 28일로 결정 되었습니다.<br><br>재오픈 예정일 : 2018/10/28 ~<br>보라카이 상품 예약은 ktrip을 통해 부탁드리겠습니다.<br><br>감사합니다.
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </article>
 	                    </div>
 	                </div>
 	            </div>

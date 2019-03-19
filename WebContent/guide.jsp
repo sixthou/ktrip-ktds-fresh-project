@@ -36,70 +36,26 @@
 <script src="./js/common.js"></script>
 <script src="js/clean-blog.min.js"></script>
 
+<!--guide script  -->
+<script src="./js/guide.js"></script>
+
+
 <!-- 데이터테이블 처리 -->
 <link rel="stylesheet" type="text/css" href="DataTables/datatables.css"/>
 <script type="text/javascript" src="DataTables/datatables.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#item_list').DataTable({
-			 "lengthMenu": [ 5, 10 ]
-		});apply_list_table
-		
-	});
-	
-	
-</script>
-
- <script>
-	function call_detail(item_id){
-		$.ajax({
-            type : "POST",
-            url : "/ktrip/itemServlet",
-            data:{actionMode:'SELECT',
-            	  item_id:item_id},
-            success : function(data){
-                console.log(data);
-                //data == JSON ==> {key:value}  var v={name:'길동'}   v.name ==> '길동'
-                //아이템 정보
-             	$('#detail_title').text(data.item.title);
-                $('#title').val(data.item.title);
-                $('#contents').val(data.item.contents);
-                $('#num_min').val(data.item.num_min);
-                $('#num_max').val(data.item.num_max);
-                $('#duration').val(data.item.duration);
-                $('#price').val(data.item.price);
-                $('#concept').val(data.item.concept);
-                $('#thumbnail').val(data.item.thumbnail);
-                $('#item_form').attr("action","/ktrip/itemServlet?actionMode=UPDATE&item_id="+item_id);
-                //console.log("/ktrip/itemServlet?actionMode=UPDATE&item_id="+item_id);
-                //**//alert(jss로드성공);
-                
-                //신청자 테이블 생성.
-               	console.log(data.applyList.length);
-                var str = "<tr>"
-               	if(data.applyList.length!=0){
-                	for(var i =0;i<data.applyList.length;i++){
-                		str += "<td>"+data.applyList[i].name+"</td>"+"<td>"+data.applyList[i].start_date+"~"+data.applyList[i].end_date +"</td>"+
-                		"<td>"+"<button class=\"btn-primary btn-sm\" id=\"btn_accept\">승낙</button>"+"</td>"+
-                		"<td>"+"<button class=\"btn-primary btn-sm\"id=\"btn_decline\">거절</button>"+"</td>"+"</tr>";
-               	 		}
-                }else{
-                	str += "<td colspan="+4+">신청자가 없습니다.</td></tr>"
-                }
-                var apply_list_tbody = $("#apply_list_tbody").html(str);
-   
-            }             
-        });		
-	}	
-</script>
- 
 <style>
 	#item_list_filter{
 		display: none 
 	}
+	#item_list{
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+}
 </style>
- 
+  
 </head>
 <body>
 	<%@ include file="./header.jsp"%>
@@ -143,7 +99,7 @@
 						<tr>
 							<th>상품이름</th>
 							<th>기간</th>
-							<th>신청자</th>
+							<th>신청인원</th>
 							<th>상세보기</th>
 						</tr>
 					</thead>
@@ -207,7 +163,7 @@
 											</table>
 
 											<h5>상품 정보</h5>
-											<form id="item_form" method="POST"
+											<form id="item_form" method="POST" onsubmit="return trip_item_check()"
 												action="/ktrip/itemServlet?actionMode=UPDATE"
 												name="form_item_reg" id="trip_item" novalidate="">
 
@@ -262,10 +218,14 @@
 
 												<div class="control-group">
 													<h5 class=text-info>썸네일</h5>
-													<input type="file" class="form-control-file"
+													<span id='sp'>
+													<input type="button" value="파일 선택" id="fileBt">
+													<input type="text" class="form-control-file" readonly
 														placeholder="썸네일" id="thumbnail" name="thumbnail" required
 														data-validation-required-message="썸네일 이미지를 입력해주세요.">
+												    </span>
 													<p class="help-block text-danger"></p>
+													
 												</div>
 
 												<div class="control-group">
@@ -278,10 +238,13 @@
 
 												<div id="success"></div>
 												<div class="form-group">
-													<button class="btn btn-primary" id="btn_cls"
-														onclick="self.close()">취소</button>
+													<button class="btn btn-primary" id="btn_cls" type="button"
+														onclick="location.href='./itemServlet?actionMode=LIST'">취소</button>
 													<button type="submit" class="btn btn-primary" id="btn_edit">수정</button>
+
+													<span id="delete_btn"></span>
 												</div>
+												
 											</form>
 										</div>
 										<!--basic containge form-->

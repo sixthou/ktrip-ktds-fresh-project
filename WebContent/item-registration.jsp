@@ -25,6 +25,7 @@
   <link href="./css/common.css" rel="stylesheet" type="text/css">
   <script src="./js/common.js"></script>
   <script src="js/clean-blog.min.js"></script>
+  <script src="./js/item-registration.js"></script>
 </head>
 <body>
   <%@ include file="./header.jsp"%>
@@ -65,7 +66,8 @@
       </div>
       <div class="col-lg-8 col-md-10 mx-auto">
         <!-- Contact Form -->
-        <form method="POST" action="/ktrip/itemServlet?actionMode=INS" name="form_item_reg" id="trip_item" novalidate="" enctype="multipart/form-data">
+        <form method="POST" action="/ktrip/itemServlet?actionMode=INS" name="form_item_reg" 
+        id="trip_item" onsubmit="return trip_item_check()" novalidate="" enctype="multipart/form-data">
           <!--아이디 확인.-->
           <div class="control-group">
             <h5 class=text-info>상품명</h5>

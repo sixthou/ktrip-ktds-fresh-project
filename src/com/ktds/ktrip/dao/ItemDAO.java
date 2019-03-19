@@ -178,8 +178,8 @@ public class ItemDAO {
 				conn = db.connect();
 
 				String sql = "insert into trip_item "
-						+ "(guide_id,destination,duration,num_max,concept,contents,item_status,num_min,price,title,thumbnail)"
-						+ " values(?,?,?,?,?,?,?,?,?,?,?)";
+						+ "(guide_id,destination,duration,num_max,concept,contents,num_min,price,title,thumbnail)"
+						+ " values(?,?,?,?,?,?,?,?,?,?)";
 
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, item.getGuide_id());
@@ -188,11 +188,10 @@ public class ItemDAO {
 				pstmt.setInt(4, item.getNum_max());
 				pstmt.setString(5, item.getConcept());
 				pstmt.setString(6, item.getContents());
-				pstmt.setString(7, item.getItem_status());
-				pstmt.setInt(8, item.getNum_min());
-				pstmt.setInt(9, item.getPrice());
-				pstmt.setString(10, item.getTitle());
-				pstmt.setString(11, item.getThumbnail());
+				pstmt.setInt(7, item.getNum_min());
+				pstmt.setInt(8, item.getPrice());
+				pstmt.setString(9, item.getTitle());
+				pstmt.setString(10, item.getThumbnail());
 
 				res = pstmt.executeUpdate();
 			} catch (Exception e) {
@@ -291,10 +290,10 @@ public class ItemDAO {
 					item.setTitle(rs.getString("title"));
 					item.setDuration(rs.getInt("duration"));
 					item.setCnt(rs.getInt("count"));
-					System.out.println(">>>" + rs.getInt("item_id"));
-					System.out.println(">>>" + rs.getString("title"));
-					System.out.println(">>>" + rs.getString("duration"));
-					System.out.println(">>>" + rs.getInt("count"));
+//					System.out.println(">>>" + rs.getInt("item_id"));
+//					System.out.println(">>>" + rs.getString("title"));
+//					System.out.println(">>>" + rs.getString("duration"));
+//					System.out.println(">>>" + rs.getInt("count"));
 					list.add(item);
 				}
 
@@ -340,6 +339,8 @@ public class ItemDAO {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}finally {
+				db.close(rs, pstmt, conn);
 			}
 			return item;
 		}
@@ -386,14 +387,17 @@ public class ItemDAO {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}finally {
+				db.close(rs, pstmt, conn);
 			}
 			System.out.println("size()>>>" + applyList.size());
 			return applyList;
 		}
 
-		public List<ApplyVO> changeStatus(int item_status, int apply_id) {
+		public void changeStatus(int item_status, int apply_id) {
+			int res= 0;
 			ArrayList<ApplyVO> applyList = new ArrayList<ApplyVO>();
-
+			System.out.println("DAO STATUSµé¾î¿È>>> ¾ÆÀÌÅÛ »óÅÂ" + item_status + "," + apply_id);
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -404,27 +408,33 @@ public class ItemDAO {
 			try {
 				conn = db.connect();
 				if (item_status == 2) { //½Â³«ÇÔ
-					String sql = "update item_apply set item_status = ? where apply_id = ?";
+					System.out.println("½Â³«µé¾î¿È>>>");
+					String sql = "update item_apply set item_status = 2 where apply_id = ?";
 					pstmt = conn.prepareStatement(sql);
-					pstmt.setInt(1, item_status);
-					pstmt.setInt(2, apply_id);
-					//pstmt.setInt(2, user_id);
-					System.out.println("item_status·Î µé¾î¿È");
+					pstmt.setInt(1, apply_id);
+					res = pstmt.executeUpdate();
+					System.out.println("½Â³« ¾÷µ« ¿Ï·á");
+					
 				} else if(item_status == 3){ // °ÅÀýÇÔ
-					String sql = "delete from item_apply where apply_id = ?";
+					System.out.println("°ÅÀýµé¾î¿È>>>");
+					//String sql = "delete from item_apply where apply_id = ?";
+					String sql = "update item_apply set item_status = 3 where apply_id = ?";
 					pstmt = conn.prepareStatement(sql);
 					//pstmt.setInt(1, user_id);
-					pstmt.setInt(2, apply_id);
+					pstmt.setInt(1, apply_id);
+					res = pstmt.executeUpdate();
+					
+					System.out.println("°ÅÀý ¾÷µ« ¿Ï·á");
 
 				}
 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}finally {
+				db.close(rs, pstmt, conn);
 			}
 
-			return applyList;
 		}
-	
-	
 }
+	

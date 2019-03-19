@@ -11447,7 +11447,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			"sEmptyTable": "등록한 여행이 없습니다.",
 	
 	
 			/**
@@ -11479,7 +11479,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": " _START_ ~ _END_ / _TOTAL_",
 	
 	
 			/**
@@ -11500,7 +11500,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": "",
 	
 	
 			/**
@@ -11640,7 +11640,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "개수_MENU_",
 	
 	
 			/**
@@ -11945,7 +11945,7 @@
 		 *      } );
 		 *    } )
 		 */
-		"sPaginationType": "simple_numbers",
+		"sPaginationType": "numbers",
 	
 	
 		/**

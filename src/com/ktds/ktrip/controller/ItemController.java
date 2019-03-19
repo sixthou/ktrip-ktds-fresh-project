@@ -43,10 +43,11 @@ public class ItemController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 //		
 		HttpSession session = request.getSession();
-		//session.setAttribute("guide_id", 2); // 로그인에서 session 전달 구현
+		// session.setAttribute("guide_id", 2); // 로그인에서 session 전달 구현
 
 		String actionMode = request.getParameter("actionMode");
 
+		System.out.println("ItemController actionMode>>>" + actionMode);
 		if (actionMode.equals("NULL")) {
 			int guide_id = (int) session.getAttribute("guide_id");
 			// System.out.println("GUIDE_ID>>>"+ guide_id);
@@ -72,18 +73,15 @@ public class ItemController extends HttpServlet {
 			item.setDestination(multi.getParameter("destination"));
 			item.setDuration(Integer.parseInt(multi.getParameter("duration")));
 			item.setGuide_id((int) session.getAttribute("guide_id"));
-			item.setItem_status(multi.getParameter("item_status"));
 			item.setNum_max(Integer.parseInt(multi.getParameter("num_max")));
 			item.setNum_min(Integer.parseInt(multi.getParameter("num_min")));
 			item.setPrice(Integer.parseInt(multi.getParameter("price")));
-			// item.setThumbnail(multi.getParameter("thumbnail"));
 			if (multi.getFilesystemName("thumbnail") == null) {
 				System.out.println("INS>>사진 안들어옴");
 				picturePath = defaultPhotoPath;
 				item.setThumbnail(picturePath);
 			} else {
-				picturePath = savePath + "\\" + guide_id + "\\"
-						+ multi.getFilesystemName("thumbnail");
+				picturePath = savePath + "\\" + guide_id + "\\" + multi.getFilesystemName("thumbnail");
 				item.setThumbnail(picturePath);
 			}
 
@@ -98,7 +96,7 @@ public class ItemController extends HttpServlet {
 			response.sendRedirect("/ktrip/itemServlet?actionMode=LIST&user_id=" + guide_id);
 		} else if (actionMode.equals("UPDATE")) {
 			// item을 수정한 경우 fin
-
+			System.out.println("UPDATE받아옴>>>");
 			ItemVO item = new ItemVO();
 			// List<ItemVO> list = new ArrayList<ItemVO>();
 			ItemDAO idao = new ItemDAO();
@@ -119,7 +117,7 @@ public class ItemController extends HttpServlet {
 
 		} else if (actionMode.equals("DEL")) {
 			// 기존의 내용을 삭제한경우 Del fin
-
+			System.out.println("DEL체크");
 			ItemVO item = new ItemVO();
 			ItemDAO idao = new ItemDAO();
 
@@ -139,58 +137,58 @@ public class ItemController extends HttpServlet {
 			ItemVO item = new ItemVO();
 
 			int apply_id = Integer.parseInt(request.getParameter("apply_id"));
-			//int user_id = Integer.parseInt(request.getParameter("user_id"));// 신청자id
+			// int user_id = Integer.parseInt(request.getParameter("user_id"));// 신청자id
 			int item_status = Integer.parseInt(request.getParameter("item_status"));
-			//int item_id = Integer.parseInt(request.getParameter("item_id"));
+			int item_id = Integer.parseInt(request.getParameter("item_id"));
 			idao.changeStatus(item_status, apply_id);
 			int guide_id = (int) session.getAttribute("guide_id");
-			//세션으로 가이드아이디 받음
-			
-			response.sendRedirect("/ktrip/itemServlet?actionMode=SELECT&user_id=" + guide_id);
+			// 세션으로 가이드아이디 받음
+
+			response.sendRedirect("/ktrip/itemServlet?actionMode=SELECT&user_id=" + guide_id + "&item_id=" + item_id);
 
 		} else if (actionMode.equals("SELECT")) {
 
 			// 상품을 선택했을 경우 fin
-			System.out.println("호출받음>>>");
+			System.out.println("SELECT호출받음>>>");
 
 			ItemDAO idao = new ItemDAO();
 			List<ApplyVO> applyList = new ArrayList<ApplyVO>();
 			int guide_id = (int) session.getAttribute("guide_id");// (request.getParameter("user_id"));
 			int item_id = Integer.parseInt(request.getParameter("item_id"));
-			// list = idao.showAll(user_id);
+
 			System.out.println("item_ID>>>" + item_id);
 
 			ItemVO item = idao.showSelect(item_id, guide_id);
 			applyList = idao.showApply(item_id);
 
-			//request.setAttribute("applyList", applyList);
-			//request.setAttribute("item", item);
-			for (int i = 0; i < applyList.size(); i++) {
-				System.out.println("SEL>>>" + applyList.get(i).getName());
-				System.out.println("SEL>>>" + applyList.get(i).getStatusToString());
-			}
-			System.out.println("SEL>>>" + item.getTitle());
-			System.out.println("SEL>>>" + item.getNum_min());
-			System.out.println("SEL>>" + item.getPrice());
-			System.out.println("SEL>>>" + item.getNum_max());
-			
+			// request.setAttribute("applyList", applyList);
+			// request.setAttribute("item", item);
+//			for (int i = 0; i < applyList.size(); i++) {
+//				System.out.println("SEL>>>" + applyList.get(i).getName());
+//				System.out.println("SEL>>>" + applyList.get(i).getStatusToString());
+//			}
+//			System.out.println("SEL>>>" + item.getTitle());
+//			System.out.println("SEL>>>" + item.getNum_min());
+//			System.out.println("SEL>>" + item.getPrice());
+//			System.out.println("SEL>>>" + item.getNum_max());
+
 			response.setCharacterEncoding("utf-8");
-	        response.setContentType("application/json");
-		
-	        guideDataVO jsonData = new guideDataVO();
-	        jsonData.setApplyList(applyList);
-	        jsonData.setItem(item);
-	        
-	        Gson gson = new Gson();
-            String jsonList = gson.toJson(jsonData);
-            PrintWriter out = response.getWriter();
-            out.write(jsonList);
-            out.flush();
-            out.close();
-            
-			//RequestDispatcher rd = request.getRequestDispatcher("/guide_data.jsp");
-			//response.sendRedirect("/guide_data.jsp");
-			//rd.forward(request, response);
+			response.setContentType("application/json");
+
+			guideDataVO jsonData = new guideDataVO();
+			jsonData.setApplyList(applyList);
+			jsonData.setItem(item);
+
+			Gson gson = new Gson();
+			String jsonList = gson.toJson(jsonData);
+			PrintWriter out = response.getWriter();
+			out.write(jsonList);
+			out.flush();
+			out.close();
+
+			// RequestDispatcher rd = request.getRequestDispatcher("/guide_data.jsp");
+			// response.sendRedirect("/guide_data.jsp");
+			// rd.forward(request, response);
 			// 현재 페이지가 받은 데이터를 다음페이지로 넘겨준다.
 
 		} else if (actionMode.equals("LIST")) {

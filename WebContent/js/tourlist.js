@@ -881,7 +881,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                    
                 }else{
                    //삭제 실패.
-                   alert('상품 삭제 실패.');
+                   console.log('상품 삭제 실패.');
                 }
              }
           });
@@ -903,7 +903,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                    hidemodal();
                }else{
                   //삭제 실패.
-                  alert('리뷰 등록 실패.');
+                  console.log('리뷰 등록 실패.');
                }
             }
          });

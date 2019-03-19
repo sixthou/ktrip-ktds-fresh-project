@@ -117,10 +117,7 @@
             url : "./viewReview",
             data : {item_id:item_id
             },
-            success : function(result) {
-                
-                var object = eval('(' + result + ')');
-                var result2 = object.result;
+            success : function(result2) {
                 
                 if(result2.length != 0){
                     
@@ -191,11 +188,8 @@
             data : {item_id:item_id,
                pagingnumber:active_pagenumber
                },
-            success : function(result) {
+            success : function(result2) {
                
-                var object = eval('(' + result + ')');
-                var result2 = object.result;
-                
                 if(result2.length != 0){
                    var product2='';
                    
@@ -203,11 +197,10 @@
                    for (var i = 0; i < result2.length; ++i) {
                       
                        product2+='<div class="card mb-4"><div class="card-body"><br>';
-                       product2+='<h2 class="card-title">' + result2[i][0].value + '</h2>';
-                       product2+='<p class="card-text">' + result2[i][1].value + '</p></div>';
-                       product2+='<div class="card-footer text-muted">Posted on ' + result2[i][2].value + ' by '+ result2[i][3].value + '</div>';
+                       product2+='<h2 class="card-title">' + result2[i]['title'] + '</h2>';
+                       product2+='<p class="card-text">' + result2[i]['review_contents'] + '</p></div>';
+                       product2+='<div class="card-footer text-muted">Posted on ' + result2[i]['register_time'] + ' by '+ result2[i]['user_name'] + '</div>';
                        product2+='</div>';
-                       
                     }
                       
                     $('.insert_product').html(product2);

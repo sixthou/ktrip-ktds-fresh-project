@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport"
-   content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 <title>여행 상품 검색</title>
@@ -17,15 +17,15 @@
 <!-- Bootstrap -->
 <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css"
-   rel="stylesheet">
+	rel="stylesheet">
 <!-- Custom fonts for this template -->
 <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
-   type="text/css">
+	type="text/css">
 <link src="./index_files/css" rel="stylesheet" type="text/css">
 <link src="./index_files/css(1)" rel="stylesheet" type="text/css">
 <link src="./index_files/icon" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-   rel="stylesheet">
+	rel="stylesheet">
 <link href="./css/clean-blog.min.css" rel="stylesheet">
 <!-- tourlist.css, tourlist.js, star.js, table.css -->
 <script src="./js/star.js"></script>
@@ -38,10 +38,10 @@
 <script src="js/clean-blog.min.js"></script>
 <!-- Bootstrap material datetimepicker -->
 <script
-   src="./bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+	src="./bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 <link
-   href="./bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
-   rel="stylesheet" type="text/css">
+	href="./bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
+	rel="stylesheet" type="text/css">
 </head>
 
 <%
@@ -62,10 +62,12 @@ $( document ).ready(function() {
       $('#start-date').val(st);
       $('#end-date').val(ed);
       $('#destination').val(ds);
+      $('.aaa').remove();//이전에 뿌렸던 리스트 제거.
       loadpagecount();
    }
    
    function loadpagecount(){
+	   		
           var start_date = $('#start-date').val();
           var end_date = $('#end-date').val();
           var destination = $('#destination').val();
@@ -79,10 +81,8 @@ $( document ).ready(function() {
                   end_date:end_date,
                   destination:destination
                   },
-            success : function(result) {
-                 var object = eval('(' + result + ')');
-                 var result2 = object.result;
-                 
+            success : function(result2) {
+            	 
                  if(result2.length != 0){
                      
                     loadtable();//laod table;
@@ -136,7 +136,7 @@ $( document ).ready(function() {
                     
                     
                  }else{
-                    $('.#insult-product1').after("상품이 없습니다.");
+                	 $('#insert_product').after('<div class="col-6 col-md-4 aaa">상품이 존재하지 않습니다.</div>');
                  }
             }
          });
@@ -156,33 +156,23 @@ $( document ).ready(function() {
                   destination:destination,
                   pagingnumber:active_pagenumber
                   },
-            success : function(result) {
+            success : function(result2) {
       			
-               var object = eval('(' + result + ')');
-                 var result2 = object.result;
-               
                if(result2.length != 0){
                   var product='';
                   
                   for (var i = 0; i < result2.length; ++i) {
-                	  product+='<div class="col-6 col-md-4">';
-                	  product+='<div class="card mb-4" style="height:400px">';
-                	  product+='<img src="'+ result2[i][2].value.toString() +'" id="'+ result2[i][0].value +'" class="card-img-top" onclick="openPopupApply(' + result2[i][0].value +');"/">';
-                	  product+='<div class="card-body"><p class="card-title">' + result2[i][3].value + '</p>';
-                	  product+='<p class="card-text">' + result2[i][1].value + '</p>';
-                	  product+='</div></div></div>';
-                	  /* 
-                     product+='<div class="col-6 col-md-4 text-center"><div class="mt-5">';
-                     product+='<img src="'+ result2[i][2].value.toString() +'" id="'+ result2[i][0].value +'" class="item-img" width="100" height="100" onclick="openPopupApply(' + result2[i][0].value +');"/">';
-                     product+='<h3 class="h4 mb-2">' + result2[i][3].value + '</h3>';
-                     product+='<p class="text-muted mb-0">' + result2[i][1].value + '</p>';
-                     product+='</div></div>'; */
+                	  
+                	  product+='<div class="col-6 col-md-4 aaa">';
+               	      product+='<div class="card mb-4" style="height:400px">';
+               	      product+='<img src="'+ result2[i].thumbnail +'" id="'+ result2[i].item_id +'" class="card-img-top" onclick="openPopupApply(' + result2[i].item_id +');"/">';
+               	      product+='<div class="card-body"><p class="card-title">[' + result2[i].concept + ']</p>';
+               	      product+='<p class="card-text">' + result2[i].title + '</p>';
+               	      product+='</div></div></div>';
                   }
-           
-                  $('#insult-product1').after(product);
-                	
+                    $('#insert_product').after(product);
                }else{
-                  $('#insult-product1').after("상품이 없습니다.");
+            	   $('#insert_product').after('<div class="col-6 col-md-4 aaa">상품이 존재하지 않습니다.</div>');
                }
             }
          });
@@ -191,183 +181,181 @@ $( document ).ready(function() {
 </script>
 
 <body>
-   <!-- Navigation -->
-   <%@ include file="./header.jsp"%>
+	<!-- Navigation -->
+	<%@ include file="./header.jsp"%>
 
-   <!-- Page Header -->
-   <header class="masthead header-block" id="tourlist-header-img">
-      <div class="overlay"></div>
-      <div class="container">
-         <div class="row">
-            <div class="col-xl-12 col-md-10 mx-auto">
-               <div class="page-heading" id="tourlist-heading">
-                  <h1>여행 상품 검색</h1>
-                  <span class="subheading"></span>
-                  <div class="form-group search-group">
-                     <label class="date-label" for="start-date">출발: </label> <input
-                        type="text" class="date-input form-control" id="start-date"
-                        placeholder="출발"> <label class="date-label"
-                        for="start-date">도착: </label> <input type="text"
-                        class="date-input form-control" id="end-date" placeholder="도착">
-                     <label class="date-label" for="destination">목적지: </label> <input
-                        type="text" class="form-control destination-input"
-                        placeholder="목적지" id="destination">
-                     <div>
-                        <button type="button" class="btn btn-primary btn-sm search-btn"
-                           onclick="SearchProduct();">검색하기</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </header>
+	<!-- Page Header -->
+	<header class="masthead header-block" id="tourlist-header-img">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto">
+					<div class="page-heading" id="tourlist-heading">
+						<h1>여행 상품 검색</h1>
+						<span class="subheading"></span>
+						<div class="form-group search-group">
+							<label class="date-label" for="start-date">출발: </label> <input
+								type="text" class="date-input form-control" id="start-date"
+								placeholder="출발"> <label class="date-label"
+								for="start-date">도착: </label> <input type="text"
+								class="date-input form-control" id="end-date" placeholder="도착">
+							<label class="date-label" for="destination">목적지: </label> <input
+								type="text" class="form-control destination-input"
+								placeholder="목적지" id="destination">
+							<div>
+								<button type="button" class="btn btn-primary btn-sm search-btn"
+									onclick="SearchProduct();">검색하기</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-   <div class="container">
-      <div class="row">
-         <div class="col-lg-9 col-md-10 mx-auto" id="insult-product1">
-            <h1 class="my-4">검색된 상품</h1>
-         </div>
-	          <!-- <div class="insert_product"></div> -->
-	          <br><br>
-               
-            <div class="col-lg-9 col-md-10 mx-auto" id="insert-product2">
-            <!-- pagination -->
-            <div class="row justify-content-center">
-               <div class="pagination" id="pg1"></div>
-            </div>
-            <br>
-            
-           	
-            	<h1 class="my-4">대기중인 여행</h1>
-         	</div>
-         	
-         	<div class="col-lg-9 col-md-10 mx-auto" id="insert-product3">
-            <!-- pagination -->
-            <div class="row justify-content-center">
-               <div class="pagination" id="pg2"></div>
-            </div>
-            <br>
-                  <h1 class="my-4">다녀온 여행</h1>
-            </div>
-               <br> <br>
-               <!-- modal portfolio -->
-               <div class="modal fade" id="my-modal" role="dialog">
-                  <div class="modal-dialog modal-lg">
-                     <div class="modal-content">
-                        <!-- Page Header -->
-                        <header
-                           class="item-review-modal modal-header masthead header-block">
-                           <div class="overlay"></div>
-                           <div class="container">
-                              <div class="row">
-                                 <div class="col-lg-8 col-md-10 mx-auto">
-                                    <div class="post-heading" id="item-review-heading">
-                                       <img src="" width="200" height="200" />
-                                       <h2></h2>
-                                       <span class="meta"></span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </header>
-                        <!-- Main Content -->
-                        <article class="modal-body">
-                           <div class="container">
-                              <div class="row">
-                                 <div class="col-lg-10 col-md-10 mx-auto">
-                                    <div class="control-group">
-                                       <span class="star-input"> <span class="input">
-                                             <input type="radio" name="star-input" value="1" id="p1">
-                                             <label for="p1">1</label> <input type="radio"
-                                             name="star-input" value="2" id="p2"> <label
-                                             for="p2">2</label> <input type="radio" name="star-input"
-                                             value="3" id="p3"> <label for="p3">3</label> <input
-                                             type="radio" name="star-input" value="4" id="p4">
-                                             <label for="p4">4</label> <input type="radio"
-                                             name="star-input" value="5" id="p5"> <label
-                                             for="p5">5</label>
-                                       </span> <output for="star-input">
-                                             <b id="item_score">0</b>점
-                                          </output>
-                                       </span>
-                                       <script src="./js/star.js"></script>
-                                    </div>
-                                    <div class="control-group">
-                                       <h5 class=text-info>제목</h5>
-                                       <input type="text" class="form-control"
-                                          placeholder="제목을 입력해 주세요." id="item-review-title"
-                                          required="" data-validation-required-message="필수 항목입니다.">
-                                       <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="control-group">
-                                       <h5 class=text-info>리뷰 내용</h5>
-                                       <textarea rows="10" class="form-control"
-                                          placeholder="리뷰를 입력해 주세요." id="item-review-content"></textarea>
-                                       <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="form-group">
-                                       <button type="submit" class="btn btn-primary search-btn"
-                                          id="sendMessageButton" onclick="InsertReview();">등록</button>
-                                       <button type="cancel" class="btn btn-primary search-btn"
-                                          id="closeButton" onclick="hidemodal();">취소</button>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </article>
-                        <hr>
-                        <!-- Footer -->
-                        <footer class="modal-footer">
-                           <div class="container">
-                              <div class="row">
-                                 <div class="col-lg-8 col-md-10 mx-auto">
-                                    <ul class="list-inline text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9 col-md-10 mx-auto" id="insert_product">
+				<h1 class="my-4">검색된 상품</h1>
+			</div>
+			<!-- <div class="insert_product"></div> -->
+			<br>
+			<br>
 
-                                       <li class="list-inline-item"><a href="./index.html#">
-                                             <span class="fa-stack fa-lg"> <i
-                                                class="fas fa-circle fa-stack-2x"></i> <i
-                                                class="fab fa-chrome fa-stack-1x fa-inverse"></i>
-                                          </span>
-                                       </a></li>
-                                       <li class="list-inline-item"><a
-                                          href="https://github.com/WonHyeongCho/ktcp-fresh-ktds#">
-                                             <span class="fa-stack fa-lg"> <i
-                                                class="fas fa-circle fa-stack-2x"></i> <i
-                                                class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                          </span>
-                                       </a></li>
-                                       <li class="list-inline-item"><a
-                                          href="./contactus.html#"> <span class="fa-stack fa-lg">
-                                                <i class="fas fa-circle fa-stack-2x"></i> <i
-                                                class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                                          </span>
-                                       </a></li>
-                                    </ul>
-                                    <p class="copyright text-muted">
-                                       주소: 서울특별시 서초구 방배동 1001-1 대표 전화 : 02-523-7029 <br> <a
-                                          href="./index.html#">KTrip</a> Copyright © <a
-                                          href="https://www.ktds.com/index.jsp">KTds</a> All Rights
-                                       Reserved.
-                                    </p>
-                                 </div>
-                              </div>
-                           </div>
-                        </footer>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- pagination -->
-            <div class="row justify-content-center">
-               <div class="pagination" id="pg3"></div>
-            </div>
-            <br>
-         </div>
-      </div>
-   <!-- </div> -->
-   <hr>
-   <!-- Footer -->
-   <%@ include file="./footer.jsp"%>
+			<div class="col-lg-9 col-md-10 mx-auto" id="insert_product2">
+				<!-- pagination -->
+				<div class="row justify-content-center">
+					<div class="pagination" id="pg1"></div>
+				</div>
+				<br>
+
+
+				<h1 class="my-4">대기중인 여행</h1>
+			</div>
+
+			<div class="col-lg-9 col-md-10 mx-auto" id="insert_product3">
+				<!-- pagination -->
+				<div class="row justify-content-center">
+					<div class="pagination" id="pg2"></div>
+				</div>
+				<br>
+				<h1 class="my-4">다녀온 여행</h1>
+			</div>
+			<br> <br>
+			<!-- modal portfolio -->
+			<div class="modal fade" id="my-modal" role="dialog">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<!-- Page Header -->
+						<header
+							class="item-review-modal modal-header masthead header-block">
+							<div class="overlay"></div>
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-8 col-md-10 mx-auto">
+										<div class="post-heading" id="item-review-heading">
+											<img src="" width="200" height="200" />
+											<h2></h2>
+											<span class="meta"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</header>
+						<!-- Main Content -->
+						<article class="modal-body">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-10 col-md-10 mx-auto">
+										<div class="control-group">
+											<span class="star-input"> <span class="input">
+													<input type="radio" name="star-input" value="1" id="p1">
+													<label for="p1">1</label> <input type="radio"
+													name="star-input" value="2" id="p2"> <label
+													for="p2">2</label> <input type="radio" name="star-input"
+													value="3" id="p3"> <label for="p3">3</label> <input
+													type="radio" name="star-input" value="4" id="p4"> <label
+													for="p4">4</label> <input type="radio" name="star-input"
+													value="5" id="p5"> <label for="p5">5</label>
+											</span> <output for="star-input">
+													<b id="item_score">0</b>점
+												</output>
+											</span>
+											<script src="./js/star.js"></script>
+										</div>
+										<div class="control-group">
+											<h5 class=text-info>제목</h5>
+											<input type="text" class="form-control"
+												placeholder="제목을 입력해 주세요." id="item-review-title"
+												required="" data-validation-required-message="필수 항목입니다.">
+											<p class="help-block text-danger"></p>
+										</div>
+										<div class="control-group">
+											<h5 class=text-info>리뷰 내용</h5>
+											<textarea rows="10" class="form-control"
+												placeholder="리뷰를 입력해 주세요." id="item-review-content"></textarea>
+											<p class="help-block text-danger"></p>
+										</div>
+										<div class="form-group">
+											<button type="submit" class="btn btn-primary search-btn"
+												id="sendMessageButton" onclick="InsertReview();">등록</button>
+											<button type="cancel" class="btn btn-primary search-btn"
+												id="closeButton" onclick="hidemodal();">취소</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<hr>
+						<!-- Footer -->
+						<footer class="modal-footer">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-8 col-md-10 mx-auto">
+										<ul class="list-inline text-center">
+
+											<li class="list-inline-item"><a href="./index.html#">
+													<span class="fa-stack fa-lg"> <i
+														class="fas fa-circle fa-stack-2x"></i> <i
+														class="fab fa-chrome fa-stack-1x fa-inverse"></i>
+												</span>
+											</a></li>
+											<li class="list-inline-item"><a
+												href="https://github.com/WonHyeongCho/ktcp-fresh-ktds#">
+													<span class="fa-stack fa-lg"> <i
+														class="fas fa-circle fa-stack-2x"></i> <i
+														class="fab fa-github fa-stack-1x fa-inverse"></i>
+												</span>
+											</a></li>
+											<li class="list-inline-item"><a href="./contactus.html#">
+													<span class="fa-stack fa-lg"> <i
+														class="fas fa-circle fa-stack-2x"></i> <i
+														class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+												</span>
+											</a></li>
+										</ul>
+										<p class="copyright text-muted">
+											주소: 서울특별시 서초구 방배동 1001-1 대표 전화 : 02-523-7029 <br> <a
+												href="./index.html#">KTrip</a> Copyright © <a
+												href="https://www.ktds.com/index.jsp">KTds</a> All Rights
+											Reserved.
+										</p>
+									</div>
+								</div>
+							</div>
+						</footer>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- pagination -->
+		<div class="row justify-content-center">
+			<div class="pagination" id="pg3"></div>
+		</div>
+		<br>
+	</div>
+	<hr>
+	<!-- Footer -->
+	<%@ include file="./footer.jsp"%>
 </body>
 </html>

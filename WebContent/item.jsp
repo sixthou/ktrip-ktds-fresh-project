@@ -77,10 +77,10 @@
                 
                if(result == "success"){
                     //리뷰 등록 완료.
-                  alert('상품 신청 성공.');
+                  $('#myModal').modal('show');
                  }else{
                     //리뷰 등록 실패.
-                    alert('상품 신청 실패.');
+                    console.log('상품 신청 실패.');
                  }
             }
         });
@@ -489,6 +489,27 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">상품 신청</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>상품 신청 성공</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
     <!-- Footer -->
     <hr>

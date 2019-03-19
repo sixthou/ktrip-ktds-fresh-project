@@ -78,34 +78,35 @@
                     </tr>
                     <tr>
                         <td>가이드에게 문의를 했는데 답변이 없어요.</td>
-                        <td class="more" rowspan="2"><a href="./faq_detail.jsp"> <img class="next-img" src="./img/next.png"></a>
+                        <td class="more" rowspan="2"><a data-toggle="modal" href="#faq-modal-2" id="faq-modal" ><img class="next-img" src="./img/next.png"></a>
                     </tr>
                     <tr class="even">
                         <td>관리자 | 2019.02.28</td>
                     </tr>
                     <tr>
                         <td>환불은 언제 되나요?</td>
-                        <td class="more" rowspan="2"><a href="./faq_detail.jsp"> <img class="next-img" src="./img/next.png"></a></td>
+                        <td class="more" rowspan="2"><a data-toggle="modal" href="#faq-modal-3" id="faq-modal" ><img class="next-img" src="./img/next.png"></a></td>
                     </tr>
                     <tr class="even">
                         <td>관리자 | 2019.02.28</td>
                     </tr>
                     <tr>
                         <td>계정 탈퇴는 어떻게 하나요?</td>
-                        <td class="more" rowspan="2"><a href="./faq_detail.jsp"> <img class="next-img" src="./img/next.png"></a></td>
+                        <td class="more" rowspan="2"><a data-toggle="modal" href="#faq-modal-4" id="faq-modal" ><img class="next-img" src="./img/next.png"></a></td>
                     </tr>
                     <tr class="even">
                         <td>관리자 | 2019.02.28</td>
                     </tr>
                     <tr>
-                        <td>비밀번호/로그인 계정을 잊어버렸는데 초기화할 수 있나요?</td>
-                        <td class="more" rowspan="2"><a href="./faq_detail.jsp"> <img class="next-img" src="./img/next.png"></a></td>
+                        <td>로그인 이메일 주소(계정)을 변경하고 싶어요.</td>
+                        <td class="more" rowspan="2"><a data-toggle="modal" href="#faq-modal-5" id="faq-modal" ><img class="next-img" src="./img/next.png"></a></td>
                     </tr>
                     <tr class="even">
                         <td>관리자 | 2019.02.28</td>
                     </tr>
                 </table>
                 <!-- modal content -->
+                <!-- modal1 -->
                 <div class="modal fade" id="faq-modal-1" role="dialog">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -141,44 +142,168 @@
                                 </div>
                             </article>
                             <hr>
-                            <!-- Footer -->
-                            <footer class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+               <!-- modal2 -->
+                <div class="modal fade" id="faq-modal-2" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <!-- Page Header -->
+                            <header class="faq-modal modal-header masthead header-block">
+                                <div class="overlay"></div>
                                 <div class="container">
                                     <div class="row">
-                                    <div class="col-lg-8 col-md-10 mx-auto">
-                                        <ul class="list-inline text-center">
-                                        <li class="list-inline-item">
-                                            <a href="./index.jsp#">
-                                            <span class="fa-stack fa-lg">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fab fa-chrome fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="https://github.com/WonHyeongCho/ktcp-fresh-ktds#">
-                                            <span class="fa-stack fa-lg">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            </a>
-                                        </li>
-                                    <li class="list-inline-item">
-                                            <a href="./contactus.jsp#">
-                                            <span class="fa-stack fa-lg">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            </a>
-                                        </li>
-                                        </ul>
-                                        <p class="copyright text-muted">주소: 서울특별시 서초구 방배동 1001-1 대표 전화 : 02-523-7029 <br>
-                                        <a href="./index.jsp#">KTrip</a>
-                                        Copyright © <a href="https://www.ktds.com/index.jsp">KTds</a> All Rights Reserved.</p>
-                                    </div>
+                                        <div class="col-lg-8 col-md-10 mx-auto">
+                                            <div class="post-heading" id="faq-heading">
+                                                <h2>가이드에게 문의를 했는데 답변이 없어요.</h2>
+                                                <span class="meta">관리자 | 2019.02.28</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </footer>
+                            </header>
+                            <!-- Main Content -->
+                            <article class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-10 col-md-10 mx-auto">
+                                            <h5 class="text-info">제목</h5>
+                                            <div class="title" id="faq_title" >가이드에게 문의를 했는데 답변이 없어요.</div>
+                                            <hr>
+                                            <h5 class="text-info">내용</h5>
+                                            <div class="content" id="faq_content">
+                                               문의 접수로부터 영업일 기준 1일 이내 메시지 답변을 드리며, 시차로 인해 답변이 늦어질 수 있으니 조금만 기다려주세요.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal3 -->
+                <div class="modal fade" id="faq-modal-3" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <!-- Page Header -->
+                            <header class="faq-modal modal-header masthead header-block">
+                                <div class="overlay"></div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-10 mx-auto">
+                                            <div class="post-heading" id="faq-heading">
+                                                <h2>환불은 언제 되나요?.</h2>
+                                                <span class="meta">관리자 | 2019.02.28</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </header>
+                            <!-- Main Content -->
+                            <article class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-10 col-md-10 mx-auto">
+                                            <h5 class="text-info">제목</h5>
+                                            <div class="title" id="faq_title" >환불은 언제 되나요?.</div>
+                                            <hr>
+                                            <h5 class="text-info">내용</h5>
+                                            <div class="content" id="faq_content">
+                                              [신용카드&체크카드]<br>
+                                              취소 안내 받은 날로부터 카드사 사정에 따라 영업일 기준 3~5일이내 취소내역 확인됩니다.<br><br>
+                                              [실시간 계좌이체]<br>
+                                              취소 안내 받은 날로부터 영업일 기준 3~5일이내에 결제했던 계좌로 입금처리됩니다.<br><br>
+                                              [토스&네이버페이]<br>
+                                              취소 안내 받은 날로부터 영업일 기준 3~5일이내에 취소내역 확인됩니다.<br><br>
+                                              [페이팔]<br>
+                                              페이팔에 등록된 계좌 혹은 카드로 즉시 환불 처리됩니다.<br><br>
+                                              [무통장입금]<br>
+                                              취소 안내 후 등록하신 휴대폰번호로 [환불계좌신청서] 안내 문자메시지가 발송됩니다.<br><br>
+                                              환불계좌정보[계좌번호, 은행명, 예금주]를 기재해 주시면 영업일 기준 1~3일이내에 입금처리됩니다.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal4 -->
+                <div class="modal fade" id="faq-modal-4" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <!-- Page Header -->
+                            <header class="faq-modal modal-header masthead header-block">
+                                <div class="overlay"></div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-10 mx-auto">
+                                            <div class="post-heading" id="faq-heading">
+                                                <h2>계정 탈퇴는 어떻게 하나요?</h2>
+                                                <span class="meta">관리자 | 2019.02.28</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </header>
+                            <!-- Main Content -->
+                            <article class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-10 col-md-10 mx-auto">
+                                            <h5 class="text-info">제목</h5>
+                                            <div class="title" id="faq_title" >계정 탈퇴는 어떻게 하나요?</div>
+                                            <hr>
+                                            <h5 class="text-info">내용</h5>
+                                            <div class="content" id="faq_content">
+                                           계정탈퇴를 희망하실 경우, 고객센터(contactus)로 문의주시면 탈퇴 진행해드리겠습니다.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal5 -->
+                <div class="modal fade" id="faq-modal-5" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <!-- Page Header -->
+                            <header class="faq-modal modal-header masthead header-block">
+                                <div class="overlay"></div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-10 mx-auto">
+                                            <div class="post-heading" id="faq-heading">
+                                                <h2>로그인 이메일 주소(계정)을 변경하고 싶어요.</h2>
+                                                <span class="meta">관리자 | 2019.02.28</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </header>
+                            <!-- Main Content -->
+                            <article class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-10 col-md-10 mx-auto">
+                                            <h5 class="text-info">제목</h5>
+                                            <div class="title" id="faq_title" >로그인 이메일 주소(계정)을 변경하고 싶어요.</div>
+                                            <hr>
+                                            <h5 class="text-info">내용</h5>
+                                            <div class="content" id="faq_content">
+                                            로그인 계정 변경을 희망하실 경우, 변경 희망하시는 이메일 주소를 고객센터(contactus)로 전달해주시면 해당 계정으로 변경해드리겠습니다.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <hr>
                         </div>
                     </div>
                 </div>
